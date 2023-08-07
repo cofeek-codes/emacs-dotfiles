@@ -46,3 +46,46 @@
 ;; theme
 
 (load-theme 'tsoding t)
+
+;; relative numbers
+
+;; TBD
+
+;; disable sound (annoyng)
+
+     (setq visible-bell t)
+     (setq ring-bell-function 'ignore)
+
+
+
+
+;; package management
+
+(unless (package-installed-p 'use-package)
+  (package-refresh-contents) 
+  (package-install 'use-package))
+
+
+(eval-when-compile
+  (require 'use-package))
+
+(require 'package)
+(add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/") t)
+(package-initialize)
+ ;; (package-refresh-contents) don't want it to refresh every time
+
+
+
+;; brackets autopair and wrapping
+
+(electric-pair-mode 1)
+
+(unless (package-installed-p 'wrap-region)
+  (package-refresh-contents)
+  (package-install 'wrap-region))
+
+(require 'wrap-region)
+(wrap-region-mode t)
+
+
+
