@@ -47,8 +47,6 @@
 
 (load-theme 'tsoding t)
 
-(set-face-background 'show-paren-match "#504945")
-
 ;; relative numbers
 
 ;; TBD
@@ -57,7 +55,6 @@
 
      (setq visible-bell t)
      (setq ring-bell-function 'ignore)
-
 
 
 
