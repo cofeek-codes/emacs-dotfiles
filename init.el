@@ -52,6 +52,31 @@
 ;; relative numbers
 
 
+     (require 'hl-line)
+
+(defface my-linum-hl
+  `((t :inherit linum :background nil :foreground "#ffdd33"))
+  "Face for the current line number."
+  :group 'linum)
+
+
+     (defadvice linum-update (around my-linum-update)
+       (let ((my-linum-current-line-number (line-number-at-pos)))
+         ad-do-it))
+     (ad-activate 'linum-update)
+
+     (setq linum-format 'my-linum-format)
+
+     (defun my-linum-format (line-number)
+       (propertize (format "%3d" line-number)
+                   'face (if (eq line-number my-linum-current-line-number)
+                             'my-linum-hl
+                           'linum)))
+
+     (add-hook 'prog-mode-hook 'linum-mode)
+     ```
+
+
 
 ;; disable sound (annoyng)
 
