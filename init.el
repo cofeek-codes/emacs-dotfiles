@@ -51,7 +51,7 @@
 
 ;; relative numbers
 
-;; TBD
+
 
 ;; disable sound (annoyng)
 
@@ -91,17 +91,3 @@
 (wrap-region-mode t)
 
 
-
-(custom-set-variables
- ;; custom-set-variables was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- '(custom-safe-themes
-   '("e82928613360bad725abac5e398cc02b7fafe7eafcbf47d2aeb698b9dd3ccc3f" "87582e45a0d7e6f4c822134361973d6e582f24b2a6c2423c520fda9bfcf7a385" default)))
-(custom-set-faces
- ;; custom-set-faces was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- )
