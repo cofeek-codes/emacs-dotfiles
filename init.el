@@ -116,3 +116,8 @@
 (wrap-region-mode t)
 
 
+;; set directory color in dired mode
+
+(add-hook 'dired-mode-hook
+          (lambda ()
+            (set-face-foreground 'dired-directory "#949bb0")))
