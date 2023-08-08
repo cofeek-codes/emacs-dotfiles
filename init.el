@@ -121,3 +121,5 @@
 (add-hook 'dired-mode-hook
           (lambda ()
             (set-face-foreground 'dired-directory "#949bb0")))
+
+;; lsp
