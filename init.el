@@ -88,6 +88,7 @@
 
 ;; package management
 
+(require 'package)
 (unless (package-installed-p 'use-package)
   (package-refresh-contents) 
   (package-install 'use-package))
@@ -96,7 +97,6 @@
 (eval-when-compile
   (require 'use-package))
 
-(require 'package)
 (add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/") t)
 (package-initialize)
  ;; (package-refresh-contents) don't want it to refresh every time
@@ -145,3 +145,16 @@
           (lambda ()
             (set-face-foreground 'dired-directory "#949bb0")))
 
+(custom-set-variables
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(package-selected-packages
+   '(wrap-region lsp-mode yasnippet lsp-treemacs helm-lsp projectile hydra flycheck company avy which-key helm-xref dap-mode json-mode move-text)))
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ )
