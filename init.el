@@ -74,7 +74,6 @@
                            'linum)))
 
      (add-hook 'prog-mode-hook 'linum-mode)
-     ```
 
 
 
@@ -103,6 +102,30 @@
  ;; (package-refresh-contents) don't want it to refresh every time
 
 
+(setq package-selected-packages '(lsp-mode yasnippet lsp-treemacs helm-lsp projectile hydra flycheck company avy which-key helm-xref dap-mode json-mode move-text))
+
+
+(when (cl-find-if-not #'package-installed-p package-selected-packages)
+  (package-refresh-contents)
+  (mapc #'package-install package-selected-packages))
+
+
+;; lsp
+
+
+
+
+
+
+
+
+;; moving lines
+
+(use-package move-text
+  :bind
+  (("M-<up>"   . move-text-up)
+   ("M-<down>" . move-text-down)))
+
 
 ;; brackets autopair and wrapping
 
@@ -122,4 +145,3 @@
           (lambda ()
             (set-face-foreground 'dired-directory "#949bb0")))
 
-;; lsp
