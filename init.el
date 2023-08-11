@@ -6,6 +6,12 @@
 (global-set-key (kbd "C->") 'end-of-buffer)
 (global-set-key (kbd "C-<") 'beginning-of-buffer)
 
+;; isearch-mode
+
+(define-key isearch-mode-map (kbd "C-n") 'isearch-repeat-forward)
+(define-key isearch-mode-map (kbd "C-p") 'isearch-repeat-backward)
+
+
 ;; move between panes with S-<arrows>
 
 (windmove-default-keybindings)
@@ -90,7 +96,7 @@
 
 (require 'package)
 (unless (package-installed-p 'use-package)
-  (package-refresh-contents) 
+  ;; (package-refresh-contents)
   (package-install 'use-package))
 
 
@@ -102,7 +108,7 @@
  ;; (package-refresh-contents) don't want it to refresh every time
 
 
-(setq package-selected-packages '(lsp-mode yasnippet lsp-treemacs helm-lsp projectile hydra flycheck company avy which-key helm-xref dap-mode json-mode move-text))
+(setq package-selected-packages '(lsp-mode yasnippet lsp-treemacs helm-lsp projectile hydra flycheck company avy which-key helm-xref dap-mode json-mode move-text lsp-ui sideline sideline-lsp))
 
 
 (when (cl-find-if-not #'package-installed-p package-selected-packages)
@@ -113,11 +119,48 @@
 ;; lsp
 
 
+(with-eval-after-load 'lsp-mode
+  ;; (add-hook 'lsp-mode-hook #'lsp-enable-which-key-integration)
+  (setq lsp-keymap-prefix "C-c l")
+  (require 'dap-cpptools)
+  (yas-global-mode))
 
 
 
 
 
+
+
+(use-package lsp-ui
+  :commands lsp-ui-mode)
+
+   (setq lsp-ui-sideline-enable t
+         lsp-ui-sideline-show-symbol nil
+         lsp-ui-sideline-show-hover nil
+         ;; lsp-ui-sideline-show-flycheck t
+         lsp-ui-sideline-show-code-actions nil
+         lsp-ui-sideline-show-diagnostics t)
+
+(use-package sideline
+  :init
+  (setq sideline-backends-right '(sideline-lsp)))
+   
+(use-package lsp-mode :hook (lsp-mode . sideline-mode))  ; enable it when lsp is on
+;; (use-package lsp-ui :init (setq lsp-ui-sideline-enable nil))  ; disable original sideline
+
+
+;; C/C++
+
+(add-hook 'c-mode-hook 'lsp)
+(add-hook 'c++-mode-hook 'lsp)
+
+
+(setq gc-cons-threshold (* 100 1024 1024)
+      read-process-output-max (* 1024 1024)
+      treemacs-space-between-root-nodes nil
+      company-idle-delay 0.0
+      company-minimum-prefix-length 1
+      lsp-idle-delay 0.1)
 
 ;; moving lines
 
@@ -145,16 +188,5 @@
           (lambda ()
             (set-face-foreground 'dired-directory "#949bb0")))
 
-(custom-set-variables
- ;; custom-set-variables was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- '(package-selected-packages
-   '(wrap-region lsp-mode yasnippet lsp-treemacs helm-lsp projectile hydra flycheck company avy which-key helm-xref dap-mode json-mode move-text)))
-(custom-set-faces
- ;; custom-set-faces was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- )
+
+

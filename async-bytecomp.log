@@ -1,5 +1,0 @@
-
-In toplevel form:
-wrap-region.el:82:13: Warning: Package cl is deprecated
-wrap-region.el:84:1: Warning: ‘defstruct’ is an obsolete alias (as of 27.1);
-    use ‘cl-defstruct’ instead.
