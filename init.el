@@ -18,10 +18,9 @@
 (windmove-default-keybindings)
 
 
-;; move between panes with S-<arrows>
+;; resize panes
 
-(windmove-default-keybindings)
-
+(global-set-key (kbd "C-c ;") 'resize-window)
 
 ;; vscode-like comments
 
@@ -114,8 +113,8 @@
  ;; (package-refresh-contents) don't want it to refresh every time
 
 
-(setq package-selected-packages '(lsp-mode yasnippet lsp-treemacs helm-lsp projectile hydra flycheck company avy which-key helm-xref dap-mode json-mode move-text lsp-ui sideline sideline-lsp clang-format))
-
+(setq package-selected-packages '(lsp-mode yasnippet lsp-treemacs helm-lsp hl-line  projectile hydra flycheck company avy which-key helm-xref dap-mode json-mode move-text lsp-ui sideline sideline-lsp clang-format emmet-mode resize-window))
+ 
 
 (when (cl-find-if-not #'package-installed-p package-selected-packages)
   (package-refresh-contents)
