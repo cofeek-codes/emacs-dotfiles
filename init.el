@@ -113,7 +113,7 @@
  ;; (package-refresh-contents) don't want it to refresh every time
 
 
-(setq package-selected-packages '(lsp-mode yasnippet lsp-treemacs helm-lsp hl-line  projectile hydra flycheck company avy which-key helm-xref dap-mode json-mode move-text lsp-ui sideline sideline-lsp clang-format emmet-mode resize-window))
+(setq package-selected-packages '(lsp-mode yasnippet lsp-treemacs helm-lsp hl-line  projectile hydra flycheck company avy which-key helm-xref dap-mode json-mode move-text lsp-ui sideline sideline-lsp clang-format emmet-mode resize-window magit))
  
 
 (when (cl-find-if-not #'package-installed-p package-selected-packages)
@@ -264,6 +264,11 @@
 (add-hook 'dired-mode-hook
           (lambda ()
             (set-face-foreground 'dired-directory "#949bb0")))
+
+
+
+;; git (magit)
+
 
 
 

@@ -6,3 +6,4 @@ auto-save-list/
 .lsp*
 *.log
 recentf
+transient/
