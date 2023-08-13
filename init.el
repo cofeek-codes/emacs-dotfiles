@@ -108,7 +108,7 @@
  ;; (package-refresh-contents) don't want it to refresh every time
 
 
-(setq package-selected-packages '(lsp-mode yasnippet lsp-treemacs helm-lsp projectile hydra flycheck company avy which-key helm-xref dap-mode json-mode move-text lsp-ui sideline sideline-lsp))
+(setq package-selected-packages '(lsp-mode yasnippet lsp-treemacs helm-lsp projectile hydra flycheck company avy which-key helm-xref dap-mode json-mode move-text lsp-ui sideline sideline-lsp clang-format))
 
 
 (when (cl-find-if-not #'package-installed-p package-selected-packages)
@@ -161,6 +161,27 @@
       company-idle-delay 0.0
       company-minimum-prefix-length 1
       lsp-idle-delay 0.1)
+
+
+
+
+;; format on save
+
+
+;; (add-hook 'c++-mode-hook 'clang-format-mode)
+;; (add-hook 'c-mode-hook 'clang-format-mode)
+(setq clang-format-style "file")
+(setq clang-format-fallback-style "llvm")
+(setq clang-format-executable "/usr/bin/clang-format")
+
+
+(defun clang-format-on-save ()
+  (when (or (eq major-mode 'c-mode) (eq major-mode 'c++-mode))
+    (clang-format-buffer)))
+
+(add-hook 'before-save-hook 'clang-format-on-save)
+
+
 
 ;; moving lines
 
