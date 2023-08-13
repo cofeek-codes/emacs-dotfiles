@@ -5,11 +5,17 @@
 (global-set-key (kbd "C-f") 'isearch-forward)
 (global-set-key (kbd "C->") 'end-of-buffer)
 (global-set-key (kbd "C-<") 'beginning-of-buffer)
+(global-set-key (kbd "C-k") 'kill-whole-line)
 
 ;; isearch-mode
 
 (define-key isearch-mode-map (kbd "C-n") 'isearch-repeat-forward)
 (define-key isearch-mode-map (kbd "C-p") 'isearch-repeat-backward)
+
+
+;; move between panes with S-<arrows>
+
+(windmove-default-keybindings)
 
 
 ;; move between panes with S-<arrows>
@@ -166,10 +172,6 @@
 
 
 ;; format on save
-
-
-;; (add-hook 'c++-mode-hook 'clang-format-mode)
-;; (add-hook 'c-mode-hook 'clang-format-mode)
 (setq clang-format-style "file")
 (setq clang-format-fallback-style "llvm")
 (setq clang-format-executable "/usr/bin/clang-format")
@@ -181,6 +183,61 @@
 
 (add-hook 'before-save-hook 'clang-format-on-save)
 
+;; end C/C++=========================
+
+
+;; Web
+
+;; HTML with LSP and Emmet
+(add-hook 'html-mode-hook
+          (lambda ()
+            (lsp)
+            (emmet-mode)))  ;; enable Emmet's css abbreviation.
+
+;; CSS with LSP and Emmet
+(add-hook 'css-mode-hook
+          (lambda ()
+            (lsp)
+            (emmet-mode)))  ;; enable Emmet's css abbreviation.
+
+;; JavaScript with LSP and Emmet
+(add-hook 'js-mode-hook
+          (lambda ()
+            (lsp)
+            (emmet-mode)))  ;; enable Emmet's css abbreviation.
+
+;; TypeScript with LSP and Emmet
+(add-hook 'typescript-mode-hook
+          (lambda ()
+            (lsp)
+            (emmet-mode)))  ;; enable Emmet's css abbreviation.
+
+;; JSX with LSP and Emmet
+;; Install rjsx-mode or web-mode first
+(add-hook 'rjsx-mode-hook
+          (lambda ()
+            (lsp)
+            (emmet-mode)))  ;; enable Emmet's css abbreviation.
+
+;; TSX with LSP and Emmet
+;; Install web-mode first
+(add-hook 'web-mode-hook
+          (lambda ()
+            (lsp)
+            (emmet-mode)))  ;; enable Emmet's css abbreviation.
+
+;; SCSS with LSP and Emmet
+;; Install scss-mode first
+(add-hook 'scss-mode-hook
+          (lambda ()
+            (lsp)
+            (emmet-mode)))  ;; enable Emmet's css abbreviation.
+
+
+(eval-after-load "emmet-mode"
+  '(progn
+     (define-key emmet-mode-keymap (kbd "C-,") 'emmet-expand-line)
+     (define-key emmet-mode-keymap (kbd "C-,") 'emmet-expand-line)))
 
 
 ;; moving lines
@@ -211,3 +268,16 @@
 
 
 
+(custom-set-variables
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(package-selected-packages
+   '(emmet-mode lsp-mode yasnippet lsp-treemacs helm-lsp projectile hydra flycheck company avy which-key helm-xref dap-mode json-mode move-text lsp-ui sideline sideline-lsp clang-format)))
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ )
