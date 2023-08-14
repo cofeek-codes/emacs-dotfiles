@@ -284,6 +284,11 @@
 (global-set-key (kbd "C-j") 'my-next-error)
 
 
+;; C-c . to execute code action
+
+(global-set-key (kbd "C-c .") 'lsp-execute-code-action)
+
+
 ;; end lsp binds ======================
 
 ;; end lsp ===================================
