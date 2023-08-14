@@ -113,7 +113,7 @@
  ;; (package-refresh-contents) don't want it to refresh every time
 
 
-(setq package-selected-packages '(lsp-mode yasnippet lsp-treemacs helm-lsp hl-line  projectile hydra flycheck company avy which-key helm-xref dap-mode json-mode move-text lsp-ui sideline sideline-lsp clang-format emmet-mode resize-window magit))
+(setq package-selected-packages '(lsp-mode yasnippet lsp-treemacs helm-lsp hl-line  projectile hydra flycheck company avy which-key helm-xref dap-mode json-mode move-text lsp-ui sideline sideline-lsp clang-format emmet-mode resize-window magit prettier-js))
  
 
 (when (cl-find-if-not #'package-installed-p package-selected-packages)
@@ -187,50 +187,58 @@
 
 ;; Web
 
-;; HTML with LSP and Emmet
+;; HTML with LSP, Emmet and Prettier
 (add-hook 'html-mode-hook
           (lambda ()
             (lsp)
-            (emmet-mode)))  ;; enable Emmet's css abbreviation.
+            (emmet-mode)
+            (prettier-js-mode)))
 
-;; CSS with LSP and Emmet
+;; CSS with LSP, Emmet and Prettier
 (add-hook 'css-mode-hook
           (lambda ()
             (lsp)
-            (emmet-mode)))  ;; enable Emmet's css abbreviation.
+            (emmet-mode)
+            (prettier-js-mode)))
 
-;; JavaScript with LSP and Emmet
+;; JavaScript with LSP, Emmet and Prettier
 (add-hook 'js-mode-hook
           (lambda ()
             (lsp)
-            (emmet-mode)))  ;; enable Emmet's css abbreviation.
+            (emmet-mode)
+            (prettier-js-mode)))
 
-;; TypeScript with LSP and Emmet
+;; TypeScript with LSP, Emmet and Prettier
 (add-hook 'typescript-mode-hook
           (lambda ()
             (lsp)
-            (emmet-mode)))  ;; enable Emmet's css abbreviation.
+            (emmet-mode)
+            (prettier-js-mode)))
 
-;; JSX with LSP and Emmet
-;; Install rjsx-mode or web-mode first
-(add-hook 'rjsx-mode-hook
-          (lambda ()
-            (lsp)
-            (emmet-mode)))  ;; enable Emmet's css abbreviation.
 
-;; TSX with LSP and Emmet
+;; TSX with LSP, Emmet and Prettier
 ;; Install web-mode first
 (add-hook 'web-mode-hook
           (lambda ()
             (lsp)
-            (emmet-mode)))  ;; enable Emmet's css abbreviation.
+            (emmet-mode)
+            (prettier-js-mode)))
 
-;; SCSS with LSP and Emmet
+;; SCSS with LSP, Emmet and Prettier
 ;; Install scss-mode first
 (add-hook 'scss-mode-hook
           (lambda ()
             (lsp)
-            (emmet-mode)))  ;; enable Emmet's css abbreviation.
+            (emmet-mode)
+            (prettier-js-mode)))
+
+
+
+(setq prettier-js-args '("--no-semi"
+                         "--single-quote"
+                         "--jsx-single-quote"
+                         "--arrow-parens" "avoid"))
+
 
 
 (eval-after-load "emmet-mode"
