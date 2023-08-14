@@ -289,6 +289,11 @@
 (global-set-key (kbd "C-c .") 'lsp-execute-code-action)
 
 
+;; f2 to rename
+
+(with-eval-after-load 'lsp-mode
+  (define-key lsp-mode-map (kbd "<f2>") #'lsp-rename))
+
 ;; end lsp binds ======================
 
 ;; end lsp ===================================
