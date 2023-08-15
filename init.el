@@ -6,7 +6,7 @@
 (global-set-key (kbd "C->") 'end-of-buffer)
 (global-set-key (kbd "C-<") 'beginning-of-buffer)
 (global-set-key (kbd "C-k") 'kill-whole-line)
-
+(global-set-key (kbd "C-c g") 'goto-line)
 
 ;; isearch-mode
 
