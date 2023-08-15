@@ -7,7 +7,10 @@
 (global-set-key (kbd "C-<") 'beginning-of-buffer)
 (global-set-key (kbd "C-k") 'kill-whole-line)
 
+
 ;; isearch-mode
+
+
 
 (define-key isearch-mode-map (kbd "C-n") 'isearch-repeat-forward)
 (define-key isearch-mode-map (kbd "C-p") 'isearch-repeat-backward)
@@ -113,7 +116,7 @@
  ;; (package-refresh-contents) don't want it to refresh every time
 
 
-(setq package-selected-packages '(lsp-mode yasnippet lsp-treemacs helm-lsp hl-line  projectile hydra flycheck company avy which-key helm-xref dap-mode json-mode move-text lsp-ui sideline sideline-lsp clang-format emmet-mode resize-window magit prettier-js typescript-mode rust-mode go-mode))
+(setq package-selected-packages '(lsp-mode yasnippet lsp-treemacs helm-lsp hl-line  projectile hydra flycheck company avy which-key helm-xref dap-mode json-mode move-text lsp-ui sideline sideline-lsp clang-format emmet-mode resize-window magit prettier-js typescript-mode rust-mode go-mode php-mode))
  
 
 (when (cl-find-if-not #'package-installed-p package-selected-packages)
@@ -248,6 +251,16 @@
 
 
 
+(add-hook 'php-mode-hook
+          (lambda ()
+            (lsp)))
+
+
+(defun lsp-format-buffer-on-save ()
+  (when (eq 'php-mode major-mode)
+    (lsp-format-buffer)))
+
+(add-hook 'before-save-hook #'lsp-format-buffer-on-save)
 
 ;; end Web ======================================
 

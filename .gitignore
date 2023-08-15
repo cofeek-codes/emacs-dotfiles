@@ -7,3 +7,4 @@ auto-save-list/
 *.log
 recentf
 transient/
+lsp-cache/
