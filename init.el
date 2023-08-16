@@ -116,7 +116,7 @@
  ;; (package-refresh-contents) don't want it to refresh every time
 
 
-(setq package-selected-packages '(lsp-mode yasnippet lsp-treemacs helm-lsp hl-line  projectile hydra flycheck company avy which-key helm-xref dap-mode json-mode move-text lsp-ui sideline sideline-lsp clang-format emmet-mode resize-window magit prettier-js typescript-mode rust-mode go-mode php-mode telega))
+(setq package-selected-packages '(lsp-mode yasnippet lsp-treemacs helm-lsp hl-line  projectile hydra flycheck company avy which-key helm-xref dap-mode json-mode move-text lsp-ui sideline sideline-lsp clang-format emmet-mode resize-window magit prettier-js typescript-mode rust-mode go-mode php-mode telega lsp-pyright py-autopep8))
  
 
 (when (cl-find-if-not #'package-installed-p package-selected-packages)
@@ -295,7 +295,23 @@
 
 ;; Go end =============
 
+;; Python
 
+
+;; (add-hook 'python-mode-hook 'lsp)
+
+
+(use-package lsp-pyright
+       :ensure t
+       :hook (python-mode . (lambda ()
+                               (require 'lsp-pyright)
+                               (lsp))))
+
+
+     (use-package py-autopep8
+       :hook (python-mode . py-autopep8-mode))
+
+;; Python end ==========
 
 
 ;; lsp binds
@@ -332,6 +348,9 @@
   (define-key lsp-mode-map (kbd "<f2>") #'lsp-rename))
 
 ;; end lsp binds ======================
+
+
+
 
 ;; end lsp ===================================
 
@@ -375,7 +394,7 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(package-selected-packages
-   '(typescript-mode emmet-mode lsp-mode yasnippet lsp-treemacs helm-lsp projectile hydra flycheck company avy which-key helm-xref dap-mode json-mode move-text lsp-ui sideline sideline-lsp clang-format)))
+   '(py-autopep8 typescript-mode emmet-mode lsp-mode yasnippet lsp-treemacs helm-lsp projectile hydra flycheck company avy which-key helm-xref dap-mode json-mode move-text lsp-ui sideline sideline-lsp clang-format)))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
