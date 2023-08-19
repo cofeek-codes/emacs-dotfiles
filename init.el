@@ -8,6 +8,19 @@
 (global-set-key (kbd "C-k") 'kill-whole-line)
 (global-set-key (kbd "C-c g") 'goto-line)
 
+;; duplicate-line
+
+(defun duplicate-line ()
+  "Duplicate the current line."
+  (interactive)
+  (let ((current-line (thing-at-point 'line)))
+    (forward-line)
+    (insert current-line)
+    (forward-line -1)))
+
+(global-set-key (kbd "C-c <down>") 'duplicate-line)
+
+
 ;; isearch-mode
 
 
