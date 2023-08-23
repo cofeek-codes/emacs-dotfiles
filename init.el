@@ -129,7 +129,7 @@
  ;; (package-refresh-contents) don't want it to refresh every time
 
 
-(setq package-selected-packages '(lsp-mode yasnippet lsp-treemacs helm-lsp hl-line  projectile hydra flycheck company avy which-key helm-xref dap-mode json-mode move-text lsp-ui sideline sideline-lsp clang-format emmet-mode resize-window magit prettier-js typescript-mode rust-mode go-mode php-mode telega lsp-pyright py-autopep8 wakatime-mode company-tabnine))
+(setq package-selected-packages '(lsp-mode yasnippet lsp-treemacs helm-lsp hl-line  projectile hydra flycheck company avy which-key helm-xref dap-mode json-mode move-text lsp-ui sideline sideline-lsp clang-format emmet-mode resize-window magit prettier-js typescript-mode rust-mode go-mode php-mode telega lsp-pyright py-autopep8 wakatime-mode company-tabnine csharp-mode))
  
 
 (when (cl-find-if-not #'package-installed-p package-selected-packages)
@@ -327,6 +327,19 @@
 ;; Python end ==========
 
 
+;; C#
+
+(add-hook 'csharp-mode-hook 'lsp)
+
+(defun csharp-mode-before-save-hook ()
+  (when (eq major-mode 'csharp-mode)
+    (lsp-format-buffer)))
+
+(add-hook 'before-save-hook 'csharp-mode-before-save-hook)
+
+
+;; C# end ===
+
 ;; lsp binds
 
 ;; C-j to go to next error/warn/info
@@ -437,10 +450,10 @@
    '("e82928613360bad725abac5e398cc02b7fafe7eafcbf47d2aeb698b9dd3ccc3f" default))
  '(package-selected-packages
    '(py-autopep8 typescript-mode emmet-mode lsp-mode yasnippet lsp-treemacs helm-lsp projectile hydra flycheck company avy which-key helm-xref dap-mode json-mode move-text lsp-ui sideline sideline-lsp clang-format))
- '(wakatime-cli-path "~/.wakatime/wakatime-cli"))
+ '(wakatime-cli-path "~/.wakatime/wakatime-cli")
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- )
+ ))
