@@ -129,7 +129,7 @@
  ;; (package-refresh-contents) don't want it to refresh every time
 
 
-(setq package-selected-packages '(lsp-mode yasnippet lsp-treemacs helm-lsp hl-line  projectile hydra flycheck company avy which-key helm-xref dap-mode json-mode move-text lsp-ui sideline sideline-lsp clang-format emmet-mode resize-window magit prettier-js typescript-mode rust-mode go-mode php-mode telega lsp-pyright py-autopep8 wakatime-mode company-tabnine csharp-mode haskell-mode lsp-haskell cargo))
+(setq package-selected-packages '(lsp-mode yasnippet lsp-treemacs helm-lsp hl-line  projectile hydra flycheck company avy which-key helm-xref dap-mode json-mode move-text lsp-ui sideline sideline-lsp clang-format emmet-mode resize-window magit prettier-js typescript-mode rust-mode go-mode php-mode telega lsp-pyright py-autopep8 wakatime-mode company-tabnine csharp-mode haskell-mode lsp-haskell cargo quelpa quelpa-use-package))
  
 
 (when (cl-find-if-not #'package-installed-p package-selected-packages)
@@ -352,6 +352,28 @@
 
 ;; Haskell end =============
 
+
+;; Odin
+
+     (quelpa
+      '(quelpa-use-package
+        :fetcher git
+        :url "https://github.com/quelpa/quelpa-use-package.git"))
+     (require 'quelpa-use-package)
+
+    (use-package odin-mode
+      :quelpa (odin-mode :repo "mattt-b/odin-mode" :fetcher github))
+
+(setq-default lsp-auto-guess-root t) ;; if you work with Projectile/project.el this will help find the ols.json file.
+(defvar lsp-language-id-configuration '((odin-mode . "odin")))
+(lsp-register-client
+ (make-lsp-client :new-connection (lsp-stdio-connection "/home/cofeek/Desktop/codes/tools/ols/ols")
+                  :major-modes '(odin-mode)
+                  :server-id 'ols
+                  :multi-root t)) ;; This is just so lsp-mode sends the "workspaceFolders" param to the server.
+(add-hook 'odin-mode-hook #'lsp)
+
+;; Odin end =========
 
 ;; lsp binds
 
