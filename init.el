@@ -457,9 +457,9 @@
 
 ;; tabnine
 
-(require 'company-tabnine)
+;; (require 'company-tabnine)
 
-(add-to-list 'company-backends #'company-tabnine)
+;; (add-to-list 'company-backends #'company-tabnine)
 
 ;; Trigger completion immediately.
 (setq company-idle-delay 0)
