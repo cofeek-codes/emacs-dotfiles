@@ -8,6 +8,8 @@
 (global-set-key (kbd "C-k") 'kill-whole-line)
 (global-set-key (kbd "C-c g") 'goto-line)
 
+
+
 ;; duplicate-line
 
 (defun duplicate-line ()
@@ -473,6 +475,21 @@
 
 (setq make-backup-files nil)
 
+
+
+
+;; minibuffer
+
+
+(add-to-list 'load-path "~/.emacs.d/custom/packages/blink-search")
+
+(require 'blink-search)
+
+(global-set-key (kbd "C-c C-e") 'blink-search)
+
+
+(define-key blink-search-mode-map (kbd "<down>") 'blink-search-candidate-select-next)
+(define-key blink-search-mode-map (kbd "<up>") 'blink-search-candidate-select-prev)
 
 
 
