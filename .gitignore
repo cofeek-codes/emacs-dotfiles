@@ -10,3 +10,5 @@ recentf
 transient/
 lsp-cache/
 intelephense/
+blink-search/
+blink-search.db
