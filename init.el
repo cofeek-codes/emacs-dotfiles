@@ -482,37 +482,13 @@
 ;; minibuffer
 
 
-(add-to-list 'load-path "~/.emacs.d/custom/packages/blink-search")
-
-(require 'blink-search)
 
 
 
-(add-to-list 'load-path "~/.emacs.d/custom/packages/posframe")
-
-(require 'posframe)
-
-(setq blink-search-enable-posframe t)
 
 
-(global-set-key (kbd "C-c C-e") 'blink-search)
 
 
-(define-key blink-search-mode-map (kbd "<down>") 'blink-search-candidate-select-next)
-(define-key blink-search-mode-map (kbd "<up>") 'blink-search-candidate-select-prev)
-
-(setq blink-search-search-backends
-      '("Common Directory"
-        "Grep File"
-        "IMenu"
-        "Find File"
-        "Grep PDF"
-	"History"
-	"PDF"
-	"Recent File"
-	"Buffer List"
-	"Current Buffer"
-	"Elisp Symbol"))
 
 
 (custom-set-variables
