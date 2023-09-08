@@ -13,3 +13,4 @@ intelephense/
 blink-search/
 blink-search.db
 eshell/
+*.last
