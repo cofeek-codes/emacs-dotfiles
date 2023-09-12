@@ -440,13 +440,21 @@
 (wrap-region-mode t)
 
 
+;;; dired
+(require 'dired-x)
+
+(setq-default dired-dwim-target t)
+(setq dired-listing-switches "-alh")
+
+
 ;; set directory color in dired mode
 
 (add-hook 'dired-mode-hook
           (lambda ()
             (set-face-foreground 'dired-directory "#949bb0")))
 
-(setq-default dired-dwim-target t)
+
+
 
 ;; git (magit)
 
