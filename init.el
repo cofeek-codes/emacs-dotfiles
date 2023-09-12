@@ -446,7 +446,7 @@
           (lambda ()
             (set-face-foreground 'dired-directory "#949bb0")))
 
-
+(setq-default dired-dwim-target t)
 
 ;; git (magit)
 
