@@ -7,9 +7,9 @@
 (global-set-key (kbd "C-<") 'beginning-of-buffer)
 (global-set-key (kbd "C-k") 'kill-whole-line)
 (global-set-key (kbd "C-c g") 'goto-line)
-(global-set-key (kbd "C-a") 'move-beginning-of-line)
-(global-set-key (kbd "C-q") 'mark-whole-buffer)
-(global-set-key (kbd "C-d") 'move-end-of-line)
+(global-set-key (kbd "C-q") 'move-beginning-of-line)
+(global-set-key (kbd "C-a") 'mark-whole-buffer)
+(global-set-key (kbd "C-e") 'move-end-of-line)
 
 
 ;; duplicate-line
@@ -511,7 +511,7 @@
 
 (projectile-mode +1)
 
-(define-key projectile-mode-map (kbd "C-e") 'projectile-find-file)
+(define-key projectile-mode-map (kbd "C-d") 'projectile-find-file)
 
 
 (custom-set-variables
