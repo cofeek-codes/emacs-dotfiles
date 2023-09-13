@@ -1,4 +1,4 @@
-;;binds
+;; binds
 
 (global-set-key (kbd "C-z") 'undo)
 (global-set-key (kbd "C-s") 'save-buffer)
@@ -485,6 +485,14 @@
 
 (setq make-backup-files nil)
 
+
+
+
+;; emmet-mode
+
+(eval-after-load 'emmet-mode
+  '(progn
+    (define-key emmet-mode-keymap (kbd "C-,") 'emmet-expand-line)))
 
 
 
