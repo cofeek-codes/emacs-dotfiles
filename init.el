@@ -515,6 +515,8 @@
 
 
 
+
+
 ;; projectile
 
 (projectile-mode +1)
@@ -527,11 +529,6 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(custom-safe-themes
-   '("e82928613360bad725abac5e398cc02b7fafe7eafcbf47d2aeb698b9dd3ccc3f" default))
- '(nil nil t)
- '(package-selected-packages
-   '(lsp-haskell py-autopep8 typescript-mode emmet-mode lsp-mode yasnippet lsp-treemacs helm-lsp projectile hydra flycheck company avy which-key helm-xref dap-mode json-mode move-text lsp-ui sideline sideline-lsp clang-format))
  '(wakatime-cli-path "~/.wakatime/wakatime-cli"))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
