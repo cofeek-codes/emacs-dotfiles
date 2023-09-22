@@ -377,7 +377,21 @@
                   :multi-root t)) ;; This is just so lsp-mode sends the "workspaceFolders" param to the server.
 (add-hook 'odin-mode-hook #'lsp)
 
-;; Odin end =========
+;; Odin end =============
+
+
+;; Prisma
+
+(add-to-list 'load-path "~/.emacs.d/emacs-prisma-mode")
+(require 'prisma-mode)
+
+(add-to-list 'lsp-language-id-configuration '(prisma-mode . "prisma"))
+(add-hook 'prisma-mode-hook #'lsp-deferred)
+
+
+(add-hook 'prisma-mode-hook (lambda () (add-hook 'before-save-hook #'lsp-format-buffer nil 'local)))
+
+;; Prisma end ==============
 
 ;; lsp binds
 
@@ -522,6 +536,8 @@
 (projectile-mode +1)
 
 (define-key projectile-mode-map (kbd "C-d") 'projectile-find-file)
+
+
 
 
 (custom-set-variables
