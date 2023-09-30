@@ -537,6 +537,16 @@
 
 (define-key projectile-mode-map (kbd "C-d") 'projectile-find-file)
 
+;; Compilation
+
+(setq compilation-scroll-output t)
+
+(defun my-compilation-mode-hook ()
+  "Custom compilation mode hook."
+  (local-set-key (kbd "r") 'recompile))
+
+(add-hook 'compilation-mode-hook 'my-compilation-mode-hook)
+
 
 
 
