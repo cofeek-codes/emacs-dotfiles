@@ -133,7 +133,7 @@
  ;; (package-refresh-contents) don't want it to refresh every time
 
 
-(setq package-selected-packages '(lsp-mode yasnippet lsp-treemacs helm-lsp hl-line  projectile hydra flycheck company avy which-key helm-xref dap-mode json-mode move-text lsp-ui sideline sideline-lsp clang-format emmet-mode resize-window magit prettier-js typescript-mode rust-mode go-mode php-mode telega lsp-pyright py-autopep8 wakatime-mode company-tabnine csharp-mode haskell-mode lsp-haskell cargo quelpa quelpa-use-package ido-completing-read+ smex projectile ag))
+(setq package-selected-packages '(lsp-mode yasnippet lsp-treemacs helm-lsp hl-line  projectile hydra flycheck company avy which-key helm-xref dap-mode json-mode move-text lsp-ui sideline sideline-lsp clang-format emmet-mode resize-window magit prettier-js typescript-mode rust-mode go-mode php-mode telega lsp-pyright py-autopep8 wakatime-mode company-tabnine csharp-mode haskell-mode lsp-haskell cargo quelpa quelpa-use-package ido-completing-read+ smex projectile ag multiple-cursors))
  
 
 (when (cl-find-if-not #'package-installed-p package-selected-packages)
@@ -550,6 +550,15 @@
 (add-hook 'compilation-mode-hook 'my-compilation-mode-hook)
 
 
+;; Multiple Cursors
+
+(require 'multiple-cursors)
+(global-set-key (kbd "C-S-c C-S-c") 'mc/edit-lines)
+(global-set-key (kbd "C-c C->")         'mc/mark-next-like-this)
+(global-set-key (kbd "C-c C-<")         'mc/mark-previous-like-this)
+(global-set-key (kbd "C-\"")        'mc/skip-to-next-like-this)
+(global-set-key (kbd "C-:")         'mc/skip-to-previous-like-this)
+;; (global-set-key (kbd "C-c C-<")     'mc/mark-all-like-this)
 
 
 (custom-set-variables
@@ -558,7 +567,7 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(package-selected-packages
-   '(wrap-region lsp-mode yasnippet lsp-treemacs helm-lsp hl-line projectile hydra flycheck company avy which-key helm-xref dap-mode json-mode move-text lsp-ui sideline sideline-lsp clang-format emmet-mode resize-window magit prettier-js typescript-mode rust-mode go-mode php-mode telega lsp-pyright py-autopep8 wakatime-mode company-tabnine csharp-mode haskell-mode lsp-haskell cargo quelpa quelpa-use-package ido-completing-read+ smex projectile ag))
+   '(multiple-cursors wrap-region lsp-mode yasnippet lsp-treemacs helm-lsp hl-line projectile hydra flycheck company avy which-key helm-xref dap-mode json-mode move-text lsp-ui sideline sideline-lsp clang-format emmet-mode resize-window magit prettier-js typescript-mode rust-mode go-mode php-mode telega lsp-pyright py-autopep8 wakatime-mode company-tabnine csharp-mode haskell-mode lsp-haskell cargo quelpa quelpa-use-package ido-completing-read+ smex projectile ag))
  '(wakatime-cli-path "~/.wakatime/wakatime-cli"))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
