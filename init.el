@@ -395,6 +395,8 @@
 
 ;; lsp binds
 
+(global-set-key (kbd "C-p") 'company-complete)
+
 ;; C-j to go to next error/warn/info
 
 
