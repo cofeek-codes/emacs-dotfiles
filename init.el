@@ -541,6 +541,10 @@
 
 ;; Compilation
 
+
+(require 'ansi-color)
+(add-hook 'compilation-filter-hook 'ansi-color-compilation-filter)
+
 (setq compilation-scroll-output t)
 
 (defun my-compilation-mode-hook ()
@@ -568,6 +572,9 @@
 (global-set-key (kbd "C-b") 'neotree-toggle)
 
 (setq neo-theme (if (display-graphic-p) 'icons 'arrow))
+
+
+
 
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
