@@ -16,3 +16,4 @@ eshell/
 *.last
 *.eld
 .mc-lists.el
+.dap-breakpoints
