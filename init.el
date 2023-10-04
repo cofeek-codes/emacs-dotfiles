@@ -545,7 +545,8 @@
 
 (defun my-compilation-mode-hook ()
   "Custom compilation mode hook."
-  (local-set-key (kbd "r") 'recompile))
+  (local-set-key (kbd "r") 'recompile)
+  (local-set-key (kbd "C-c C-c") 'kill-compilation))
 
 (add-hook 'compilation-mode-hook 'my-compilation-mode-hook)
 
