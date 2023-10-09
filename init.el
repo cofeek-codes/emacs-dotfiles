@@ -563,6 +563,11 @@
 (add-hook 'compilation-mode-hook 'my-compilation-mode-hook)
 
 
+;; Shell
+
+(global-set-key (kbd "C-c !") 'shell-command)
+
+
 ;; Multiple Cursors
 
 (require 'multiple-cursors)
