@@ -567,6 +567,9 @@
 
 (global-set-key (kbd "C-c !") 'shell-command)
 
+(setq shell-file-name "/bin/bash")
+
+
 
 ;; Multiple Cursors
 
