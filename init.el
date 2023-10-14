@@ -279,6 +279,19 @@
 
 (add-hook 'before-save-hook #'lsp-format-buffer-on-save)
 
+
+(defun my-prettier-js-before-save ()
+  (when (and (or (eq major-mode 'scss-mode)
+                 (eq major-mode 'css-mode)
+                 (eq major-mode 'javascript-mode)
+                 (eq major-mode 'typescript-mode)
+
+		 )
+             (executable-find "prettier"))
+    (prettier-js)))
+
+(add-hook 'before-save-hook #'my-prettier-js-before-save)
+
 ;; end Web ======================================
 
 
