@@ -395,11 +395,28 @@
 
 ;; Prisma
 
-(add-to-list 'load-path "~/.emacs.d/emacs-prisma-mode")
+
+(use-package prisma-mode
+  :quelpa (prisma-mode :repo "pimeys/emacs-prisma-mode" :fetcher github))
+
+
+
 (require 'prisma-mode)
 
+
 (add-to-list 'lsp-language-id-configuration '(prisma-mode . "prisma"))
-(add-hook 'prisma-mode-hook #'lsp-deferred)
+
+;; npm i -g @prisma/language-server
+
+(lsp-register-client
+ (make-lsp-client :new-connection (lsp-stdio-connection "prisma-language-server")
+                  :major-modes '(prisma-mode)
+                  :server-id 'prisma-ls))
+
+
+
+(add-hook 'prisma-mode-hook #'lsp)
+
 
 
 (add-hook 'prisma-mode-hook (lambda () (add-hook 'before-save-hook #'lsp-format-buffer nil 'local)))
