@@ -14,15 +14,11 @@
 
 ;; duplicate-line
 
-(defun duplicate-line ()
-  "Duplicate the current line."
-  (interactive)
-  (let ((current-line (thing-at-point 'line)))
-    (forward-line)
-    (insert current-line)
-    (forward-line -1)))
 
-(global-set-key (kbd "C-c C-<down>") 'duplicate-line)
+(load "~/.emacs.d/duplicate-line-mode.el")
+
+(global-set-key (kbd "C-c C-<down>") 'duplicate-line-mode)
+
 
 
 ;; isearch-mode
@@ -32,8 +28,8 @@
 (define-key isearch-mode-map (kbd "C-n") 'isearch-repeat-forward)
 (define-key isearch-mode-map (kbd "C-p") 'isearch-repeat-backward)
 
-
 ;; move between panes with S-<arrows>
+
 
 (windmove-default-keybindings)
 
