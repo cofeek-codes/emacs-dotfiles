@@ -389,6 +389,15 @@
 ;; Odin end =============
 
 
+
+;; FASM
+
+(add-to-list 'load-path "~/.emacs.d/fasm-mode/")
+(require 'fasm-mode)
+
+;; FASM end =============
+
+
 ;; Prisma
 
 
@@ -418,6 +427,8 @@
 (add-hook 'prisma-mode-hook (lambda () (add-hook 'before-save-hook #'lsp-format-buffer nil 'local)))
 
 ;; Prisma end ==============
+
+
 
 ;; Pascal
 
