@@ -170,6 +170,11 @@
 ;; (use-package lsp-ui :init (setq lsp-ui-sideline-enable nil))  ; disable original sideline
 
 
+
+;; company
+
+(global-company-mode)
+
 ;; C/C++
 
 (add-hook 'c-mode-hook 'lsp)
