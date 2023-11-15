@@ -371,6 +371,9 @@
 ;; Haskell end =============
 
 
+(setq quelpa-update-melpa-p nil)
+
+
 ;; Odin
 
      (quelpa
