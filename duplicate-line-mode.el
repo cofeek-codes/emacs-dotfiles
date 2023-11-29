@@ -5,6 +5,7 @@
   :init-value nil
   :lighter " dl"
   :keymap (let ((map (make-sparse-keymap)))
+            (define-key map (kbd "<up>") 'duplicate-line)
             (define-key map (kbd "<down>") 'duplicate-line)
             (define-key map (kbd "RET") 'toggle-duplicate-line-mode)
             map))
