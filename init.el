@@ -16,6 +16,19 @@
 (global-set-key (kbd "C-S-f") 'query-replace)
 
 
+
+
+;; select current line
+
+(defun select-current-line ()
+  "Select the current line."
+  (interactive)
+  (end-of-line) ; move to end of line
+  (set-mark (line-beginning-position)))
+
+(global-set-key (kbd "C-S-l") 'select-current-line)
+
+
 ;; duplicate-line
 
 
