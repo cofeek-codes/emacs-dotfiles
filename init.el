@@ -352,8 +352,8 @@
 
 ;; Python
 
-
-;; (add-hook 'python-mode-hook 'lsp)
+(require 'python-mode)
+(setq auto-mode-alist (cons '("\\.py\\'" . python-mode) auto-mode-alist))
 
 
 (use-package lsp-pyright
