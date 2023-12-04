@@ -501,22 +501,7 @@
 ;; C-j to go to next error/warn/info
 
 
-(defun my-next-error ()
-  (interactive)
-  (condition-case nil
-      (next-error)
-    (user-error
-     (goto-char (point-min))
-     (next-error))))
-
-
-
-
-(eval-after-load "emmet-mode"
-  '(progn
-     (define-key emmet-mode-keymap (kbd "C-j") nil)))
-
-(global-set-key (kbd "C-j") 'my-next-error)
+(global-set-key (kbd "C-j") 'flycheck-next-error)
 
 
 ;; C-c . to execute code action
