@@ -500,6 +500,10 @@
 
 ;; C-j to go to next error/warn/info
 
+(add-hook 'python-mode-hook
+         (lambda()
+           (local-unset-key (kbd "C-j"))))
+
 
 (global-set-key (kbd "C-j") 'flycheck-next-error)
 
