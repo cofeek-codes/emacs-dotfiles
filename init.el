@@ -146,7 +146,7 @@
  ;; (package-refresh-contents) don't want it to refresh every time
 
 
-(setq package-selected-packages '(lsp-mode yasnippet lsp-treemacs helm-lsp hl-line  projectile hydra flycheck company avy which-key helm-xref dap-mode json-mode move-text lsp-ui sideline sideline-lsp clang-format emmet-mode resize-window magit prettier-js typescript-mode rust-mode go-mode php-mode telega lsp-pyright py-autopep8 wakatime-mode company-tabnine csharp-mode haskell-mode lsp-haskell cargo quelpa quelpa-use-package ido-completing-read+ smex projectile ag multiple-cursors neotree all-the-icons lsp-pascal yaml-mode nasm-mode lua-mode company-lua company-web python-mode))
+(setq package-selected-packages '(lsp-mode yasnippet lsp-treemacs helm-lsp hl-line  projectile hydra flycheck company avy which-key helm-xref dap-mode json-mode move-text lsp-ui sideline sideline-lsp clang-format emmet-mode resize-window magit prettier-js typescript-mode rust-mode go-mode php-mode telega lsp-pyright py-autopep8 wakatime-mode company-tabnine csharp-mode haskell-mode lsp-haskell cargo quelpa quelpa-use-package ido-completing-read+ smex projectile ag multiple-cursors neotree all-the-icons lsp-pascal yaml-mode nasm-mode lua-mode company-lua company-web python-mode company-math))
  
 
 (when (cl-find-if-not #'package-installed-p package-selected-packages)
@@ -681,7 +681,38 @@
 
 (setq neo-theme (if (display-graphic-p) 'icons 'arrow))
 
-;; Markdown
+;; Latex for notes
+
+(use-package auctex
+  :ensure t
+  :defer  t
+  )
+
+(add-hook 'LaTeX-mode-hook 'LaTeX-math-mode)
+
+;; cargo install --git https://github.com/latex-lsp/texlab --tag v5.12.0
+
+(add-hook 'LaTeX-mode-hook 'lsp)
+(add-hook 'LaTeX-math-mode-hook 'lsp)
+
+(add-hook 'LaTeX-mode-hook 'turn-on-prettify-symbols-mode)
+(add-hook 'LaTeX-math-mode-hook 'turn-on-prettify-symbols-mode)
+
+(add-hook 'LaTeX-mode-hook 'turn-on-flyspell)
+(add-hook 'LaTeX-math-mode-hook 'turn-on-flyspell)
+
+
+
+(setq TeX-electric-sub-and-superscript t)
+
+(require 'company)
+(require 'company-math)
+
+(add-to-list 'company-backends 'company-math-symbols-unicode)
+(add-to-list 'company-backends 'company-math-symbols-latex)
+
+
+
 
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
@@ -704,6 +735,7 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
+ '(font-latex-script-char-face ((t (:foreground "Green"))))
  '(ido-first-match ((t (:foreground "#FFDD33" :weight bold))))
  '(ido-incomplete-regexp ((t (:foreground "white"))))
  '(ido-only-match ((t (:foreground "#FF9B21"))))
