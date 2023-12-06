@@ -739,4 +739,5 @@
  '(ido-first-match ((t (:foreground "#FFDD33" :weight bold))))
  '(ido-incomplete-regexp ((t (:foreground "white"))))
  '(ido-only-match ((t (:foreground "#FF9B21"))))
- '(ido-subdir ((t (:foreground "#949bb0" :weight bold)))))
+ '(ido-subdir ((t (:foreground "#949bb0" :weight bold))))
+ '(preview-face ((t nil))))
