@@ -16,7 +16,9 @@
 (global-set-key (kbd "C-S-f") 'query-replace)
 
 
+;; tabs
 
+(setq-default tab-width 3)
 
 ;; select current line
 
