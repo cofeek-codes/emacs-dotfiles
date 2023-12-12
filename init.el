@@ -756,6 +756,7 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(font-latex-script-char-face ((t (:foreground "Green"))))
+ '(font-latex-sectioning-5-face ((t (:inherit variable-pitch :foreground "#949bb0" :weight bold))))
  '(ido-first-match ((t (:foreground "#FFDD33" :weight bold))))
  '(ido-incomplete-regexp ((t (:foreground "white"))))
  '(ido-only-match ((t (:foreground "#FF9B21"))))
