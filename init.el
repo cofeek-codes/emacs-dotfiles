@@ -34,9 +34,21 @@
 ;; duplicate-line
 
 
-(load "~/.emacs.d/duplicate-line-mode.el")
+(defun duplicate-line ()
+  "Duplicate current line"
+  (interactive)
+  (let ((column (- (point) (point-at-bol)))
+        (line (let ((s (thing-at-point 'line t)))
+                (if s (string-remove-suffix "\n" s) ""))))
+    (move-end-of-line 1)
+    (newline)
+    (insert line)
+    (move-beginning-of-line 1)
+    (forward-char column)))
 
-(global-set-key (kbd "C-c C-<down>") 'duplicate-line-mode)
+(global-set-key (kbd "C--") 'duplicate-line)
+
+
 
 
 
@@ -729,7 +741,7 @@
  ;; If there is more than one, they won't work right.
  '(markdown-command "/usr/bin/pandoc")
  '(package-selected-packages
-   '(python-mode flymake-nasm nasm-mode lsp-pascal markdown-preview-mode multiple-cursors wrap-region lsp-mode yasnippet lsp-treemacs helm-lsp hl-line projectile hydra flycheck company avy which-key helm-xref dap-mode json-mode move-text lsp-ui sideline sideline-lsp clang-format emmet-mode resize-window magit prettier-js typescript-mode rust-mode go-mode php-mode telega lsp-pyright py-autopep8 wakatime-mode company-tabnine csharp-mode haskell-mode lsp-haskell cargo quelpa quelpa-use-package ido-completing-read+ smex projectile ag))
+	'(unidecode python-mode flymake-nasm nasm-mode lsp-pascal markdown-preview-mode multiple-cursors wrap-region lsp-mode yasnippet lsp-treemacs helm-lsp hl-line projectile hydra flycheck company avy which-key helm-xref dap-mode json-mode move-text lsp-ui sideline sideline-lsp clang-format emmet-mode resize-window magit prettier-js typescript-mode rust-mode go-mode php-mode telega lsp-pyright py-autopep8 wakatime-mode company-tabnine csharp-mode haskell-mode lsp-haskell cargo quelpa quelpa-use-package ido-completing-read+ smex projectile ag))
  '(wakatime-cli-path "~/.wakatime/wakatime-cli")
  '(warning-suppress-types '((comp))))
 
