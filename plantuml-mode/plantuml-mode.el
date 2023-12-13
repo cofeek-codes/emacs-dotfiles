@@ -544,6 +544,9 @@ Uses prefix (as PREFIX) to choose where to display it:
   (let ((mode (or mode (plantuml-get-exec-mode))))
     (unless plantuml-kwdList
       (plantuml-init mode)
+		(let ((items-to-add '("state" "actor" "usecase" "entity" "rectangle")))
+ (dolist (item items-to-add)
+   (add-to-list 'plantuml-types item)))
       (defvar plantuml-types-regexp (concat "^\\s *\\(" (regexp-opt plantuml-types 'words) "\\|\\<\\(note\\s +over\\|note\\s +\\(left\\|right\\|bottom\\|top\\)\\s +\\(of\\)?\\)\\>\\|\\<\\(\\(left\\|center\\|right\\)\\s +\\(header\\|footer\\)\\)\\>\\)"))
       (defvar plantuml-keywords-regexp (concat "^\\s *" (regexp-opt plantuml-keywords 'words)  "\\|\\(<\\|<|\\|\\*\\|o\\)\\(\\.+\\|-+\\)\\|\\(\\.+\\|-+\\)\\(>\\||>\\|\\*\\|o\\)\\|\\.\\{2,\\}\\|-\\{2,\\}"))
       (defvar plantuml-builtins-regexp (regexp-opt plantuml-builtins 'words))
