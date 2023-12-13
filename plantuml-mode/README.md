@@ -1,6 +1,5 @@
 [![MELPA](http://melpa.org/packages/plantuml-mode-badge.svg)](http://melpa.org/#/plantuml-mode) [![MELPA Stable](http://stable.melpa.org/packages/plantuml-mode-badge.svg)](http://stable.melpa.org/#/plantuml-mode) [![CircleCI](https://circleci.com/gh/skuro/plantuml-mode.svg?style=svg)](https://circleci.com/gh/skuro/plantuml-mode) [![Coverage Status](https://coveralls.io/repos/github/skuro/plantuml-mode/badge.svg?branch=HEAD)](https://coveralls.io/github/skuro/plantuml-mode?branch=HEAD)
 
-
 # PlantUML mode for Emacs
 
 <img src="https://raw.githubusercontent.com/skuro/plantuml-mode/master/banner.png"
@@ -11,8 +10,42 @@
 >
 > from [The Bitter Kingdom - Fire and Thorns #3](https://www.goodreads.com/book/show/11431896-the-bitter-kingdom)
 
-
 A [PlantUML](http://plantuml.sourceforge.net/) major mode for Emacs.
+
+# Quick Guide
+
+1. Install with `M-x package-install<RET>`
+2. Enable mode for current buffer `M-x plantuml-mode<RET>`
+3. Write some PlantUML:
+
+```
+@startuml
+Alice -> Bob: Authentication Request
+Bob --> Alice: Authentication Response
+
+Alice -> Bob: Another authentication Request
+Alice <-- Bob: Another authentication Response
+@enduml
+```
+
+4. Preview diagrams with `C-c C-c` (`plantuml-preview`).
+
+**WARNING:** This may send information to
+`"https://www.plantuml.com/plantuml"`! Check that
+`plantuml-default-exec-mode` is configured correctly for your use case
+before previewing any sensitive material.
+
+```lisp
+    ;; Sample jar configuration
+    (setq plantuml-jar-path "/path/to/your/copy/of/plantuml.jar")
+    (setq plantuml-default-exec-mode 'jar)
+
+    ;; Sample executable configuration
+    (setq plantuml-executable-path "/path/to/your/copy/of/plantuml.bin")
+    (setq plantuml-default-exec-mode 'executable)
+```
+
+See [Execution modes](#execution-modes) for more information.
 
 # Installation
 

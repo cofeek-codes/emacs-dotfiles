@@ -160,7 +160,7 @@
  ;; (package-refresh-contents) don't want it to refresh every time
 
 
-(setq package-selected-packages '(lsp-mode yasnippet lsp-treemacs helm-lsp hl-line  projectile hydra flycheck company avy which-key helm-xref dap-mode json-mode move-text lsp-ui sideline sideline-lsp clang-format emmet-mode resize-window magit prettier-js typescript-mode rust-mode go-mode php-mode telega lsp-pyright py-autopep8 wakatime-mode company-tabnine csharp-mode haskell-mode lsp-haskell cargo quelpa quelpa-use-package ido-completing-read+ smex projectile ag multiple-cursors neotree all-the-icons lsp-pascal yaml-mode nasm-mode lua-mode company-lua company-web python-mode company-math elixir-mode flycheck-plantuml))
+(setq package-selected-packages '(lsp-mode yasnippet lsp-treemacs helm-lsp hl-line  projectile hydra flycheck company avy which-key helm-xref dap-mode json-mode move-text lsp-ui sideline sideline-lsp clang-format emmet-mode resize-window magit prettier-js typescript-mode rust-mode go-mode php-mode telega lsp-pyright py-autopep8 wakatime-mode company-tabnine csharp-mode haskell-mode lsp-haskell cargo quelpa quelpa-use-package ido-completing-read+ smex projectile ag multiple-cursors neotree all-the-icons lsp-pascal yaml-mode nasm-mode lua-mode company-lua company-web python-mode company-math elixir-mode))
  
 
 (when (cl-find-if-not #'package-installed-p package-selected-packages)
@@ -740,6 +740,10 @@
 (setq plantuml-default-exec-mode 'jar)
 
 (add-to-list 'auto-mode-alist '("\\.uml\\'" . plantuml-mode))
+
+
+
+(add-to-list 'load-path "~/.emacs.d/flycheck-plantuml/")
 
 (with-eval-after-load 'flycheck
   (require 'flycheck-plantuml)
