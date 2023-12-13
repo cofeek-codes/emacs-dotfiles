@@ -729,6 +729,13 @@
 
 ;; UML
 
+
+
+
+(add-to-list 'load-path "~/.emacs.d/plantuml-mode/")
+(require 'plantuml-mode)
+
+
 (setq plantuml-jar-path "/usr/bin/plantuml.jar")
 (setq plantuml-default-exec-mode 'jar)
 
