@@ -30,7 +30,6 @@
  '(region ((t (:extend nil :background "#504945"))))
  '(mode-line-inactive ((t (:inherit mode-line :background "#252525" :foreground "#f8f8f8" :box (:line-width (1 . -1) :color "#252525")))))
  '(font-lock-constant-face ((t (:inherit font-lock-type-face))))
- '(default ((t (:inherit nil :extend nil :stipple nil :background "#181818" :foreground "#FFF" :inverse-video nil :box nil :strike-through nil :overline nil :underline nil :slant normal :weight normal :height 181 :width normal :foundry "CTDB" :family "Fira Code"))))
- '(css-selector ((t (:inherit font-lock-type-face)))))
+ '(default ((t (:inherit nil :extend nil :stipple nil :background "#181818" :foreground "#FFF" :inverse-video nil :box nil :strike-through nil :overline nil :underline nil :slant normal :weight normal :height 181 :width normal :foundry "CTDB" :family "Fira Code")))))
 
 (provide-theme 'tsoding)
