@@ -751,7 +751,13 @@
 
 
 
-;; UML end ==============
+;; UML end ========
+
+;; Org
+
+(setq org-agenda-files '("~/Desktop/notes/"))
+
+;; Org end ========
 
 
 
