@@ -791,5 +791,7 @@
  '(ido-incomplete-regexp ((t (:foreground "white"))))
  '(ido-only-match ((t (:foreground "#FF9B21"))))
  '(ido-subdir ((t (:foreground "#949bb0" :weight bold))))
+ '(org-level-1 ((t (:extend nil :weight bold))))
+ '(org-level-2 ((t (:inherit font-lock-type-face :extend nil :weight bold))))
  '(preview-face ((t nil)))
  '(rust-unsafe ((t (:inherit font-lock-keyword-face)))))
