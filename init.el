@@ -757,6 +757,8 @@
 
 (setq org-agenda-files '("~/Desktop/notes/"))
 
+(setq org-log-done t)
+
 ;; Org end ========
 
 
