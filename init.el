@@ -769,6 +769,7 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(markdown-command "/usr/bin/pandoc")
+ '(org-support-shift-select 'always)
  '(package-selected-packages
 	'(unidecode python-mode flymake-nasm nasm-mode lsp-pascal markdown-preview-mode multiple-cursors wrap-region lsp-mode yasnippet lsp-treemacs helm-lsp hl-line projectile hydra flycheck company avy which-key helm-xref dap-mode json-mode move-text lsp-ui sideline sideline-lsp clang-format emmet-mode resize-window magit prettier-js typescript-mode rust-mode go-mode php-mode telega lsp-pyright py-autopep8 wakatime-mode company-tabnine csharp-mode haskell-mode lsp-haskell cargo quelpa quelpa-use-package ido-completing-read+ smex projectile ag))
  '(plantuml-indent-level 3)
@@ -789,6 +790,7 @@
  '(css-selector ((t (:inherit font-lock-type-face))))
  '(font-latex-script-char-face ((t (:foreground "Green"))))
  '(font-latex-sectioning-5-face ((t (:inherit variable-pitch :foreground "#949bb0" :weight bold))))
+ '(font-latex-warning-face ((t (:inherit bold :foreground "tomato"))))
  '(ido-first-match ((t (:foreground "#FFDD33" :weight bold))))
  '(ido-incomplete-regexp ((t (:foreground "white"))))
  '(ido-only-match ((t (:foreground "#FF9B21"))))
