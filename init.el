@@ -442,7 +442,7 @@
 
 ;; FASM
 
-(add-to-list 'load-path "~/.emacs.d/fasm-mode/")
+(add-to-list 'load-path "~/.emacs.d/packages/fasm-mode/")
 (require 'fasm-mode)
 
 ;; FASM end =============
@@ -732,7 +732,7 @@
 
 
 
-(add-to-list 'load-path "~/.emacs.d/plantuml-mode/")
+(add-to-list 'load-path "~/.emacs.d/packages/plantuml-mode/")
 (require 'plantuml-mode)
 
 
@@ -743,7 +743,7 @@
 
 
 
-(add-to-list 'load-path "~/.emacs.d/flycheck-plantuml/")
+(add-to-list 'load-path "~/.emacs.d/packages/flycheck-plantuml/")
 
 (with-eval-after-load 'flycheck
   (require 'flycheck-plantuml)
