@@ -545,7 +545,7 @@ Uses prefix (as PREFIX) to choose where to display it:
     (unless plantuml-kwdList
       (plantuml-init mode)
 		;; custom types
-		(let ((items-to-add '("state" "actor" "usecase" "entity" "rectangle")))
+		(let ((items-to-add '("state" "actor" "usecase" "entity" "rectangle" "abstract" "abstract class" "annotation" "circle" "class" "diamond" "enum" "exeption" "interface" "metaclass" "protocol" "stereotype" "struct")))
  (dolist (item items-to-add)
    (add-to-list 'plantuml-types item)))
 		;; custom types
