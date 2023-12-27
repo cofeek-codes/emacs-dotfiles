@@ -402,7 +402,6 @@
 (add-hook 'haskell-mode-hook 'lsp)
 (add-hook 'haskell-literate-mode-hook 'lsp)
 
-(setq lsp-haskell-server-path "/home/cofeek/.ghcup/bin/haskell-language-server-wrapper")
 
 (add-hook 'before-save-hook 'lsp-format-buffer)
 
