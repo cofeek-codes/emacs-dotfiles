@@ -107,10 +107,10 @@
 
 (set-face-background 'show-paren-match "#504945")
 
-;; relative numbers
+;; line numbers
 
 
-     (require 'hl-line)
+(require 'hl-line)
 
 (defface my-linum-hl
   `((t :inherit linum :background nil :foreground "#ffdd33"))
@@ -135,10 +135,10 @@
 
 
 
-;; disable sound (annoyng)
+;; disable sound (annoying)
 
-     (setq visible-bell t)
-     (setq ring-bell-function 'ignore)
+(setq visible-bell t)
+(setq ring-bell-function 'ignore)
 
 
 
@@ -148,7 +148,6 @@
 
 (require 'package)
 (unless (package-installed-p 'use-package)
-  ;; (package-refresh-contents)
   (package-install 'use-package))
 
 
@@ -172,7 +171,6 @@
 
 
 (with-eval-after-load 'lsp-mode
-  ;; (add-hook 'lsp-mode-hook #'lsp-enable-which-key-integration)
   (setq lsp-keymap-prefix "C-c l")
   (require 'dap-cpptools)
   (yas-global-mode))
@@ -189,7 +187,6 @@
    (setq lsp-ui-sideline-enable t
          lsp-ui-sideline-show-symbol nil
          lsp-ui-sideline-show-hover nil
-         ;; lsp-ui-sideline-show-flycheck t
          lsp-ui-sideline-show-code-actions nil
          lsp-ui-sideline-show-diagnostics t)
 
@@ -198,7 +195,6 @@
   (setq sideline-backends-right '(sideline-lsp)))
    
 (use-package lsp-mode :hook (lsp-mode . sideline-mode))  ; enable it when lsp is on
-;; (use-package lsp-ui :init (setq lsp-ui-sideline-enable nil))  ; disable original sideline
 
 
 
@@ -298,7 +294,7 @@
      (define-key emmet-mode-keymap (kbd "C-,") 'emmet-expand-line)
      (define-key emmet-mode-keymap (kbd "C-,") 'emmet-expand-line)))
 
-
+;; PHP
 
 (add-hook 'php-mode-hook
           (lambda ()
@@ -308,6 +304,8 @@
 (defun lsp-format-buffer-on-save ()
   (when (eq 'php-mode major-mode)
     (lsp-format-buffer)))
+
+;; PHP end ===========
 
 (add-hook 'before-save-hook #'lsp-format-buffer-on-save)
 
@@ -576,11 +574,14 @@
 ;;; dired
 (require 'dired-x)
 
+;; FIXME: fix dired dwim behaviour
+
 (setq-default dired-dwim-target t)
 (setq dired-listing-switches "-alh")
 
 
 ;; set directory color in dired mode
+
 
 (add-hook 'dired-mode-hook
           (lambda ()
