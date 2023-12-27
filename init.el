@@ -1,7 +1,8 @@
+;; initialization
+
+(setq inhibit-splash-screen t)
+
 ;; binds
-
-
-
 
 (global-set-key (kbd "C-z") 'undo)
 (global-set-key (kbd "C-s") 'save-buffer)
