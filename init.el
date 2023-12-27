@@ -400,8 +400,17 @@
 (add-hook 'haskell-mode-hook 'lsp)
 (add-hook 'haskell-literate-mode-hook 'lsp)
 
-
 (add-hook 'before-save-hook 'lsp-format-buffer)
+
+
+
+(with-eval-after-load 'lsp-mode
+  (define-key lsp-mode-map (kbd "C-c C-l") 'haskell-interactive-switch)
+  (define-key lsp-mode-map (kbd "C-c C-k") 'haskell-process-load-file))
+
+
+
+
 
 ;; Haskell end =============
 
