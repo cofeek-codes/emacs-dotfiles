@@ -404,10 +404,10 @@
 (add-hook 'before-save-hook 'lsp-format-buffer)
 
 
-
-(with-eval-after-load 'lsp-mode
-  (define-key lsp-mode-map (kbd "C-c C-l") 'haskell-interactive-switch)
-  (define-key lsp-mode-map (kbd "C-c C-k") 'haskell-process-load-file))
+(add-hook 'haskell-mode-hook
+          (lambda ()
+            (define-key haskell-mode-map (kbd "C-c C-l") 'haskell-interactive-switch)
+            (define-key haskell-mode-map (kbd "C-c C-k") 'haskell-process-load-file)))
 
 
 
@@ -495,8 +495,16 @@
 
 ;; Elixir
 
+
+
 (add-hook 'elixir-mode-hook 'lsp)
 (add-hook 'before-save-hook 'lsp-format-buffer)
+
+
+(use-package inf-elixir
+  :ensure t
+  :bind (("C-c C-l" . 'inf-elixir)
+         ("C-c C-k" . 'inf-elixir-send-buffer)))
 
 ;; Elixir end ==============
 
@@ -781,7 +789,7 @@
  '(markdown-command "/usr/bin/pandoc")
  '(org-support-shift-select 'always)
  '(package-selected-packages
-	'(seq unidecode python-mode flymake-nasm nasm-mode lsp-pascal markdown-preview-mode multiple-cursors wrap-region lsp-mode yasnippet lsp-treemacs helm-lsp hl-line projectile hydra flycheck company avy which-key helm-xref dap-mode json-mode move-text lsp-ui sideline sideline-lsp clang-format emmet-mode resize-window magit prettier-js typescript-mode rust-mode go-mode php-mode telega lsp-pyright py-autopep8 wakatime-mode company-tabnine csharp-mode haskell-mode lsp-haskell cargo quelpa quelpa-use-package ido-completing-read+ smex projectile ag))
+	'(inf-elixir lsp-mode yasnippet lsp-treemacs helm-lsp hl-line projectile hydra flycheck company avy which-key helm-xref dap-mode json-mode move-text lsp-ui sideline sideline-lsp clang-format emmet-mode resize-window magit prettier-js typescript-mode rust-mode go-mode php-mode telega lsp-pyright py-autopep8 wakatime-mode company-tabnine csharp-mode haskell-mode lsp-haskell cargo quelpa quelpa-use-package ido-completing-read+ smex projectile ag multiple-cursors neotree all-the-icons lsp-pascal yaml-mode nasm-mode lua-mode company-lua company-web python-mode company-math elixir-mode seq))
  '(plantuml-indent-level 3)
  '(plantuml-suppress-deprecation-warning nil)
  '(wakatime-cli-path "~/.wakatime/wakatime-cli")
