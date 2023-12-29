@@ -805,6 +805,9 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
+ '(Man-overstrike ((t (:inherit font-lock-keyword-face))))
+ '(Man-underline ((t (:foreground "tomato" :underline t))))
+ '(button ((t (:inherit link :weight normal))))
  '(css-selector ((t (:inherit font-lock-type-face))))
  '(font-latex-script-char-face ((t (:foreground "Green"))))
  '(font-latex-sectioning-5-face ((t (:inherit variable-pitch :foreground "#949bb0" :weight bold))))
