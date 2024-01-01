@@ -780,6 +780,15 @@
 ;; Org end ========
 
 
+;; Editorconfig
+
+(use-package editorconfig
+  :ensure t
+  :config
+  (editorconfig-mode 1))
+
+;; Editorconfig end ========
+
 
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
