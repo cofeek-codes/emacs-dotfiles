@@ -830,3 +830,5 @@
  '(org-level-2 ((t (:inherit font-lock-type-face :extend nil :weight bold))))
  '(preview-face ((t nil)))
  '(rust-unsafe ((t (:inherit font-lock-keyword-face)))))
+(put 'upcase-region 'disabled nil)
+(put 'downcase-region 'disabled nil)
