@@ -70,6 +70,30 @@
 
 (global-set-key (kbd "C-c ;") 'resize-window)
 
+
+
+;; Delete word backwards (like in terminal)
+
+(defun delete-backward-word (&optional arg)
+  "`delete-backward-char`, but if region is active then kill region.                                                                      
+With prefix arg N, delete backward to the start of the Nth word."
+  (interactive "P")
+  (cond (arg
+         (backward-delete-word (prefix-numeric-value arg)))
+        ((use-region-p)
+         (kill-region (region-beginning) (region-end)))
+    (t (backward-delete-word (prefix-numeric-value arg)))))
+
+(defun backward-delete-word (arg)
+  "Like `backward-kill-word`, but just delete."
+  (interactive "p")
+  (delete-region (point) (progn (backward-word arg) (point))))
+
+(global-set-key (kbd "C-w") 'delete-backward-word)
+
+
+
+
 ;; vscode-like comments
 
 (defun toggle-comment-line-or-region ()
