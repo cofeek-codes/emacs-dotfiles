@@ -797,12 +797,7 @@ With prefix arg N, delete backward to the start of the Nth word."
 
 ;; Graphviz dot
 
-(use-package graphviz-dot-mode
-  :ensure t
-  :config
-  (setq graphviz-dot-indent-width 3))
-
-(add-to-list 'auto-mode-alist '("\\.dot\\'" . graphviz-dot-mode))
+(add-to-list 'load-path "~/.emacs.d/packages/graphviz-dot-mode/")
 
 ;; Graphviz dot end  ========
 
