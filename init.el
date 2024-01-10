@@ -547,6 +547,40 @@ With prefix arg N, delete backward to the start of the Nth word."
 ;; Pascal end ==============
 
 
+;; Ocaml
+
+(use-package tuareg
+  :ensure t
+  )
+
+
+(use-package merlin
+  :ensure t
+  :config
+  (add-hook 'tuareg-mode-hook #'merlin-mode)
+  (add-hook 'merlin-mode-hook #'company-mode)
+  )
+
+(use-package merlin-eldoc
+  :ensure t
+  :hook ((tuareg-mode) . merlin-eldoc-setup))
+
+
+(use-package flycheck-ocaml
+  :ensure t
+  :config
+  (flycheck-ocaml-setup))
+
+
+(use-package ocamlformat
+  :ensure t
+  :custom (ocamlformat-enable 'enable-outside-detected-project)
+  :hook (before-save . ocamlformat-before-save))
+
+
+;; Ocaml end ================
+
+
 ;; YAML
 
 
@@ -839,7 +873,7 @@ With prefix arg N, delete backward to the start of the Nth word."
  '(markdown-command "/usr/bin/pandoc")
  '(org-support-shift-select 'always)
  '(package-selected-packages
-	'(graphviz-dot-mode lsp-mode yasnippet lsp-treemacs helm-lsp hl-line projectile hydra flycheck company avy which-key helm-xref dap-mode json-mode move-text lsp-ui sideline sideline-lsp clang-format emmet-mode resize-window magit prettier-js typescript-mode rust-mode go-mode php-mode telega lsp-pyright py-autopep8 wakatime-mode company-tabnine csharp-mode haskell-mode lsp-haskell cargo quelpa quelpa-use-package ido-completing-read+ smex projectile ag multiple-cursors neotree all-the-icons lsp-pascal yaml-mode nasm-mode lua-mode company-lua company-web python-mode company-math elixir-mode seq transpose-frame))
+	'(ocamlformat lsp-mode yasnippet lsp-treemacs helm-lsp hl-line projectile hydra flycheck company avy which-key helm-xref dap-mode json-mode move-text lsp-ui sideline sideline-lsp clang-format emmet-mode resize-window magit prettier-js typescript-mode rust-mode go-mode php-mode telega lsp-pyright py-autopep8 wakatime-mode company-tabnine csharp-mode haskell-mode lsp-haskell cargo quelpa quelpa-use-package ido-completing-read+ smex projectile ag multiple-cursors neotree all-the-icons lsp-pascal yaml-mode nasm-mode lua-mode company-lua company-web python-mode company-math elixir-mode seq transpose-frame slint-mode zenburn-theme))
  '(plantuml-indent-level 3)
  '(plantuml-suppress-deprecation-warning nil)
  '(wakatime-cli-path "~/.wakatime/wakatime-cli")
@@ -871,6 +905,10 @@ With prefix arg N, delete backward to the start of the Nth word."
  '(org-level-1 ((t (:extend nil :weight bold))))
  '(org-level-2 ((t (:inherit font-lock-type-face :extend nil :weight bold))))
  '(preview-face ((t nil)))
- '(rust-unsafe ((t (:inherit font-lock-keyword-face)))))
+ '(rust-unsafe ((t (:inherit font-lock-keyword-face))))
+ '(tuareg-font-lock-governing-face ((t (:inherit font-lock-keyword-face)))))
 (put 'upcase-region 'disabled nil)
 (put 'downcase-region 'disabled nil)
+;; ## added by OPAM user-setup for emacs / base ## 56ab50dc8996d2bb95e7856a6eddb17b ## you can edit, but keep this line
+(require 'opam-user-setup "~/.emacs.d/opam-user-setup.el")
+;; ## end of OPAM user-setup addition for emacs / base ## keep this line
