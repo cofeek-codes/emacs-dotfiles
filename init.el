@@ -856,6 +856,12 @@ With prefix arg N, delete backward to the start of the Nth word."
 
 ;; Org end ========
 
+;; Markdown
+
+(add-to-list 'load-path (expand-file-name "~/.emacs.d/packages/emacs-livedown"))
+(require 'livedown)
+
+;; Markdown end ======== 
 
 ;; Editorconfig
 
