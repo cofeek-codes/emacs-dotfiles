@@ -850,9 +850,21 @@ With prefix arg N, delete backward to the start of the Nth word."
 
 ;; Org
 
+(require 'org)
+
 (setq org-agenda-files '("~/Desktop/notes/"))
 
 (setq org-log-done t)
+
+(add-to-list 'load-path "~/.emacs.d/packages/org-table-wrap/")
+(require 'org-table-wrap-functions)
+
+(define-key org-mode-map (kbd "C-|") 'org-table-column-wrap-to-point)
+  
+;; (use-package org-table-wrap-functions
+;;   :load-path ~/.emacs.d/packages/org-table-wrap
+;;   :bind (:map org-mode-map ("C-|" . 'org-table-column-wrap-to-point))
+;;   :bind (:map org-mode-map ("C->" . 'org-table-unwrap-cell-region)))
 
 ;; Org end ========
 
