@@ -916,7 +916,8 @@ With prefix arg N, delete backward to the start of the Nth word."
  '(org-level-2 ((t (:inherit font-lock-type-face :extend nil :weight bold))))
  '(preview-face ((t nil)))
  '(rust-unsafe ((t (:inherit font-lock-keyword-face))))
- '(tuareg-font-lock-governing-face ((t (:inherit font-lock-keyword-face)))))
+ '(tuareg-font-lock-governing-face ((t (:inherit font-lock-keyword-face))))
+ '(tuareg-font-lock-operator-face ((t (:inherit font-lock-keyword-face)))))
 (put 'upcase-region 'disabled nil)
 (put 'downcase-region 'disabled nil)
 ;; ## added by OPAM user-setup for emacs / base ## 56ab50dc8996d2bb95e7856a6eddb17b ## you can edit, but keep this line
