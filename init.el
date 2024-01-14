@@ -850,11 +850,20 @@ With prefix arg N, delete backward to the start of the Nth word."
 (require 'org-table-wrap-functions)
 
 (define-key org-mode-map (kbd "C-|") 'org-table-column-wrap-to-point)
-  
-;; (use-package org-table-wrap-functions
-;;   :load-path ~/.emacs.d/packages/org-table-wrap
-;;   :bind (:map org-mode-map ("C-|" . 'org-table-column-wrap-to-point))
-;;   :bind (:map org-mode-map ("C->" . 'org-table-unwrap-cell-region)))
+
+(require 'org)
+(require 'ox-latex)
+(add-to-list 'org-latex-packages-alist '("" "minted"))
+(setq org-latex-listings 'minted) 
+
+(setq org-latex-pdf-process
+    '("pdflatex -shell-escape -interaction nonstopmode -output-directory %o -jobname=%b %f"
+      "pdflatex -shell-escape -interaction nonstopmode -output-directory %o -jobname=%b %f"
+      "pdflatex -shell-escape -interaction nonstopmode -output-directory %o -jobname=%b %f"
+      "rm -rf _minted-test"))
+
+(setq org-src-fontify-natively t)
+
 
 ;; Org end ========
 
