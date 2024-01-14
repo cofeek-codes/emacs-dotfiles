@@ -864,6 +864,35 @@ With prefix arg N, delete backward to the start of the Nth word."
 
 (setq org-src-fontify-natively t)
 
+(org-babel-do-load-languages
+ 'org-babel-load-languages
+ '((c)
+ (cpp)
+ (javascript)
+ (typescript)
+ (rust)
+ (go)
+ (php)
+ (lua)
+ (python)
+ (haskell)
+ (elixir)
+ (pascal)
+ (ocaml)
+ (latex)))
+
+;; Org code execution commands
+
+;; python
+
+(require 'ob-python)
+(setq org-babel-python-command "python")
+
+;; python end =====
+
+;; TODO: fill with commands for all languages
+
+;; Org code execution commands ========
 
 ;; Org end ========
 
