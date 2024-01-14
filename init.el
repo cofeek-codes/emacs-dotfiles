@@ -184,7 +184,7 @@ With prefix arg N, delete backward to the start of the Nth word."
  ;; (package-refresh-contents) don't want it to refresh every time
 
 
-(setq package-selected-packages '(lsp-mode yasnippet lsp-treemacs helm-lsp hl-line  projectile hydra flycheck company avy which-key helm-xref dap-mode json-mode move-text lsp-ui sideline sideline-lsp clang-format emmet-mode resize-window magit prettier-js typescript-mode rust-mode go-mode php-mode telega lsp-pyright py-autopep8 wakatime-mode company-tabnine csharp-mode haskell-mode lsp-haskell cargo quelpa quelpa-use-package ido-completing-read+ smex projectile ag multiple-cursors neotree all-the-icons lsp-pascal yaml-mode nasm-mode lua-mode company-lua company-web python-mode company-math elixir-mode seq transpose-frame slint-mode zenburn-theme ocp-indent))
+(setq package-selected-packages '(lsp-mode yasnippet lsp-treemacs helm-lsp hl-line  projectile hydra flycheck company avy which-key helm-xref dap-mode json-mode move-text lsp-ui sideline sideline-lsp clang-format emmet-mode resize-window magit prettier-js typescript-mode rust-mode go-mode php-mode telega lsp-pyright py-autopep8 wakatime-mode company-tabnine csharp-mode haskell-mode lsp-haskell cargo quelpa quelpa-use-package ido-completing-read+ smex projectile ag multiple-cursors neotree all-the-icons lsp-pascal yaml-mode nasm-mode lua-mode company-lua company-web python-mode company-math elixir-mode seq transpose-frame slint-mode zenburn-theme))
  
 
 (when (cl-find-if-not #'package-installed-p package-selected-packages)
@@ -566,20 +566,10 @@ With prefix arg N, delete backward to the start of the Nth word."
   :hook ((tuareg-mode) . merlin-eldoc-setup))
 
 
-(use-package flycheck-ocaml
-  :ensure t
-  :config
-  (flycheck-ocaml-setup))
-
-
 (use-package ocamlformat
   :ensure t
   :custom (ocamlformat-enable 'enable-outside-detected-project)
   :hook (before-save . ocamlformat-before-save))
-
-
-(require 'ocp-indent)
-(add-hook 'tuareg-mode-hook 'ocp-setup-indent)
 
 
 ;; Ocaml end ================
@@ -895,7 +885,7 @@ With prefix arg N, delete backward to the start of the Nth word."
  '(markdown-command "/usr/bin/pandoc")
  '(org-support-shift-select 'always)
  '(package-selected-packages
-	'(ocamlformat lsp-mode yasnippet lsp-treemacs helm-lsp hl-line projectile hydra flycheck company avy which-key helm-xref dap-mode json-mode move-text lsp-ui sideline sideline-lsp clang-format emmet-mode resize-window magit prettier-js typescript-mode rust-mode go-mode php-mode telega lsp-pyright py-autopep8 wakatime-mode company-tabnine csharp-mode haskell-mode lsp-haskell cargo quelpa quelpa-use-package ido-completing-read+ smex projectile ag multiple-cursors neotree all-the-icons lsp-pascal yaml-mode nasm-mode lua-mode company-lua company-web python-mode company-math elixir-mode seq transpose-frame slint-mode zenburn-theme))
+	'(merlin-eldoc lsp-mode yasnippet lsp-treemacs helm-lsp hl-line projectile hydra flycheck company avy which-key helm-xref dap-mode json-mode move-text lsp-ui sideline sideline-lsp clang-format emmet-mode resize-window magit prettier-js typescript-mode rust-mode go-mode php-mode telega lsp-pyright py-autopep8 wakatime-mode company-tabnine csharp-mode haskell-mode lsp-haskell cargo quelpa quelpa-use-package ido-completing-read+ smex projectile ag multiple-cursors neotree all-the-icons lsp-pascal yaml-mode nasm-mode lua-mode company-lua company-web python-mode company-math elixir-mode seq transpose-frame slint-mode zenburn-theme))
  '(plantuml-indent-level 3)
  '(plantuml-suppress-deprecation-warning nil)
  '(wakatime-cli-path "~/.wakatime/wakatime-cli")
