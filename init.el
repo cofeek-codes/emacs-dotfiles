@@ -860,7 +860,7 @@ With prefix arg N, delete backward to the start of the Nth word."
     '("pdflatex -shell-escape -interaction nonstopmode -output-directory %o -jobname=%b %f"
       "pdflatex -shell-escape -interaction nonstopmode -output-directory %o -jobname=%b %f"
       "pdflatex -shell-escape -interaction nonstopmode -output-directory %o -jobname=%b %f"
-      "rm -rf _minted-test"))
+      "rm -rf _minted-*"))
 
 (setq org-src-fontify-natively t)
 
