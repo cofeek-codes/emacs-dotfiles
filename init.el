@@ -807,6 +807,13 @@ With prefix arg N, delete backward to the start of the Nth word."
 (add-to-list 'company-backends 'company-math-symbols-unicode)
 (add-to-list 'company-backends 'company-math-symbols-latex)
 
+
+(defun latex-binds ()
+  (define-key LaTeX-mode-map (kbd "C-c C-x C-l") 'org-latex-preview))
+
+(add-hook 'LaTeX-mode-hook 'latex-binds)
+
+
 ;; Latex end ==============
 
 
