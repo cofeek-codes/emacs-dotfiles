@@ -1,0 +1,10 @@
+# -*- mode: snippet -*-
+# name: embed
+# key: embed
+# --
+#+begin_export latex
+\begin{figure}
+\input{${1:filename}}
+\caption{${2:caption}}
+\end{figure}
+#+end_export
