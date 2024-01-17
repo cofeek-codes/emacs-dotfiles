@@ -813,6 +813,9 @@ With prefix arg N, delete backward to the start of the Nth word."
 
 (add-hook 'LaTeX-mode-hook 'latex-binds)
 
+(require 'org)
+(setq org-format-latex-options (plist-put org-format-latex-options :scale 2.0))
+
 
 ;; Latex end ==============
 
