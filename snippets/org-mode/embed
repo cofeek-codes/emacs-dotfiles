@@ -4,7 +4,7 @@
 # --
 #+begin_export latex
 \begin{figure}
-\input{${1:filename}}
-\caption{${2:caption}}
+\scalebox{${1:scale}}{\input{${2:filename}}}
+\caption{${3:caption}}
 \end{figure}
 #+end_export
