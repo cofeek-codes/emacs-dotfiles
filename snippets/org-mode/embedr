@@ -1,0 +1,10 @@
+# -*- mode: snippet -*-
+# name: embedr
+# key: embedr
+# --
+#+begin_export latex
+\begin{figure}
+\resizebox{\textwidth}{!}{\input{${2:filename}}}
+\caption{${3:caption}}
+\end{figure}
+#+end_export
