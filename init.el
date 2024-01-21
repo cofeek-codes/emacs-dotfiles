@@ -10,6 +10,7 @@
 (global-set-key (kbd "C->") 'end-of-buffer)
 (global-set-key (kbd "C-<") 'beginning-of-buffer)
 (global-set-key (kbd "C-k") 'kill-whole-line)
+(global-set-key (kbd "C-'") 'kill-line)
 (global-set-key (kbd "C-c g") 'goto-line)
 (global-set-key (kbd "C-q") 'move-beginning-of-line)
 (global-set-key (kbd "C-a") 'mark-whole-buffer)
