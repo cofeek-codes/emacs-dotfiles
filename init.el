@@ -673,6 +673,9 @@ With prefix arg N, delete backward to the start of the Nth word."
 
 
 
+(define-key dired-mode-map (kbd "C-<return>") 'dired-find-file-other-window)
+
+
 
 ;; git (magit)
 
