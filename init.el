@@ -226,6 +226,9 @@ With prefix arg N, delete backward to the start of the Nth word."
 
 ;; company
 
+(require 'company)
+(add-to-list 'company-backends 'company-dabbrev)
+
 (global-company-mode)
 
 ;; C/C++
