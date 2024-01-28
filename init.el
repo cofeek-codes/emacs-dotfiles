@@ -759,6 +759,7 @@ With prefix arg N, delete backward to the start of the Nth word."
 ;; Shell
 
 (global-set-key (kbd "C-\\") 'shell-command)
+(global-set-key (kbd "M-\\") 'async-shell-command)
 
 (setq shell-file-name "/bin/bash")
 
