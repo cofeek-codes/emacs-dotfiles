@@ -13,6 +13,7 @@ intelephense/
 blink-search/
 blink-search.db
 eshell/
+games/
 *.last
 *.eld
 .mc-lists.el
