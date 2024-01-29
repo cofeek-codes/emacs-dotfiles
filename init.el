@@ -860,6 +860,18 @@ With prefix arg N, delete backward to the start of the Nth word."
 
 ;; Graphviz dot end  ========
 
+
+;; D2lang
+
+
+(add-to-list 'load-path "~/.emacs.d/packages/d2-mode/")
+(require 'd2-mode)
+
+
+
+
+;; D2lang end ================
+
 ;; Org
 
 (require 'org)
