@@ -867,7 +867,7 @@ With prefix arg N, delete backward to the start of the Nth word."
 (add-to-list 'load-path "~/.emacs.d/packages/d2-mode/")
 (require 'd2-mode)
 
-
+(setq d2-output-format ".png")
 
 
 ;; D2lang end ================
