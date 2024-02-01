@@ -14,8 +14,6 @@
 (global-set-key (kbd "C-c g") 'goto-line)
 (global-set-key (kbd "C-q") 'move-beginning-of-line)
 (global-set-key (kbd "C-a") 'mark-whole-buffer)
-(global-set-key (kbd "C-{") 'backward-sexp)
-(global-set-key (kbd "C-}") 'forward-sexp)
 (global-set-key (kbd "C-e") 'move-end-of-line)
 (global-set-key (kbd "C-S-f") 'query-replace)
 
