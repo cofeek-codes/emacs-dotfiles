@@ -623,13 +623,6 @@ With prefix arg N, delete backward to the start of the Nth word."
   (define-key lsp-mode-map (kbd "<f2>") #'lsp-rename))
 
 
-
-;; C-c d to go to definition
-
-(with-eval-after-load 'lsp-mode
-  (define-key lsp-mode-map (kbd "C-c d") #'lsp-find-definition))
-
-
 ;; end lsp binds ======================
 
 
