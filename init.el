@@ -122,9 +122,14 @@ With prefix arg N, delete backward to the start of the Nth word."
 
 ;; font
 
-(set-face-attribute 'default nil
-                    :family "Fira Code"
-                    :height 180)
+;; (set-face-attribute 'default nil
+;;                     :family "Fira Code"
+;;                     :height 180)
+
+
+
+(set-frame-font "Iosevka-21" nil t)
+
 
 ;; start in fullscreen
 
