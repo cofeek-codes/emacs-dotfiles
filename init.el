@@ -739,14 +739,7 @@ With prefix arg N, delete backward to the start of the Nth word."
 
 
 (require 'ansi-color)
-
-
-(defun rc/colorize-compilation-buffer ()
-  (toggle-read-only)
-  (ansi-color-apply-on-region compilation-filter-start (point))
-  (toggle-read-only))
-(add-hook 'compilation-filter-hook 'rc/colorize-compilation-buffer)
-
+(add-hook 'compilation-filter-hook 'ansi-color-compilation-filter)
 
 (setq compilation-scroll-output t)
 
