@@ -15,9 +15,10 @@
 (global-set-key (kbd "C-q") 'move-beginning-of-line)
 (global-set-key (kbd "C-a") 'mark-whole-buffer)
 (global-set-key (kbd "C-e") 'move-end-of-line)
-(global-set-key (kbd "C-S-f") 'query-replace)
+(global-set-key (kbd "C-M-SPC") 'mark-word)
 (global-set-key (kbd "C-{") 'er/contract-region)
 (global-set-key (kbd "C-}") 'er/expand-region)
+(global-set-key (kbd "C-S-f") 'query-replace)
 
 
 ;; tabs
