@@ -6,7 +6,7 @@
  '(highlight ((t (:background "#FFF" :foreground "#000"))))
  '(font-lock-comment-face ((t (:foreground "#FF9B21"))))
  '(font-lock-doc-face ((t (:foreground "#FF9B21"))))
- '(font-lock-function-name-face ((t (:foreground "#FFF"))))
+ '(font-lock-function-name-face ((t (:foreground "#96a6c8"))))
  '(font-lock-keyword-face ((t (:foreground "#FFDD33" :weight bold))))
  '(font-lock-preprocessor-face ((t (:foreground "#949bb0"))))
  '(font-lock-string-face ((t (:foreground "#79BF46"))))
