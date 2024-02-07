@@ -8,7 +8,7 @@
  '(font-lock-doc-face ((t (:foreground "#FF9B21"))))
  '(font-lock-function-name-face ((t (:foreground "#96a6c8"))))
  '(font-lock-keyword-face ((t (:foreground "#FFDD33" :weight bold))))
- '(font-lock-preprocessor-face ((t (:foreground "#949bb0"))))
+ '(font-lock-preprocessor-face ((t (:inherit font-lock-constant-face))))
  '(font-lock-string-face ((t (:foreground "#79BF46"))))
  '(font-lock-type-face ((t (:foreground "#949bb0" :slant normal))))
  '(mode-line-buffer-id ((t (:foreground "#FFF" :weight normal))))
@@ -29,7 +29,7 @@
  '(font-lock-variable-name-face ((t (:foreground "#FFF"))))
  '(region ((t (:extend nil :background "#504945"))))
  '(mode-line-inactive ((t (:inherit mode-line :background "#252525" :foreground "#f8f8f8" :box (:line-width (1 . -1) :color "#252525")))))
- '(font-lock-constant-face ((t (:inherit font-lock-type-face))))
+ '(font-lock-constant-face ((t (:foreground "#95A99F"))))
  '(default ((t (:inherit nil :extend nil :stipple nil :background "#181818" :foreground "#FFF" :inverse-video nil :box nil :strike-through nil :overline nil :underline nil :slant normal :weight normal :height 181 :width normal :foundry "CTDB" :family "Fira Code")))))
 
 (provide-theme 'tsoding)
