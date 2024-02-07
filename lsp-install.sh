@@ -6,7 +6,6 @@ set -xe
 echo "================== node lsps =================="
 
 npm i -g @prisma/language-server &&
-npm install -g @vue/language-server
 npm i -g pyright &&
 npm i -g typescript-language-server &&
 npm i -g intelephense &&
