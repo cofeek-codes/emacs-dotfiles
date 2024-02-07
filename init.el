@@ -984,6 +984,7 @@ With prefix arg N, delete backward to the start of the Nth word."
  '(ido-subdir ((t (:foreground "#949bb0" :weight bold))))
  '(italic ((t (:slant italic :weight semi-bold :family "MesloLGMDZ Nerd Font"))))
  '(makefile-targets ((t (:inherit font-lock-type-face))))
+ '(mmm-default-submode-face ((t nil)))
  '(org-document-info-keyword ((t (:inherit font-lock-type-face))))
  '(org-level-1 ((t (:extend nil :weight bold))))
  '(org-level-2 ((t (:inherit font-lock-type-face :extend nil :weight bold))))
