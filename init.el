@@ -204,19 +204,11 @@ With prefix arg N, delete backward to the start of the Nth word."
 ;; lsp
 
 
-(with-eval-after-load 'lsp-mode
-  (setq lsp-keymap-prefix "C-c l")
-  (require 'dap-cpptools)
-  (yas-global-mode))
-
-
-
-
-
-
-
 (use-package lsp-ui
-  :commands lsp-ui-mode)
+  :commands lsp-ui-mode
+  :config
+  (setq lsp-ui-flycheck-live-reporting nil)
+)
 
    (setq lsp-ui-sideline-enable t
          lsp-ui-sideline-show-symbol nil
@@ -231,6 +223,13 @@ With prefix arg N, delete backward to the start of the Nth word."
 (use-package lsp-mode :hook (lsp-mode . sideline-mode))  ; enable it when lsp is on
 
 
+;; flycheck
+
+(use-package flycheck
+  :init
+  (setq flycheck-check-syntax-automatically '(save)) ; Check syntax only on save
+  )
+
 
 ;; company
 
@@ -238,6 +237,11 @@ With prefix arg N, delete backward to the start of the Nth word."
 (add-to-list 'company-backends 'company-dabbrev)
 
 (global-company-mode)
+
+
+;; yasnippet
+
+(yas-global-mode)
 
 ;; C/C++
 
