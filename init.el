@@ -955,6 +955,7 @@ With prefix arg N, delete backward to the start of the Nth word."
  ;; If there is more than one, they won't work right.
  '(custom-safe-themes
 	'("0d747b714779e0148e602581746b8806926724a72fb247129c7359f5f6ad80c2" "18cf5d20a45ea1dff2e2ffd6fbcd15082f9aa9705011a3929e77129a971d1cb3" default))
+ '(doc-view-continuous t)
  '(markdown-command "/usr/bin/pandoc")
  '(org-support-shift-select 'always)
  '(package-selected-packages
@@ -985,7 +986,7 @@ With prefix arg N, delete backward to the start of the Nth word."
  '(ido-incomplete-regexp ((t (:foreground "white"))))
  '(ido-only-match ((t (:foreground "#FF9B21"))))
  '(ido-subdir ((t (:foreground "#949bb0" :weight bold))))
- '(italic ((t (:slant italic :weight semi-bold :family "MesloLGMDZ Nerd Font"))))
+ '(italic ((t (:slant italic :weight normal))))
  '(makefile-targets ((t (:inherit font-lock-type-face))))
  '(mmm-default-submode-face ((t nil)))
  '(org-document-info-keyword ((t (:inherit font-lock-type-face))))
