@@ -79,6 +79,8 @@
 (straight-use-package 'dune-format)
 (straight-use-package 'expand-region)
 (straight-use-package 'benchmark-init)
+(straight-use-package 'org)
+
 
 (benchmark-init/activate)
 (add-hook 'after-init-hook
