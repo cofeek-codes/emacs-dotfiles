@@ -1,3 +1,94 @@
+
+;; package management
+
+;; bootstrap straight
+
+
+(setq straight-check-for-modifications nil)
+(setq straight-check-for-modifications 'live)
+
+
+(defvar bootstrap-version)
+(let ((bootstrap-file
+       (expand-file-name
+        "straight/repos/straight.el/bootstrap.el"
+        (or (bound-and-true-p straight-base-dir)
+            user-emacs-directory)))
+      (bootstrap-version 7))
+  (unless (file-exists-p bootstrap-file)
+    (with-current-buffer
+        (url-retrieve-synchronously
+         "https://raw.githubusercontent.com/radian-software/straight.el/develop/install.el"
+         'silent 'inhibit-cookies)
+      (goto-char (point-max))
+      (eval-print-last-sexp)))
+  (load bootstrap-file nil 'nomessage))
+
+;; packages
+
+(straight-use-package 'lsp-mode)
+(straight-use-package 'yasnippet)
+(straight-use-package 'hl-line)
+(straight-use-package 'projectile)
+(straight-use-package 'flycheck)
+(straight-use-package 'company)
+(straight-use-package 'helm-xref)
+(straight-use-package 'dap-mode)
+(straight-use-package 'json-mode)
+(straight-use-package 'move-text)
+(straight-use-package 'wrap-region)
+(straight-use-package 'lsp-ui)
+(straight-use-package 'sideline)
+(straight-use-package 'sideline-lsp)
+(straight-use-package 'clang-format)
+(straight-use-package 'emmet-mode)
+(straight-use-package 'resize-window)
+(straight-use-package 'magit)
+(straight-use-package 'prettier-js)
+(straight-use-package 'typescript-mode)
+(straight-use-package 'rust-mode)
+(straight-use-package 'go-mode)
+(straight-use-package 'php-mode)
+(straight-use-package 'lsp-pyright)
+(straight-use-package 'py-autopep8)
+(straight-use-package 'wakatime-mode)
+(straight-use-package 'csharp-mode)
+(straight-use-package 'haskell-mode)
+(straight-use-package 'lsp-haskell)
+(straight-use-package 'quelpa)
+(straight-use-package 'quelpa-use-package)
+(straight-use-package 'ido-completing-read+)
+(straight-use-package 'smex)
+(straight-use-package 'projectile)
+(straight-use-package 'ag)
+(straight-use-package 'multiple-cursors)
+(straight-use-package 'neotree)
+(straight-use-package 'all-the-icons)
+(straight-use-package 'lsp-pascal)
+(straight-use-package 'yaml-mode)
+(straight-use-package 'lua-mode)
+(straight-use-package 'company-lua)
+(straight-use-package 'company-web)
+(straight-use-package 'python-mode)
+(straight-use-package 'company-math)
+(straight-use-package 'elixir-mode)
+(straight-use-package 'seq)
+(straight-use-package 'transpose-frame)
+(straight-use-package 'slint-mode)
+(straight-use-package 'zenburn-theme)
+(straight-use-package 'dune-format)
+(straight-use-package 'expand-region)
+(straight-use-package 'benchmark-init)
+
+(benchmark-init/activate)
+(add-hook 'after-init-hook
+          (lambda ()
+            (message "Initialization completed in %s" (emacs-init-time))
+            (benchmark-init/show-durations-tabulated)))
+
+(add-hook 'after-init-hook 'benchmark-init/deactivate)
+
+
 ;; initialization
 
 (setq inhibit-splash-screen t)
@@ -79,14 +170,14 @@
 ;; Delete word backwards (like in terminal)
 
 (defun delete-backward-word (&optional arg)
-  "`delete-backward-char`, but if region is active then kill region.                                                                      
+  "`delete-backward-char`, but if region is active then kill region.
 With prefix arg N, delete backward to the start of the Nth word."
   (interactive "P")
   (cond (arg
          (backward-delete-word (prefix-numeric-value arg)))
         ((use-region-p)
          (kill-region (region-beginning) (region-end)))
-    (t (backward-delete-word (prefix-numeric-value arg)))))
+		  (t (backward-delete-word (prefix-numeric-value arg)))))
 
 (defun backward-delete-word (arg)
   "Like `backward-kill-word`, but just delete."
@@ -152,20 +243,20 @@ With prefix arg N, delete backward to the start of the Nth word."
   :group 'linum)
 
 
-     (defadvice linum-update (around my-linum-update)
-       (let ((my-linum-current-line-number (line-number-at-pos)))
-         ad-do-it))
-     (ad-activate 'linum-update)
+(defadvice linum-update (around my-linum-update)
+  (let ((my-linum-current-line-number (line-number-at-pos)))
+    ad-do-it))
+(ad-activate 'linum-update)
 
-     (setq linum-format 'my-linum-format)
+(setq linum-format 'my-linum-format)
 
-     (defun my-linum-format (line-number)
-       (propertize (format "%3d" line-number)
-                   'face (if (eq line-number my-linum-current-line-number)
-                             'my-linum-hl
-                           'linum)))
+(defun my-linum-format (line-number)
+  (propertize (format "%3d" line-number)
+              'face (if (eq line-number my-linum-current-line-number)
+                        'my-linum-hl
+                      'linum)))
 
-     (add-hook 'prog-mode-hook 'linum-mode)
+(add-hook 'prog-mode-hook 'linum-mode)
 
 
 
@@ -178,57 +269,31 @@ With prefix arg N, delete backward to the start of the Nth word."
 
 
 
-;; package management
-
-(require 'package)
-(unless (package-installed-p 'use-package)
-  (package-install 'use-package))
-
-
-(eval-when-compile
-  (require 'use-package))
-
-(add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/") t)
-(package-initialize)
- ;; (package-refresh-contents) don't want it to refresh every time
-
-
-(setq package-selected-packages '(lsp-mode yasnippet hl-line  projectile flycheck company helm-xref dap-mode json-mode move-text lsp-ui sideline sideline-lsp clang-format emmet-mode resize-window magit prettier-js typescript-mode rust-mode go-mode php-mode lsp-pyright py-autopep8 wakatime-mode csharp-mode haskell-mode lsp-haskell quelpa quelpa-use-package ido-completing-read+ smex projectile ag multiple-cursors neotree all-the-icons lsp-pascal yaml-mode lua-mode company-lua company-web python-mode company-math elixir-mode seq transpose-frame slint-mode zenburn-theme dune-format expand-region))
- 
-
-(when (cl-find-if-not #'package-installed-p package-selected-packages)
-  (package-refresh-contents)
-  (mapc #'package-install package-selected-packages))
-
-
 ;; lsp
 
 
-(use-package lsp-ui
-  :commands lsp-ui-mode
-  :config
-  (setq lsp-ui-flycheck-live-reporting nil)
-)
+(require 'lsp-ui)
 
-   (setq lsp-ui-sideline-enable t
-         lsp-ui-sideline-show-symbol nil
-         lsp-ui-sideline-show-hover nil
-         lsp-ui-sideline-show-code-actions nil
-         lsp-ui-sideline-show-diagnostics t)
+(setq lsp-ui-flycheck-live-reporting nil)
 
-(use-package sideline
-  :init
-  (setq sideline-backends-right '(sideline-lsp)))
-   
-(use-package lsp-mode :hook (lsp-mode . sideline-mode))  ; enable it when lsp is on
+
+(setq lsp-ui-sideline-enable t
+      lsp-ui-sideline-show-symbol nil
+      lsp-ui-sideline-show-hover nil
+      lsp-ui-sideline-show-code-actions nil
+      lsp-ui-sideline-show-diagnostics t)
+
+(require 'sideline)
+(setq sideline-backends-right '(sideline-lsp))
+
+(require 'lsp)
+(add-hook 'lsp-mode-hook 'sideline-mode)
 
 
 ;; flycheck
 
-(use-package flycheck
-  :init
-  (setq flycheck-check-syntax-automatically '(save)) ; Check syntax only on save
-  )
+(require 'flycheck)
+(setq flycheck-check-syntax-automatically '(save)) ; Check syntax only on save
 
 
 ;; company
@@ -240,7 +305,7 @@ With prefix arg N, delete backward to the start of the Nth word."
 
 
 ;; yasnippet
-
+(require 'yasnippet)
 (yas-global-mode)
 
 ;; C/C++
@@ -249,12 +314,12 @@ With prefix arg N, delete backward to the start of the Nth word."
 (add-hook 'c++-mode-hook 'lsp)
 
 
-(setq gc-cons-threshold (* 100 1024 1024)
-      read-process-output-max (* 1024 1024)
-      treemacs-space-between-root-nodes nil
-      company-idle-delay 0.0
-      company-minimum-prefix-length 1
-      lsp-idle-delay 0.1)
+;; (setq gc-cons-threshold (* 100 1024 1024)
+;;      read-process-output-max (* 1024 1024)
+;;    treemacs-space-between-root-nodes nil
+;;  company-idle-delay 0.0
+;; company-minimum-prefix-length 1
+;; lsp-idle-delay 0.1)
 
 
 
@@ -357,7 +422,7 @@ With prefix arg N, delete backward to the start of the Nth word."
                  (eq major-mode 'javascript-mode)
                  (eq major-mode 'typescript-mode)
 
-		 )
+					  )
              (executable-find "prettier"))
     (prettier-js)))
 
@@ -378,7 +443,7 @@ With prefix arg N, delete backward to the start of the Nth word."
 
 
 ;; end Rust ================
- 
+
 
 
 ;; Lua
@@ -410,14 +475,15 @@ With prefix arg N, delete backward to the start of the Nth word."
 
 
 (use-package lsp-pyright
-       :ensure t
-       :hook (python-mode . (lambda ()
-                               (require 'lsp-pyright)
-                               (lsp))))
+  :straight t
+  :hook (python-mode . (lambda ()
+                         (require 'lsp-pyright)
+                         (lsp))))
 
 
-     (use-package py-autopep8
-       :hook (python-mode . py-autopep8-mode))
+(use-package py-autopep8
+  :straight t
+  :hook (python-mode . py-autopep8-mode))
 
 ;; Python end ==========
 
@@ -461,14 +527,11 @@ With prefix arg N, delete backward to the start of the Nth word."
 
 ;; Odin
 
-     (quelpa
-      '(quelpa-use-package
-        :fetcher git
-        :url "https://github.com/quelpa/quelpa-use-package.git"))
-     (require 'quelpa-use-package)
 
-    (use-package odin-mode
-      :quelpa (odin-mode :repo "mattt-b/odin-mode" :fetcher github))
+
+
+(straight-use-package
+ '(odin-mode :type git :host github :repo "mattt-b/odin-mode"))
 
 (setq-default lsp-auto-guess-root t) ;; if you work with Projectile/project.el this will help find the ols.json file.
 (defvar lsp-language-id-configuration '((odin-mode . "odin")))
@@ -505,10 +568,9 @@ With prefix arg N, delete backward to the start of the Nth word."
 ;; Prisma
 
 
-(use-package prisma-mode
-  :quelpa (prisma-mode :repo "pimeys/emacs-prisma-mode" :fetcher github))
 
-
+(straight-use-package
+ '(prisma-mode :type git :host github :repo "pimeys/emacs-prisma-mode"))
 
 (require 'prisma-mode)
 
@@ -541,11 +603,6 @@ With prefix arg N, delete backward to the start of the Nth word."
 (add-hook 'before-save-hook 'lsp-format-buffer)
 
 
-(use-package inf-elixir
-  :ensure t
-  :bind (("C-c C-l" . 'inf-elixir)
-         ("C-c C-k" . 'inf-elixir-send-buffer)))
-
 ;; Elixir end ==============
 
 ;; Pascal
@@ -557,8 +614,8 @@ With prefix arg N, delete backward to the start of the Nth word."
 (add-hook 'opascal-mode-hook 'lsp)
 
 (add-hook 'opascal-mode-hook
-             (lambda ()
-               (add-hook 'before-save-hook #'lsp-format-buffer nil t)))
+          (lambda ()
+            (add-hook 'before-save-hook #'lsp-format-buffer nil t)))
 
 ;; Pascal end ==============
 
@@ -566,24 +623,24 @@ With prefix arg N, delete backward to the start of the Nth word."
 ;; Ocaml
 
 (use-package tuareg
-  :ensure t
+  :straight t
   )
 
 
 (use-package merlin
-  :ensure t
+  :straight t
   :config
   (add-hook 'tuareg-mode-hook #'merlin-mode)
   (add-hook 'merlin-mode-hook #'company-mode)
   )
 
 (use-package merlin-eldoc
-  :ensure t
+  :straight t
   :hook ((tuareg-mode) . merlin-eldoc-setup))
 
 
 (use-package ocamlformat
-  :ensure t
+  :straight t
   :custom (ocamlformat-enable 'enable-outside-detected-project)
   :hook (before-save . ocamlformat-before-save))
 
@@ -617,8 +674,8 @@ With prefix arg N, delete backward to the start of the Nth word."
 ;; C-j to go to next error/warn/info
 
 (add-hook 'python-mode-hook
-         (lambda()
-           (local-unset-key (kbd "C-j"))))
+          (lambda()
+				(local-unset-key (kbd "C-j"))))
 
 
 (global-set-key (kbd "C-j") 'flycheck-next-error)
@@ -645,7 +702,9 @@ With prefix arg N, delete backward to the start of the Nth word."
 
 ;; moving lines
 
+
 (use-package move-text
+  :straight t
   :bind
   (("M-<up>"   . move-text-up)
    ("M-<down>" . move-text-down)))
@@ -655,9 +714,6 @@ With prefix arg N, delete backward to the start of the Nth word."
 
 (electric-pair-mode 1)
 
-(unless (package-installed-p 'wrap-region)
-  (package-refresh-contents)
-  (package-install 'wrap-region))
 
 (require 'wrap-region)
 (wrap-region-mode t)
@@ -666,7 +722,6 @@ With prefix arg N, delete backward to the start of the Nth word."
 ;;; dired
 (require 'dired-x)
 
-;; FIXME: fix dired dwim behaviour
 
 (setq-default dired-dwim-target t)
 (setq dired-listing-switches "-alh")
@@ -714,7 +769,7 @@ With prefix arg N, delete backward to the start of the Nth word."
 
 (eval-after-load 'emmet-mode
   '(progn
-    (define-key emmet-mode-keymap (kbd "C-,") 'emmet-expand-line)))
+     (define-key emmet-mode-keymap (kbd "C-,") 'emmet-expand-line)))
 
 
 
@@ -793,8 +848,8 @@ With prefix arg N, delete backward to the start of the Nth word."
 ;; Latex for notes
 
 (use-package auctex
-  :ensure t
-  :defer  t
+  :defer    t
+  :straight t
   )
 
 (add-hook 'LaTeX-mode-hook 'LaTeX-math-mode)
@@ -893,59 +948,29 @@ With prefix arg N, delete backward to the start of the Nth word."
 (require 'org)
 (require 'ox-latex)
 (add-to-list 'org-latex-packages-alist '("" "minted"))
-(setq org-latex-listings 'minted) 
+(setq org-latex-listings 'minted)
 
 (setq org-latex-pdf-process
-    '("pdflatex -shell-escape -interaction nonstopmode -output-directory %o -jobname=%b %f"
-      "pdflatex -shell-escape -interaction nonstopmode -output-directory %o -jobname=%b %f"
-      "pdflatex -shell-escape -interaction nonstopmode -output-directory %o -jobname=%b %f"
-      "rm -rf _minted-*"))
+		'("pdflatex -shell-escape -interaction nonstopmode -output-directory %o -jobname=%b %f"
+        "pdflatex -shell-escape -interaction nonstopmode -output-directory %o -jobname=%b %f"
+        "pdflatex -shell-escape -interaction nonstopmode -output-directory %o -jobname=%b %f"
+        "rm -rf _minted-*"))
 
 (setq org-src-fontify-natively t)
 
-(org-babel-do-load-languages
- 'org-babel-load-languages
- '((c)
- (cpp)
- (javascript)
- (typescript)
- (rust)
- (go)
- (php)
- (lua)
- (python)
- (haskell)
- (elixir)
- (pascal)
- (ocaml)
- (latex)))
-
-;; Org code execution commands
-
-;; python
-
-(require 'ob-python)
-(setq org-babel-python-command "python")
-
-;; python end =====
-
-;; TODO: fill with commands for all languages
-
-;; Org code execution commands ========
 
 ;; Org end ========
 
 ;; Markdown
 
 (add-to-list 'load-path (expand-file-name "~/.emacs.d/packages/emacs-livedown"))
-(require 'livedown)
 
-;; Markdown end ======== 
+;; Markdown end ========
 
 ;; Editorconfig
 
 (use-package editorconfig
-  :ensure t
+  :straight t
   :config
   (editorconfig-mode 1))
 
@@ -960,10 +985,7 @@ With prefix arg N, delete backward to the start of the Nth word."
  '(custom-safe-themes
 	'("0d747b714779e0148e602581746b8806926724a72fb247129c7359f5f6ad80c2" "18cf5d20a45ea1dff2e2ffd6fbcd15082f9aa9705011a3929e77129a971d1cb3" default))
  '(doc-view-continuous t)
- '(markdown-command "/usr/bin/pandoc")
  '(org-support-shift-select 'always)
- '(package-selected-packages
-	'(dune-format merlin-eldoc lsp-mode yasnippet lsp-treemacs helm-lsp hl-line projectile hydra flycheck company avy which-key helm-xref dap-mode json-mode move-text lsp-ui sideline sideline-lsp clang-format emmet-mode resize-window magit prettier-js typescript-mode rust-mode go-mode php-mode telega lsp-pyright py-autopep8 wakatime-mode csharp-mode haskell-mode lsp-haskell cargo quelpa quelpa-use-package ido-completing-read+ smex projectile ag multiple-cursors neotree all-the-icons lsp-pascal yaml-mode nasm-mode lua-mode company-lua company-web python-mode company-math elixir-mode seq transpose-frame slint-mode zenburn-theme))
  '(plantuml-indent-level 3)
  '(plantuml-suppress-deprecation-warning nil)
  '(wakatime-cli-path "~/.wakatime/wakatime-cli")
@@ -1002,6 +1024,3 @@ With prefix arg N, delete backward to the start of the Nth word."
  '(tuareg-font-lock-operator-face ((t (:inherit font-lock-keyword-face)))))
 (put 'upcase-region 'disabled nil)
 (put 'downcase-region 'disabled nil)
-;; ## added by OPAM user-setup for emacs / base ## 56ab50dc8996d2bb95e7856a6eddb17b ## you can edit, but keep this line
-(require 'opam-user-setup "~/.emacs.d/opam-user-setup.el")
-;; ## end of OPAM user-setup addition for emacs / base ## keep this line

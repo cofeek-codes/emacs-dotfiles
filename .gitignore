@@ -18,3 +18,4 @@ games/
 *.eld
 .mc-lists.el
 .dap-breakpoints
+/straight/
