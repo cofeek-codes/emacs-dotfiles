@@ -2,4 +2,3 @@
 
 (setq inhibit-startup-screen t)
 
-;; (setq site-run-file nil)
