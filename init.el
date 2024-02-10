@@ -78,7 +78,8 @@
 (straight-use-package 'zenburn-theme)
 (straight-use-package 'dune-format)
 (straight-use-package 'expand-region)
-
+(straight-use-package 'clojure-mode)
+(straight-use-package 'cider)
  ;; for debug
 
 ;; (straight-use-package 'benchmark-init)
@@ -657,6 +658,17 @@ With prefix arg N, delete backward to the start of the Nth word."
 
 ;; Slint (UI framework) end ==============
 
+
+;; Clojure
+
+(add-to-list 'auto-mode-alist '("\\.clj\\'" . clojure-mode))
+
+
+(add-hook 'clojure-mode-hook 'lsp)
+(add-hook 'clojure-mode-hook 'cider-mode)
+(add-hook 'cider-mode-hook 'cider-company-enable-fuzzy-completion)
+
+;; Clojure end =================
 
 
 ;; lsp binds
