@@ -78,17 +78,19 @@
 (straight-use-package 'zenburn-theme)
 (straight-use-package 'dune-format)
 (straight-use-package 'expand-region)
-(straight-use-package 'benchmark-init)
 (straight-use-package 'org)
 
+ ;; for debug
 
-(benchmark-init/activate)
-(add-hook 'after-init-hook
-          (lambda ()
-            (message "Initialization completed in %s" (emacs-init-time))
-            (benchmark-init/show-durations-tabulated)))
+;; (straight-use-package 'benchmark-init)
 
-(add-hook 'after-init-hook 'benchmark-init/deactivate)
+;; (benchmark-init/activate)
+;; (add-hook 'after-init-hook
+;;           (lambda ()
+;;             (message "Initialization completed in %s" (emacs-init-time))
+;;             (benchmark-init/show-durations-tabulated)))
+
+;; (add-hook 'after-init-hook 'benchmark-init/deactivate)
 
 
 ;; initialization
