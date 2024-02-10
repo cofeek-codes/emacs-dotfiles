@@ -78,7 +78,6 @@
 (straight-use-package 'zenburn-theme)
 (straight-use-package 'dune-format)
 (straight-use-package 'expand-region)
-(straight-use-package 'org)
 
  ;; for debug
 
