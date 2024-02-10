@@ -845,12 +845,9 @@ With prefix arg N, delete backward to the start of the Nth word."
   :straight t
   )
 
+
+
 (add-hook 'LaTeX-mode-hook 'LaTeX-math-mode)
-
-;; cargo install --git https://github.com/latex-lsp/texlab --tag v5.12.0
-
-(add-hook 'LaTeX-mode-hook 'lsp)
-(add-hook 'LaTeX-math-mode-hook 'lsp)
 
 (add-hook 'LaTeX-mode-hook 'turn-on-prettify-symbols-mode)
 (add-hook 'LaTeX-math-mode-hook 'turn-on-prettify-symbols-mode)
@@ -982,7 +979,7 @@ With prefix arg N, delete backward to the start of the Nth word."
  '(plantuml-indent-level 3)
  '(plantuml-suppress-deprecation-warning nil)
  '(wakatime-cli-path "~/.wakatime/wakatime-cli")
- '(warning-suppress-types '((comp))))
+ '(warning-suppress-types '(((org-element org-element-parser)) (comp))))
 
 
 
