@@ -335,28 +335,28 @@ With prefix arg N, delete backward to the start of the Nth word."
           (lambda ()
             (lsp)
             (emmet-mode)
-            (prettier-js-mode)))
+            ))
 
 ;; CSS with LSP, Emmet and Prettier
 (add-hook 'css-mode-hook
           (lambda ()
             (lsp)
             (emmet-mode)
-            (prettier-js-mode)))
+            ))
 
 ;; JavaScript with LSP, Emmet and Prettier
 (add-hook 'js-mode-hook
           (lambda ()
             (lsp)
             (emmet-mode)
-            (prettier-js-mode)))
+				))
 
 ;; TypeScript with LSP, Emmet and Prettier
 (add-hook 'typescript-mode-hook
           (lambda ()
             (lsp)
             (emmet-mode)
-            (prettier-js-mode)))
+            ))
 
 
 ;; TSX with LSP, Emmet and Prettier
@@ -365,7 +365,7 @@ With prefix arg N, delete backward to the start of the Nth word."
           (lambda ()
             (lsp)
             (emmet-mode)
-            (prettier-js-mode)))
+            ))
 
 ;; SCSS with LSP, Emmet and Prettier
 ;; Install scss-mode first
@@ -373,15 +373,7 @@ With prefix arg N, delete backward to the start of the Nth word."
           (lambda ()
             (lsp)
             (emmet-mode)
-            (prettier-js-mode)))
-
-
-
-(setq prettier-js-args '("--no-semi"
-                         "--single-quote"
-                         "--jsx-single-quote"
-                         "--arrow-parens" "avoid"))
-
+            ))
 
 
 (eval-after-load "emmet-mode"
