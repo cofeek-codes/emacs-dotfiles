@@ -836,6 +836,10 @@ With prefix arg N, delete backward to the start of the Nth word."
 
 ;; Latex for notes
 
+;; FIXME: enable auctex
+
+(with-eval-after-load 'latex
+
 (use-package auctex
   :defer    t
   :straight t
@@ -870,6 +874,7 @@ With prefix arg N, delete backward to the start of the Nth word."
 (require 'org)
 (setq org-format-latex-options (plist-put org-format-latex-options :scale 2.0))
 
+)
 
 ;; Latex end ==============
 
@@ -919,32 +924,30 @@ With prefix arg N, delete backward to the start of the Nth word."
 ;; D2lang end ================
 
 ;; Org
+(with-eval-after-load 'org
 
-(require 'org)
+  (setq org-agenda-files '("~/Desktop/notes/"))
 
-(setq org-agenda-files '("~/Desktop/notes/"))
+  (setq org-log-done t)
 
-(setq org-log-done t)
+  (add-to-list 'load-path "~/.emacs.d/packages/org-table-wrap/")
+  (require 'org-table-wrap-functions)
 
-(add-to-list 'load-path "~/.emacs.d/packages/org-table-wrap/")
-(require 'org-table-wrap-functions)
+  (define-key org-mode-map (kbd "C-|") 'org-table-column-wrap-to-point)
 
-(define-key org-mode-map (kbd "C-|") 'org-table-column-wrap-to-point)
+  (require 'ox-latex)
+  (add-to-list 'org-latex-packages-alist '("" "minted"))
+  (setq org-latex-listings 'minted)
 
-(require 'org)
-(require 'ox-latex)
-(add-to-list 'org-latex-packages-alist '("" "minted"))
-(setq org-latex-listings 'minted)
+  (setq org-latex-pdf-process
+		  '("pdflatex -shell-escape -interaction nonstopmode -output-directory %o -jobname=%b %f"
+			 "pdflatex -shell-escape -interaction nonstopmode -output-directory %o -jobname=%b %f"
+			 "pdflatex -shell-escape -interaction nonstopmode -output-directory %o -jobname=%b %f"
+			 "rm -rf _minted-*"))
 
-(setq org-latex-pdf-process
-		'("pdflatex -shell-escape -interaction nonstopmode -output-directory %o -jobname=%b %f"
-        "pdflatex -shell-escape -interaction nonstopmode -output-directory %o -jobname=%b %f"
-        "pdflatex -shell-escape -interaction nonstopmode -output-directory %o -jobname=%b %f"
-        "rm -rf _minted-*"))
+  (setq org-src-fontify-natively t)
 
-(setq org-src-fontify-natively t)
-
-
+  )
 ;; Org end ========
 
 ;; Markdown
