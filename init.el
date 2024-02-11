@@ -93,10 +93,6 @@
 ;; (add-hook 'after-init-hook 'benchmark-init/deactivate)
 
 
-;; initialization
-
-(setq inhibit-splash-screen t)
-
 ;; binds
 
 (global-set-key (kbd "C-z") 'undo)
