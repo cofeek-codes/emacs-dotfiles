@@ -1,8 +1,6 @@
-
 ;; package management
 
 ;; bootstrap straight
-
 
 (setq straight-check-for-modifications nil)
 (setq straight-check-for-modifications 'live)
@@ -26,6 +24,7 @@
 
 ;; packages
 
+(straight-use-package 'use-package)
 (straight-use-package 'lsp-mode)
 (straight-use-package 'yasnippet)
 (straight-use-package 'hl-line)
@@ -44,7 +43,6 @@
 (straight-use-package 'emmet-mode)
 (straight-use-package 'resize-window)
 (straight-use-package 'magit)
-(straight-use-package 'prettier-js)
 (straight-use-package 'typescript-mode)
 (straight-use-package 'rust-mode)
 (straight-use-package 'go-mode)
@@ -55,8 +53,6 @@
 (straight-use-package 'csharp-mode)
 (straight-use-package 'haskell-mode)
 (straight-use-package 'lsp-haskell)
-(straight-use-package 'quelpa)
-(straight-use-package 'quelpa-use-package)
 (straight-use-package 'ido-completing-read+)
 (straight-use-package 'smex)
 (straight-use-package 'projectile)
@@ -80,7 +76,8 @@
 (straight-use-package 'expand-region)
 (straight-use-package 'clojure-mode)
 (straight-use-package 'cider)
- ;; for debug
+
+;; for debug
 
 ;; (straight-use-package 'benchmark-init)
 
