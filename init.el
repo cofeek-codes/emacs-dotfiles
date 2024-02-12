@@ -447,22 +447,23 @@ With prefix arg N, delete backward to the start of the Nth word."
 ;; Go end =============
 
 ;; Python
-
-(require 'python-mode)
-(setq auto-mode-alist (cons '("\\.py\\'" . python-mode) auto-mode-alist))
-
-
-(use-package lsp-pyright
-  :straight t
-  :hook (python-mode . (lambda ()
-                         (require 'lsp-pyright)
-                         (lsp))))
+(with-eval-after-load 'python
+  (require 'python-mode)
+  (setq auto-mode-alist (cons '("\\.py\\'" . python-mode) auto-mode-alist))
 
 
-(use-package py-autopep8
-  :straight t
-  :hook (python-mode . py-autopep8-mode))
+  (use-package lsp-pyright
+	 :straight t
+	 :hook (python-mode . (lambda ()
+									(require 'lsp-pyright)
+									(lsp))))
 
+
+  (use-package py-autopep8
+	 :straight t
+	 :hook (python-mode . py-autopep8-mode))
+
+)
 ;; Python end ==========
 
 
@@ -531,7 +532,6 @@ With prefix arg N, delete backward to the start of the Nth word."
 ;; FASM
 
 (add-to-list 'load-path "~/.emacs.d/packages/fasm-mode/")
-(require 'fasm-mode)
 
 ;; FASM end =============
 
