@@ -740,8 +740,6 @@ With prefix arg N, delete backward to the start of the Nth word."
 
 
 
-(setq company-idle-delay 0)
-
 ;; Number the candidates (use M-1, M-2 etc to select completions).
 (setq company-show-numbers t)
 
