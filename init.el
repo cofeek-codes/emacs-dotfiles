@@ -946,7 +946,7 @@ With prefix arg N, delete backward to the start of the Nth word."
 			 "rm -rf _minted-*"))
 
   (setq org-src-fontify-natively t)
-
+;; move scale stuff from latex here
   )
 ;; Org end ========
 
