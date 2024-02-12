@@ -55,7 +55,6 @@
 (straight-use-package 'lsp-haskell)
 (straight-use-package 'ido-completing-read+)
 (straight-use-package 'smex)
-(straight-use-package 'projectile)
 (straight-use-package 'ag)
 (straight-use-package 'multiple-cursors)
 (straight-use-package 'neotree)
