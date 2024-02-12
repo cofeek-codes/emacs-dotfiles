@@ -838,7 +838,6 @@ With prefix arg N, delete backward to the start of the Nth word."
 
 ;; FIXME: enable auctex
 
-(with-eval-after-load 'latex
 
 (use-package auctex
   :defer    t
@@ -871,10 +870,6 @@ With prefix arg N, delete backward to the start of the Nth word."
 
 (add-hook 'LaTeX-mode-hook 'latex-binds)
 
-(require 'org)
-(setq org-format-latex-options (plist-put org-format-latex-options :scale 2.0))
-
-)
 
 ;; Latex end ==============
 
@@ -946,7 +941,10 @@ With prefix arg N, delete backward to the start of the Nth word."
 			 "rm -rf _minted-*"))
 
   (setq org-src-fontify-natively t)
-;; move scale stuff from latex here
+
+  (require 'org)
+  (setq org-format-latex-options (plist-put org-format-latex-options :scale 2.0))
+
   )
 ;; Org end ========
 
