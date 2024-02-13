@@ -883,17 +883,26 @@ With prefix arg N, delete backward to the start of the Nth word."
 
 (add-to-list 'load-path "~/.emacs.d/packages/graphviz-dot-mode/")
 
+
+(autoload 'graphviz-dot-mode "graphviz-dot-mode" nil t)
+
+(add-to-list 'auto-mode-alist '("\\.dot\\'" . graphviz-dot-mode))
+
 ;; Graphviz dot end  ========
 
 
 ;; D2lang
 
-
 (add-to-list 'load-path "~/.emacs.d/packages/d2-mode/")
-(require 'd2-mode)
 
+;; Autoload d2-mode
+(autoload 'd2-mode "d2-mode" nil t)
+
+;; Associate .d2 files with d2-mode
+(add-to-list 'auto-mode-alist '("\\.d2\\'" . d2-mode))
+
+;; Set output format for d2-mode
 (setq d2-output-format ".png")
-
 
 ;; D2lang end ================
 
