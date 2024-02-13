@@ -31,7 +31,6 @@
 (straight-use-package 'projectile)
 (straight-use-package 'flycheck)
 (straight-use-package 'company)
-(straight-use-package 'helm-xref)
 (straight-use-package 'dap-mode)
 (straight-use-package 'json-mode)
 (straight-use-package 'move-text)
@@ -267,7 +266,7 @@ With prefix arg N, delete backward to the start of the Nth word."
 
 ;; lsp
 
-
+(with-eval-after-load 'lsp-mode
 (require 'lsp-ui)
 
 (setq lsp-ui-flycheck-live-reporting nil)
@@ -291,23 +290,13 @@ With prefix arg N, delete backward to the start of the Nth word."
 (require 'flycheck)
 (setq flycheck-check-syntax-automatically '(save)) ; Check syntax only on save
 
-
-;; company
-
-(require 'company)
-(add-to-list 'company-backends 'company-dabbrev)
-
-(global-company-mode)
-
-
-;; yasnippet
-(require 'yasnippet)
-(yas-global-mode)
+)
 
 ;; C/C++
-
-(add-hook 'c-mode-hook 'lsp)
-(add-hook 'c++-mode-hook 'lsp)
+(with-eval-after-load 'c-mode
+  (add-hook 'c-mode-hook 'lsp))
+(with-eval-after-load 'c++-mode
+  (add-hook 'c++-mode-hook 'lsp))
 
 ;; format on save
 (setq clang-format-style "file")
@@ -327,83 +316,69 @@ With prefix arg N, delete backward to the start of the Nth word."
 ;; Web
 
 ;; HTML with LSP, Emmet and Prettier
+(with-eval-after-load 'html-mode
 (add-hook 'html-mode-hook
           (lambda ()
             (lsp)
             (emmet-mode)
             ))
+)
 
 ;; CSS with LSP, Emmet and Prettier
-(add-hook 'css-mode-hook
-          (lambda ()
-            (lsp)
-            (emmet-mode)
-            ))
-
+(with-eval-after-load 'css-mode
+  (add-hook 'css-mode-hook
+				(lambda ()
+              (lsp)
+              (emmet-mode)
+              ))
+  )
 ;; JavaScript with LSP, Emmet and Prettier
+(with-eval-after-load 'js-mode
 (add-hook 'js-mode-hook
           (lambda ()
             (lsp)
             (emmet-mode)
 				))
-
+)
 ;; TypeScript with LSP, Emmet and Prettier
+(with-eval-after-load 'typescript-mode
 (add-hook 'typescript-mode-hook
           (lambda ()
             (lsp)
             (emmet-mode)
             ))
 
-
-;; TSX with LSP, Emmet and Prettier
-;; Install web-mode first
-(add-hook 'web-mode-hook
-          (lambda ()
-            (lsp)
-            (emmet-mode)
-            ))
+)
 
 ;; SCSS with LSP, Emmet and Prettier
 ;; Install scss-mode first
+(with-eval-after-load 'scss-mode
 (add-hook 'scss-mode-hook
           (lambda ()
             (lsp)
             (emmet-mode)
             ))
 
-
+)
 (eval-after-load "emmet-mode"
   '(progn
      (define-key emmet-mode-keymap (kbd "C-,") 'emmet-expand-line)
      (define-key emmet-mode-keymap (kbd "C-,") 'emmet-expand-line)))
 
 ;; PHP
-
+(with-eval-after-load 'php-mode
 (add-hook 'php-mode-hook
           (lambda ()
             (lsp)))
-
 
 (defun lsp-format-buffer-on-save ()
   (when (eq 'php-mode major-mode)
     (lsp-format-buffer)))
 
-;; PHP end ===========
-
 (add-hook 'before-save-hook #'lsp-format-buffer-on-save)
+)
 
-
-(defun my-prettier-js-before-save ()
-  (when (and (or (eq major-mode 'scss-mode)
-                 (eq major-mode 'css-mode)
-                 (eq major-mode 'javascript-mode)
-                 (eq major-mode 'typescript-mode)
-
-					  )
-             (executable-find "prettier"))
-    (prettier-js)))
-
-(add-hook 'before-save-hook #'my-prettier-js-before-save)
+;; PHP end ===========
 
 ;; end Web ======================================
 
@@ -411,8 +386,9 @@ With prefix arg N, delete backward to the start of the Nth word."
 
 ;; Rust
 
-
-(add-hook 'rust-mode-hook 'lsp)
+(with-eval-after-load 'rust-mode
+  (add-hook 'rust-mode-hook 'lsp)
+  )
 
 
 (setq rust-format-on-save t)
@@ -425,13 +401,14 @@ With prefix arg N, delete backward to the start of the Nth word."
 
 ;; Lua
 
+(with-eval-after-load 'lua-mode
 (add-hook 'lua-mode-hook 'lsp)
-
+)
 ;; Lua end ================
 
 ;; Go
 
-
+(with-eval-after-load 'go-mode
 (require 'lsp-mode)
 (add-hook 'go-mode-hook #'lsp-deferred)
 
@@ -442,7 +419,7 @@ With prefix arg N, delete backward to the start of the Nth word."
   (add-hook 'before-save-hook #'lsp-organize-imports t t))
 (add-hook 'go-mode-hook #'lsp-go-install-save-hooks)
 
-
+)
 ;; Go end =============
 
 ;; Python
@@ -468,13 +445,14 @@ With prefix arg N, delete backward to the start of the Nth word."
 
 ;; C#
 
+(with-eval-after-load 'csharp-mode
 (add-hook 'csharp-mode-hook 'lsp)
-
 (defun csharp-mode-before-save-hook ()
   (when (eq major-mode 'csharp-mode)
     (lsp-format-buffer)))
 
 (add-hook 'before-save-hook 'csharp-mode-before-save-hook)
+)
 
 
 ;; C# end ===
@@ -482,6 +460,7 @@ With prefix arg N, delete backward to the start of the Nth word."
 
 ;; Haskell
 
+(with-eval-after-load 'haskell-mode
 (add-hook 'haskell-mode-hook 'lsp)
 (add-hook 'haskell-literate-mode-hook 'lsp)
 
@@ -494,13 +473,10 @@ With prefix arg N, delete backward to the start of the Nth word."
             (define-key haskell-mode-map (kbd "C-c C-k") 'haskell-process-load-file)))
 
 
-
+)
 
 
 ;; Haskell end =============
-
-
-(setq quelpa-update-melpa-p nil)
 
 
 ;; Odin
@@ -508,17 +484,17 @@ With prefix arg N, delete backward to the start of the Nth word."
 
 
 
-(straight-use-package
- '(odin-mode :type git :host github :repo "mattt-b/odin-mode"))
+;; (straight-use-package
+;;  '(odin-mode :type git :host github :repo "mattt-b/odin-mode"))
 
-(setq-default lsp-auto-guess-root t) ;; if you work with Projectile/project.el this will help find the ols.json file.
-(defvar lsp-language-id-configuration '((odin-mode . "odin")))
-(lsp-register-client
- (make-lsp-client :new-connection (lsp-stdio-connection "/home/cofeek/Desktop/codes/tools/ols/ols")
-                  :major-modes '(odin-mode)
-                  :server-id 'ols
-                  :multi-root t)) ;; This is just so lsp-mode sends the "workspaceFolders" param to the server.
-(add-hook 'odin-mode-hook #'lsp)
+;; (setq-default lsp-auto-guess-root t) ;; if you work with Projectile/project.el this will help find the ols.json file.
+;; (defvar lsp-language-id-configuration '((odin-mode . "odin")))
+;; (lsp-register-client
+;;  (make-lsp-client :new-connection (lsp-stdio-connection "/home/cofeek/Desktop/codes/tools/ols/ols")
+;;                   :major-modes '(odin-mode)
+;;                   :server-id 'ols
+;;                   :multi-root t)) ;; This is just so lsp-mode sends the "workspaceFolders" param to the server.
+;; (add-hook 'odin-mode-hook #'lsp)
 
 ;; Odin end =============
 
@@ -530,7 +506,6 @@ With prefix arg N, delete backward to the start of the Nth word."
 
 ;; FASM
 
-(add-to-list 'load-path "~/.emacs.d/packages/fasm-mode/")
 
 ;; FASM end =============
 
@@ -546,28 +521,28 @@ With prefix arg N, delete backward to the start of the Nth word."
 
 
 
-(straight-use-package
- '(prisma-mode :type git :host github :repo "pimeys/emacs-prisma-mode"))
+;; (straight-use-package
+;;  '(prisma-mode :type git :host github :repo "pimeys/emacs-prisma-mode"))
 
-(require 'prisma-mode)
-
-
-(add-to-list 'lsp-language-id-configuration '(prisma-mode . "prisma"))
-
-;; npm i -g @prisma/language-server
-
-(lsp-register-client
- (make-lsp-client :new-connection (lsp-stdio-connection "prisma-language-server")
-                  :major-modes '(prisma-mode)
-                  :server-id 'prisma-ls))
+;; (require 'prisma-mode)
 
 
+;; (add-to-list 'lsp-language-id-configuration '(prisma-mode . "prisma"))
 
-(add-hook 'prisma-mode-hook #'lsp)
+;; ;; npm i -g @prisma/language-server
+
+;; (lsp-register-client
+;;  (make-lsp-client :new-connection (lsp-stdio-connection "prisma-language-server")
+;;                   :major-modes '(prisma-mode)
+;;                   :server-id 'prisma-ls))
 
 
 
-(add-hook 'prisma-mode-hook (lambda () (add-hook 'before-save-hook #'lsp-format-buffer nil 'local)))
+;; (add-hook 'prisma-mode-hook #'lsp)
+
+
+
+;; (add-hook 'prisma-mode-hook (lambda () (add-hook 'before-save-hook #'lsp-format-buffer nil 'local)))
 
 ;; Prisma end ==============
 
@@ -575,10 +550,10 @@ With prefix arg N, delete backward to the start of the Nth word."
 ;; Elixir
 
 
-
+(with-eval-after-load 'elixir-mode
 (add-hook 'elixir-mode-hook 'lsp)
 (add-hook 'before-save-hook 'lsp-format-buffer)
-
+)
 
 ;; Elixir end ==============
 
@@ -586,35 +561,29 @@ With prefix arg N, delete backward to the start of the Nth word."
 
 (add-to-list 'auto-mode-alist '("\\.pas\\'" . opascal-mode))
 
-
+(with-eval-after-load 'opascal-mode
 (require 'lsp-pascal)
 (add-hook 'opascal-mode-hook 'lsp)
 
 (add-hook 'opascal-mode-hook
           (lambda ()
             (add-hook 'before-save-hook #'lsp-format-buffer nil t)))
-
+)
 ;; Pascal end ==============
 
 
 ;; Ocaml
 
-(use-package tuareg
+(use-package tuareg-mode
   :straight t
-  )
-
-
-(use-package merlin
-  :straight t
-  :config
-  (add-hook 'tuareg-mode-hook #'merlin-mode)
-  (add-hook 'merlin-mode-hook #'company-mode)
-  )
+  :mode "\\.ml\\'" ; Autoload tuareg when opening .ml files
+  :hook ((tuareg-mode . merlin-mode)
+         (merlin-mode . company-mode)))
 
 (use-package merlin-eldoc
   :straight t
-  :hook ((tuareg-mode) . merlin-eldoc-setup))
-
+  :after tuareg
+  :hook ((tuareg-mode . merlin-eldoc-setup)))
 
 (use-package ocamlformat
   :straight t
@@ -637,9 +606,9 @@ With prefix arg N, delete backward to the start of the Nth word."
 
 
 ;; Slint (UI framework)
-
+(with-eval-after-load 'slint-mode
 (add-hook 'slint-mode-hook 'lsp)
-
+)
 ;; Slint (UI framework) end ==============
 
 
@@ -647,18 +616,18 @@ With prefix arg N, delete backward to the start of the Nth word."
 
 (add-to-list 'auto-mode-alist '("\\.clj\\'" . clojure-mode))
 
-
+(with-eval-after-load 'clojure-mode
 (add-hook 'clojure-mode-hook 'lsp)
 (add-hook 'clojure-mode-hook 'cider-mode)
 (add-hook 'cider-mode-hook 'cider-company-enable-fuzzy-completion)
-
+)
 ;; Clojure end =================
 
 
 ;; lsp binds
 
-(global-set-key (kbd "C-p") 'company-complete)
 
+(with-eval-after-load 'lsp-mode
 ;; C-j to go to next error/warn/info
 
 (add-hook 'python-mode-hook
@@ -676,10 +645,9 @@ With prefix arg N, delete backward to the start of the Nth word."
 
 ;; f2 to rename
 
-(with-eval-after-load 'lsp-mode
-  (define-key lsp-mode-map (kbd "<f2>") #'lsp-rename))
+(define-key lsp-mode-map (kbd "<f2>") #'lsp-rename)
 
-
+)
 ;; end lsp binds ======================
 
 
@@ -749,6 +717,7 @@ With prefix arg N, delete backward to the start of the Nth word."
 ;; Number the candidates (use M-1, M-2 etc to select completions).
 (setq company-show-numbers t)
 
+(global-set-key (kbd "C-p") 'company-complete)
 
 
 ;; no backup files
@@ -824,7 +793,6 @@ With prefix arg N, delete backward to the start of the Nth word."
 (global-set-key (kbd "C-S-c C-S-c")      'mc/edit-lines)
 (global-set-key (kbd "C-c C->")          'mc/mark-next-like-this)
 (global-set-key (kbd "C-c C-<")          'mc/mark-previous-like-this)
-(global-set-key (kbd "C-\"")             'mc/skip-to-next-like-this)
 (global-set-key (kbd "C-:")              'mc/skip-to-previous-like-this)
 (global-set-key (kbd "M-<down-mouse-1>") 'mc/add-cursor-on-click)
 
@@ -908,17 +876,26 @@ With prefix arg N, delete backward to the start of the Nth word."
 
 (add-to-list 'load-path "~/.emacs.d/packages/graphviz-dot-mode/")
 
+
+(autoload 'graphviz-dot-mode "graphviz-dot-mode" nil t)
+
+(add-to-list 'auto-mode-alist '("\\.dot\\'" . graphviz-dot-mode))
+
 ;; Graphviz dot end  ========
 
 
 ;; D2lang
 
-
 (add-to-list 'load-path "~/.emacs.d/packages/d2-mode/")
-(require 'd2-mode)
 
+;; Autoload d2-mode
+(autoload 'd2-mode "d2-mode" nil t)
+
+;; Associate .d2 files with d2-mode
+(add-to-list 'auto-mode-alist '("\\.d2\\'" . d2-mode))
+
+;; Set output format for d2-mode
 (setq d2-output-format ".png")
-
 
 ;; D2lang end ================
 
