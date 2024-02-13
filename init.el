@@ -575,22 +575,16 @@ With prefix arg N, delete backward to the start of the Nth word."
 
 ;; Ocaml
 
-(use-package tuareg
+(use-package tuareg-mode
   :straight t
-  )
-
-
-(use-package merlin
-  :straight t
-  :config
-  (add-hook 'tuareg-mode-hook #'merlin-mode)
-  (add-hook 'merlin-mode-hook #'company-mode)
-  )
+  :mode "\\.ml\\'" ; Autoload tuareg when opening .ml files
+  :hook ((tuareg-mode . merlin-mode)
+         (merlin-mode . company-mode)))
 
 (use-package merlin-eldoc
   :straight t
-  :hook ((tuareg-mode) . merlin-eldoc-setup))
-
+  :after tuareg
+  :hook ((tuareg-mode . merlin-eldoc-setup)))
 
 (use-package ocamlformat
   :straight t
