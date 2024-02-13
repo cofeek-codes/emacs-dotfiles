@@ -31,7 +31,6 @@
 (straight-use-package 'projectile)
 (straight-use-package 'flycheck)
 (straight-use-package 'company)
-(straight-use-package 'helm-xref)
 (straight-use-package 'dap-mode)
 (straight-use-package 'json-mode)
 (straight-use-package 'move-text)
