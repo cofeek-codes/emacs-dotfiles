@@ -284,6 +284,7 @@ With prefix arg N, delete backward to the start of the Nth word."
 (require 'lsp)
 (add-hook 'lsp-mode-hook 'sideline-mode)
 
+(setq-default lsp-auto-guess-root t)
 
 ;; flycheck
 
