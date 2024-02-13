@@ -292,18 +292,6 @@ With prefix arg N, delete backward to the start of the Nth word."
 (setq flycheck-check-syntax-automatically '(save)) ; Check syntax only on save
 
 
-;; company
-
-(require 'company)
-(add-to-list 'company-backends 'company-dabbrev)
-
-(global-company-mode)
-
-
-;; yasnippet
-(require 'yasnippet)
-(yas-global-mode)
-
 ;; C/C++
 
 (add-hook 'c-mode-hook 'lsp)
@@ -735,9 +723,16 @@ With prefix arg N, delete backward to the start of the Nth word."
 
 (global-wakatime-mode)
 
+;; yasnippet
+(require 'yasnippet)
+(yas-global-mode)
 
+;; company
 
+(require 'company)
+(add-to-list 'company-backends 'company-dabbrev)
 
+(global-company-mode)
 
 ;; Number the candidates (use M-1, M-2 etc to select completions).
 (setq company-show-numbers t)
