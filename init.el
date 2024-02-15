@@ -294,10 +294,13 @@ With prefix arg N, delete backward to the start of the Nth word."
 )
 
 ;; C/C++
-(with-eval-after-load 'c-mode
-  (add-hook 'c-mode-hook 'lsp))
-(with-eval-after-load 'c++-mode
-  (add-hook 'c++-mode-hook 'lsp))
+
+(defun enable-lsp-for-c/cpp-modes ()
+  "Enable lsp-mode for C/C++ files."
+  (lsp))
+
+(add-hook 'c-mode-hook #'enable-lsp-for-c/cpp-modes)
+(add-hook 'c++-mode-hook #'enable-lsp-for-c/cpp-modes)
 
 ;; format on save
 (setq clang-format-style "file")
