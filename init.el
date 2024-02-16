@@ -319,51 +319,24 @@ With prefix arg N, delete backward to the start of the Nth word."
 
 ;; Web
 
-;; HTML with LSP, Emmet and Prettier
-(with-eval-after-load 'html-mode
-(add-hook 'html-mode-hook
-          (lambda ()
-            (lsp)
-            (emmet-mode)
-            ))
-)
-
-;; CSS with LSP, Emmet and Prettier
-(with-eval-after-load 'css-mode
-  (add-hook 'css-mode-hook
-				(lambda ()
-              (lsp)
-              (emmet-mode)
-              ))
+(defun setup-webmode ()
+  "Config for web modes"
+  (lsp)
+  (emmet-mode)
   )
+
+;; HTML with LSP, Emmet and Prettier
+(add-hook 'html-mode-hook #'setup-webmode)
+;; CSS with LSP, Emmet and Prettier
+(add-hook 'css-mode-hook #'setup-webmode)
 ;; JavaScript with LSP, Emmet and Prettier
-(with-eval-after-load 'js-mode
-(add-hook 'js-mode-hook
-          (lambda ()
-            (lsp)
-            (emmet-mode)
-				))
-)
+(add-hook 'js-mode-hook #'setup-webmode)
 ;; TypeScript with LSP, Emmet and Prettier
-(with-eval-after-load 'typescript-mode
-(add-hook 'typescript-mode-hook
-          (lambda ()
-            (lsp)
-            (emmet-mode)
-            ))
-
-)
-
+(add-hook 'typescript-mode-hook #'setup-webmode)
 ;; SCSS with LSP, Emmet and Prettier
+(add-hook 'scss-mode-hook #'setup-webmode)
 ;; Install scss-mode first
-(with-eval-after-load 'scss-mode
-(add-hook 'scss-mode-hook
-          (lambda ()
-            (lsp)
-            (emmet-mode)
-            ))
 
-)
 (eval-after-load "emmet-mode"
   '(progn
      (define-key emmet-mode-keymap (kbd "C-,") 'emmet-expand-line)
