@@ -693,6 +693,8 @@ With prefix arg N, delete backward to the start of the Nth word."
 
 ;; Number the candidates (use M-1, M-2 etc to select completions).
 (setq company-show-numbers t)
+(setq company-minimum-prefix-length 1)
+(setq company-idle-delay 0.1)
 
 (global-set-key (kbd "C-p") 'company-complete)
 
