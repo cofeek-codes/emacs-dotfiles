@@ -1,3 +1,7 @@
+;; general pre-init
+
+(setq redisplay-dont-pause t)
+
 ;; package management
 
 ;; bootstrap straight
