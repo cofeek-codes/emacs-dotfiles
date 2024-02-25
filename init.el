@@ -40,8 +40,6 @@
 (straight-use-package 'move-text)
 (straight-use-package 'wrap-region)
 (straight-use-package 'lsp-ui)
-(straight-use-package 'sideline)
-(straight-use-package 'sideline-lsp)
 (straight-use-package 'clang-format)
 (straight-use-package 'emmet-mode)
 (straight-use-package 'resize-window)
@@ -264,38 +262,11 @@ With prefix arg N, delete backward to the start of the Nth word."
 (setq visible-bell t)
 (setq ring-bell-function 'ignore)
 
-
-
-
-
 ;; lsp
-
-(with-eval-after-load 'lsp-mode
-(require 'lsp-ui)
-
-(setq lsp-ui-flycheck-live-reporting nil)
-
-
-(setq lsp-ui-sideline-enable t
-      lsp-ui-sideline-show-symbol nil
-      lsp-ui-sideline-show-hover nil
-      lsp-ui-sideline-show-code-actions nil
-      lsp-ui-sideline-show-diagnostics t)
-
-(require 'sideline)
-(setq sideline-backends-right '(sideline-lsp))
-
-(require 'lsp)
-(add-hook 'lsp-mode-hook 'sideline-mode)
 
 (setq-default lsp-auto-guess-root t)
 
 ;; flycheck
-
-(require 'flycheck)
-(setq flycheck-check-syntax-automatically '(save)) ; Check syntax only on save
-
-)
 
 ;; C/C++
 
