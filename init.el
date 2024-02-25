@@ -39,7 +39,6 @@
 (straight-use-package 'json-mode)
 (straight-use-package 'move-text)
 (straight-use-package 'wrap-region)
-(straight-use-package 'lsp-ui)
 (straight-use-package 'clang-format)
 (straight-use-package 'emmet-mode)
 (straight-use-package 'resize-window)
@@ -264,9 +263,11 @@ With prefix arg N, delete backward to the start of the Nth word."
 
 (setq-default lsp-auto-guess-root t)
 
-;; flycheck
-
 (setq lsp-diagnostics-provider :none)
+
+(setq lsp-lens-enable nil)
+
+;; flycheck
 
 ;; C/C++
 
