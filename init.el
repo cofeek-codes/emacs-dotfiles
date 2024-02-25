@@ -255,8 +255,6 @@ With prefix arg N, delete backward to the start of the Nth word."
 
 (add-hook 'prog-mode-hook 'linum-mode)
 
-
-
 ;; disable sound (annoying)
 
 (setq visible-bell t)
@@ -269,6 +267,7 @@ With prefix arg N, delete backward to the start of the Nth word."
 ;; flycheck
 
 (setq lsp-diagnostics-provider :none)
+
 ;; C/C++
 
 (defun enable-lsp-for-c/cpp-modes ()
@@ -335,8 +334,6 @@ With prefix arg N, delete backward to the start of the Nth word."
 
 ;; end Web ======================================
 
-
-
 ;; Rust
 
 (with-eval-after-load 'rust-mode
@@ -349,8 +346,6 @@ With prefix arg N, delete backward to the start of the Nth word."
 
 
 ;; end Rust ================
-
-
 
 ;; Lua
 
@@ -373,6 +368,7 @@ With prefix arg N, delete backward to the start of the Nth word."
 (add-hook 'go-mode-hook #'lsp-go-install-save-hooks)
 
 )
+
 ;; Go end =============
 
 ;; Python
@@ -395,7 +391,6 @@ With prefix arg N, delete backward to the start of the Nth word."
 )
 ;; Python end ==========
 
-
 ;; C#
 
 (with-eval-after-load 'csharp-mode
@@ -407,9 +402,7 @@ With prefix arg N, delete backward to the start of the Nth word."
 (add-hook 'before-save-hook 'csharp-mode-before-save-hook)
 )
 
-
 ;; C# end ===
-
 
 ;; Haskell
 
@@ -424,7 +417,6 @@ With prefix arg N, delete backward to the start of the Nth word."
           (lambda ()
             (define-key haskell-mode-map (kbd "C-c C-l") 'haskell-interactive-switch)
             (define-key haskell-mode-map (kbd "C-c C-k") 'haskell-process-load-file)))
-
 
 )
 
