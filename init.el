@@ -847,6 +847,16 @@ With prefix arg N, delete backward to the start of the Nth word."
 
 ;; D2lang end ================
 
+
+;; QBE
+
+
+(add-to-list 'load-path "~/.emacs.d/packages/qbe-mode/")
+(autoload 'qbe-mode "qbe-mode" nil t)
+(add-to-list 'auto-mode-alist '("\\.ssa\\'" . qbe-mode))
+
+;; QBE end ================
+
 ;; Org
 (with-eval-after-load 'org
 
