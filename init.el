@@ -268,6 +268,7 @@ With prefix arg N, delete backward to the start of the Nth word."
 
 ;; flycheck
 
+(setq lsp-diagnostics-provider :none)
 ;; C/C++
 
 (defun enable-lsp-for-c/cpp-modes ()
