@@ -30,6 +30,7 @@
 
 (straight-use-package 'use-package)
 (straight-use-package 'lsp-mode)
+(straight-use-package 'lsp-ui)
 (straight-use-package 'yasnippet)
 (straight-use-package 'hl-line)
 (straight-use-package 'projectile)
