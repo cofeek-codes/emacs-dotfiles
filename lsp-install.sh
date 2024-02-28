@@ -9,7 +9,7 @@ npm i -g @prisma/language-server &&
 npm i -g pyright &&
 npm i -g typescript-language-server &&
 npm i -g intelephense &&
-sudo npm i -g livedown
+npm i -g livedown
 
 # ================== cargo lsps ==================
 echo "================== cargo lsps =================="
