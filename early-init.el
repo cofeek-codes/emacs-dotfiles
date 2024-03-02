@@ -2,6 +2,7 @@
 
 (setq inhibit-startup-screen t)
 
+(tool-bar-mode 0)
 (scroll-bar-mode 0)
 
 (setq gc-cons-threshold (*  50  1000  1000))
