@@ -45,7 +45,6 @@
 (straight-use-package 'resize-window)
 (straight-use-package 'magit)
 (straight-use-package 'typescript-mode)
-(straight-use-package 'rust-mode)
 (straight-use-package 'go-mode)
 (straight-use-package 'php-mode)
 (straight-use-package 'lsp-pyright)
@@ -328,6 +327,10 @@ With prefix arg N, delete backward to the start of the Nth word."
 ;; end Web ======================================
 
 ;; Rust
+
+(use-package rust-mode
+  :straight t
+  )
 
 (with-eval-after-load 'rust-mode
   (add-hook 'rust-mode-hook 'lsp)
