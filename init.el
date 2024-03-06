@@ -339,7 +339,12 @@ With prefix arg N, delete backward to the start of the Nth word."
 
 (setq rust-format-on-save t)
 
+;; Rust Pest
 
+(use-package pest-mode
+  :straight (:host github :repo "ksqsf/pest-mode")
+  :mode "\\.pest\\'"
+  )
 
 ;; end Rust ================
 
