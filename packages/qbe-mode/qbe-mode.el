@@ -77,12 +77,31 @@
      ("\\(@[[:alnum:]]+\\|-?[[:digit:]]+\\)"
       . 'font-lock-constant-face))))
 
+(defun qbe-mode-indent-line ()
+ "Indent current line as QBE code."
+ (interactive)
+ (let ((indent-col 0))
+    (save-excursion
+      (beginning-of-line)
+      (condition-case nil
+          (while t
+            (backward-up-list 1)
+            (when (looking-at "\\s(")
+              (setq indent-col (+ indent-col tab-width))))
+        (error nil)))
+    (if (eq (char-after) ?})
+        (setq indent-col (- indent-col tab-width)))
+    (goto-char (point-at-bol))
+    (delete-region (point) (progn (skip-chars-forward " \t") (point)))
+    (indent-to indent-col)))
+
 ;;;###autoload
 (define-derived-mode qbe-mode fundamental-mode "QBE"
   "major mode for editing QBE IL"
   (setq-local font-lock-defaults qbe-mode-font-lock-defaults)
   (setq-local comment-start "# ")
-  (setq-local comment-end ""))
+  (setq-local comment-end "")
+  (setq-local indent-line-function 'qbe-mode-indent-line))
 
 ;;;###autoload
 (add-to-list 'auto-mode-alist '("\\.ssa" . qbe-mode))
