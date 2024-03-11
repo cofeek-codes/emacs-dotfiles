@@ -96,7 +96,7 @@
     (indent-to indent-col)))
 
 ;;;###autoload
-(define-derived-mode qbe-mode fundamental-mode "QBE"
+(define-derived-mode qbe-mode prog-mode "QBE"
   "major mode for editing QBE IL"
   (setq-local font-lock-defaults qbe-mode-font-lock-defaults)
   (setq-local comment-start "# ")
