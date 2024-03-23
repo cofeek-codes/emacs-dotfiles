@@ -69,6 +69,7 @@
 (straight-use-package 'elixir-mode)
 (straight-use-package 'seq)
 (straight-use-package 'transpose-frame)
+(straight-use-package 'edit-indirect)
 (straight-use-package 'slint-mode)
 (straight-use-package 'zenburn-theme)
 (straight-use-package 'dune-format)
