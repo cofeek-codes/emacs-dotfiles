@@ -9,4 +9,4 @@ const ${1:`(file-name-base (buffer-file-name))`} = () => {
     </>
 }
 
-export default  ${1:`(file-name-base (buffer-file-name))`}
+export default ${1:`(file-name-base (buffer-file-name))`}
