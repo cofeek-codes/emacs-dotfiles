@@ -918,6 +918,7 @@ With prefix arg N, delete backward to the start of the Nth word."
  '(org-support-shift-select 'always)
  '(plantuml-indent-level 3)
  '(plantuml-suppress-deprecation-warning nil)
+ '(typescript-indent-level 3)
  '(wakatime-cli-path "~/.wakatime/wakatime-cli")
  '(warning-suppress-types '(((org-element org-element-parser)) (comp))))
 
