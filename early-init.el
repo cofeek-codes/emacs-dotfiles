@@ -2,7 +2,6 @@
 
 (setq package-enable-at-startup nil)
 
-(setq inhibit-startup-screen t)
 
 (tool-bar-mode 0)
 (scroll-bar-mode 0)
