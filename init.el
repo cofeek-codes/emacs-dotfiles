@@ -194,6 +194,7 @@ With prefix arg N, delete backward to the start of the Nth word."
 (global-set-key (kbd "C-w") 'delete-backward-word)
 
 
+(delete-selection-mode 1)
 
 
 ;; vscode-like comments
