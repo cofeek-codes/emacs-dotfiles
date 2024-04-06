@@ -17,8 +17,6 @@
 ;; bootstrap straight
 
 (setq straight-check-for-modifications nil)
-(setq straight-check-for-modifications 'live)
-
 
 (defvar bootstrap-version)
 (let ((bootstrap-file
