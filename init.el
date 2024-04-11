@@ -296,6 +296,23 @@ With prefix arg N, delete backward to the start of the Nth word."
 
 ;; Web
 
+;; auto-rename-tag
+
+(defun setup-art ()
+ "Enable auto-rename-tag-mode for XML, HTML, PHP, JSX, and TSX modes."
+ (add-hook 'nxml-mode-hook 'auto-rename-tag-mode)
+ (add-hook 'html-mode-hook 'auto-rename-tag-mode)
+ (add-hook 'php-mode-hook 'auto-rename-tag-mode)
+ (add-hook 'js-jsx-mode-hook 'auto-rename-tag-mode)
+ (add-hook 'typescript-mode-hook 'auto-rename-tag-mode))
+
+(use-package auto-rename-tag
+  :ensure   t
+  :straight t
+ :config
+ (setup-art))
+
+
 (defun setup-webmode ()
   "Config for web modes"
   (lsp)
