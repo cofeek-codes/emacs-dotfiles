@@ -685,6 +685,10 @@ With prefix arg N, delete backward to the start of the Nth word."
 (require 'company)
 (add-to-list 'company-backends 'company-dabbrev)
 
+(add-to-list 'load-path "~/.emacs.d/packages/company-paths/")
+(require 'company-paths)
+(add-to-list 'company-backends 'company-paths)
+
 (global-company-mode)
 
 ;; Number the candidates (use M-1, M-2 etc to select completions).
