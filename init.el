@@ -943,12 +943,12 @@ With prefix arg N, delete backward to the start of the Nth word."
  ;; If there is more than one, they won't work right.
  '(css-indent-offset 3)
  '(custom-safe-themes
-	'("0d747b714779e0148e602581746b8806926724a72fb247129c7359f5f6ad80c2" "18cf5d20a45ea1dff2e2ffd6fbcd15082f9aa9705011a3929e77129a971d1cb3" default))
+   '("0d747b714779e0148e602581746b8806926724a72fb247129c7359f5f6ad80c2" "18cf5d20a45ea1dff2e2ffd6fbcd15082f9aa9705011a3929e77129a971d1cb3" default))
  '(doc-view-continuous t)
  '(org-support-shift-select 'always)
  '(plantuml-indent-level 3)
  '(plantuml-suppress-deprecation-warning nil)
- '(rust-indent-offset 3)
+ '(rust-indent-offset 4)
  '(standard-indent 3)
  '(typescript-indent-level 3)
  '(wakatime-cli-path "~/.wakatime/wakatime-cli")
