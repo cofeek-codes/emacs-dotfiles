@@ -46,6 +46,7 @@
 (straight-use-package 'company)
 (straight-use-package 'dap-mode)
 (straight-use-package 'json-mode)
+(straight-use-package 'web-mode)
 (straight-use-package 'move-text)
 (straight-use-package 'wrap-region)
 (straight-use-package 'clang-format)
