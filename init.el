@@ -332,6 +332,8 @@ With prefix arg N, delete backward to the start of the Nth word."
 (add-hook 'scss-mode-hook #'setup-webmode)
 ;; Install scss-mode first
 
+(add-hook 'web-mode-hook 'emmet-mode)
+
 (eval-after-load "emmet-mode"
   '(progn
      (define-key emmet-mode-keymap (kbd "C-,") 'emmet-expand-line)
