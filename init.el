@@ -270,10 +270,6 @@ With prefix arg N, delete backward to the start of the Nth word."
 
 (setq lsp-lens-enable nil)
 
-(setq lsp-ui-sideline-show-code-actions t)
-
-(setq lsp-ui-sideline-update-mode 'line)
-
 ;; flycheck
 
 ;; C/C++
