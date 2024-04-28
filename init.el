@@ -157,10 +157,9 @@
 
 ;; isearch-mode
 
-
-
 (define-key isearch-mode-map (kbd "C-n") 'isearch-repeat-forward)
 (define-key isearch-mode-map (kbd "C-p") 'isearch-repeat-backward)
+(define-key isearch-mode-map (kbd "TAB") 'isearch-yank-word-or-char)
 
 ;; move between panes with S-<arrows>
 
