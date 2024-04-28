@@ -32,6 +32,12 @@
  '(font-lock-constant-face ((t (:foreground "#95A99F"))))
  '(font-lock-builtin-face ((t (:foreground "#ffdd33"))))
  '(line-number-current-line ((t (:inherit default :foreground "#ffdd33"))))
- '(default ((t (:inherit nil :extend nil :stipple nil :background "#181818" :foreground "#FFF" :inverse-video nil :box nil :strike-through nil :overline nil :underline nil :slant normal :weight normal :height 181 :width normal :foundry "CTDB" :family "Fira Code")))))
+ '(ido-first-match ((t (:foreground "#FFDD33" :weight bold))))
+ '(ido-incomplete-regexp ((t (:foreground "white"))))
+ '(ido-only-match ((t (:foreground "#FF9B21"))))
+ '(ido-subdir ((t (:weight bold :foreground "#949bb0"))))
+ '(dired-directory ((t (:inherit font-lock-function-name-face :foreground "#949bb0"))))
+ '(default ((t (:inherit nil :extend nil :stipple nil :background "#181818" :foreground "#FFF" :inverse-video nil :box nil :strike-through nil :overline nil :underline nil :slant normal :weight normal :height 181 :width normal :foundry "CTDB" :family "Fira Code"))))
+ '(italic ((t (:weight normal :slant italic)))))
 
 (provide-theme 'tsoding)

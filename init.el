@@ -653,19 +653,13 @@ With prefix arg N, delete backward to the start of the Nth word."
 
 
 ;;; dired
+
 (require 'dired-x)
 
 
 (setq-default dired-dwim-target t)
 (setq dired-listing-switches "-alh")
 
-
-;; set directory color in dired mode
-
-
-(add-hook 'dired-mode-hook
-          (lambda ()
-            (set-face-foreground 'dired-directory "#949bb0")))
 
 
 
@@ -947,7 +941,7 @@ With prefix arg N, delete backward to the start of the Nth word."
  ;; If there is more than one, they won't work right.
  '(css-indent-offset 3)
  '(custom-safe-themes
-   '("0d747b714779e0148e602581746b8806926724a72fb247129c7359f5f6ad80c2" "18cf5d20a45ea1dff2e2ffd6fbcd15082f9aa9705011a3929e77129a971d1cb3" default))
+   '("f1c97b1d6235aeb12ce4cd010551841a9ba6eb7a8e14ab9273fd8a054f6d0807" "654501d4953b96c4512d5380d2936c4e41d458be0fa005151c58fa9f7a5b4d62" "0d747b714779e0148e602581746b8806926724a72fb247129c7359f5f6ad80c2" "18cf5d20a45ea1dff2e2ffd6fbcd15082f9aa9705011a3929e77129a971d1cb3" default))
  '(doc-view-continuous t)
  '(mc/always-run-for-all t)
  '(org-support-shift-select 'always)
@@ -976,11 +970,6 @@ With prefix arg N, delete backward to the start of the Nth word."
  '(font-latex-script-char-face ((t (:foreground "Green"))))
  '(font-latex-sectioning-5-face ((t (:inherit variable-pitch :foreground "#949bb0" :weight bold))))
  '(font-latex-warning-face ((t (:inherit bold :foreground "tomato"))))
- '(ido-first-match ((t (:foreground "#FFDD33" :weight bold))))
- '(ido-incomplete-regexp ((t (:foreground "white"))))
- '(ido-only-match ((t (:foreground "#FF9B21"))))
- '(ido-subdir ((t (:foreground "#949bb0" :weight bold))))
- '(italic ((t (:slant italic :weight normal))))
  '(makefile-targets ((t (:inherit font-lock-type-face))))
  '(mmm-default-submode-face ((t nil)))
  '(org-document-info-keyword ((t (:inherit font-lock-type-face))))
