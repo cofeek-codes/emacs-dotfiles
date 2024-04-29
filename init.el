@@ -41,6 +41,7 @@
 (straight-use-package 'lsp-ui)
 (straight-use-package 'yasnippet)
 (straight-use-package 'hl-line)
+(straight-use-package 'highlight-numbers)
 (straight-use-package 'projectile)
 (straight-use-package 'flycheck)
 (straight-use-package 'company)
@@ -237,6 +238,7 @@ With prefix arg N, delete backward to the start of the Nth word."
 
 (load-theme 'jblow t)
 
+(add-hook 'prog-mode-hook 'highlight-numbers-mode)
 
 ;; line numbers
 
@@ -968,6 +970,7 @@ With prefix arg N, delete backward to the start of the Nth word."
  '(font-latex-script-char-face ((t (:foreground "Green"))))
  '(font-latex-sectioning-5-face ((t (:inherit variable-pitch :foreground "#949bb0" :weight bold))))
  '(font-latex-warning-face ((t (:inherit bold :foreground "tomato"))))
+ '(font-lock-number-face ((t (:foreground "#7ad0c6"))))
  '(makefile-targets ((t (:inherit font-lock-type-face))))
  '(mmm-default-submode-face ((t nil)))
  '(org-document-info-keyword ((t (:inherit font-lock-type-face))))
