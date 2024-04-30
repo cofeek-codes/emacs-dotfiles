@@ -45,6 +45,7 @@
  '(compilation-error ((t (:inherit (error)))))
  '(error ((t (:foreground "tomato" :weight bold))))
  '(success ((t (:foreground "ForestGreen" :weight bold))))
- '(default ((t (:inherit nil :extend nil :stipple nil :background "#062329" :foreground "#d1b897" :inverse-video nil :box nil :strike-through nil :overline nil :underline nil :slant normal :weight regular :height 211 :width normal :foundry "UKWN" :family "Iosevka")))))
+ '(default ((t (:inherit nil :extend nil :stipple nil :background "#062329" :foreground "#d1b897" :inverse-video nil :box nil :strike-through nil :overline nil :underline nil :slant normal :weight regular :height 211 :width normal :foundry "UKWN" :family "Iosevka"))))
+ '(magit-hash ((t (:foreground "#7ad0c6")))))
 
 (provide-theme 'jblow)
