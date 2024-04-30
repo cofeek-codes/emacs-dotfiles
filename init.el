@@ -227,7 +227,7 @@ With prefix arg N, delete backward to the start of the Nth word."
 
 
 
-(set-frame-font "Iosevka-21" nil t)
+(set-frame-font "Iosevka-18" nil t)
 
 
 ;; start in fullscreen
