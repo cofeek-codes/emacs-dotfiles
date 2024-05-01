@@ -4,7 +4,7 @@
 (custom-theme-set-faces
  'jblow
  '(region ((t (:extend nil :background "#0000ff"))))
- '(cursor ((t (:background "#ffffff"))))
+ '(cursor ((t (:background "#9bdb9c"))))
  '(fringe ((t (:background "#062329" :foreground "#ffffff"))))
  '(highlight ((t (:foreground "#0000ff"))))
  '(font-lock-keyword-face ((t (:foreground "#ffffff"))))
@@ -45,7 +45,7 @@
  '(compilation-error ((t (:inherit (error)))))
  '(error ((t (:foreground "tomato" :weight bold))))
  '(success ((t (:foreground "ForestGreen" :weight bold))))
- '(default ((t (:inherit nil :extend nil :stipple nil :background "#062329" :foreground "#d1b897" :inverse-video nil :box nil :strike-through nil :overline nil :underline nil :slant normal :weight regular :height 211 :width normal :foundry "UKWN" :family "Iosevka"))))
- '(magit-hash ((t (:foreground "#7ad0c6")))))
+ '(magit-hash ((t (:foreground "#7ad0c6"))))
+ '(default ((t (:inherit nil :extend nil :stipple nil :background "#062329" :foreground "#d1b897" :inverse-video nil :box nil :strike-through nil :overline nil :underline nil :slant normal :weight regular :height 211 :width normal :foundry "UKWN" :family "Iosevka")))))
 
 (provide-theme 'jblow)
