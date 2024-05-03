@@ -335,10 +335,6 @@ With prefix arg N, delete backward to the start of the Nth word."
 
 (add-hook 'web-mode-hook 'emmet-mode)
 
-(eval-after-load "emmet-mode"
-  '(progn
-     (define-key emmet-mode-keymap (kbd "C-,") 'emmet-expand-line)
-     (define-key emmet-mode-keymap (kbd "C-,") 'emmet-expand-line)))
 
 ;; PHP
 (with-eval-after-load 'php-mode
@@ -687,6 +683,8 @@ With prefix arg N, delete backward to the start of the Nth word."
 (require 'company-paths)
 (add-to-list 'company-backends 'company-paths)
 
+(global-set-key (kbd "C-,") 'company-dabbrev)
+
 (global-company-mode)
 
 ;; Number the candidates (use M-1, M-2 etc to select completions).
@@ -697,24 +695,11 @@ With prefix arg N, delete backward to the start of the Nth word."
 
 (global-set-key (kbd "C-p") 'company-complete)
 
-
 ;; no backup files
 
 (setq make-backup-files nil)
 
-
-
-
-;; emmet-mode
-
-(eval-after-load 'emmet-mode
-  '(progn
-     (define-key emmet-mode-keymap (kbd "C-,") 'emmet-expand-line)))
-
-
-
 ;; minibuffer
-
 
 (require 'ido-completing-read+)
 (require 'smex)
