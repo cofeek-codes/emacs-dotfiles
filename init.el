@@ -818,7 +818,7 @@ With prefix arg N, delete backward to the start of the Nth word."
 (require 'plantuml-mode)
 
 
-(setq plantuml-jar-path "/usr/bin/plantuml.jar")
+(setq plantuml-jar-path "~/.local/bin/plantuml.jar")
 (setq plantuml-default-exec-mode 'jar)
 
 (add-to-list 'auto-mode-alist '("\\.uml\\'" . plantuml-mode))
