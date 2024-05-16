@@ -236,7 +236,7 @@ With prefix arg N, delete backward to the start of the Nth word."
 
 ;; theme
 
-(load-theme 'gruber-darker t)
+(load-theme 'tsoding t)
 
 (add-hook 'prog-mode-hook 'highlight-numbers-mode)
 
