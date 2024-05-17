@@ -725,7 +725,7 @@ With prefix arg N, delete backward to the start of the Nth word."
 
 (define-key projectile-mode-map (kbd "C-d") 'projectile-find-file)
 
-;; Compilation
+;; compilation
 
 
 (require 'ansi-color)
@@ -736,6 +736,7 @@ With prefix arg N, delete backward to the start of the Nth word."
 (defun my-compilation-mode-hook ()
   "Custom compilation mode hook."
   (local-set-key (kbd "r") 'recompile)
+  (local-set-key (kbd "C-x \\") 'next-error)
   (local-set-key (kbd "C-c C-c") 'kill-compilation))
 
 (add-hook 'compilation-mode-hook 'my-compilation-mode-hook)
