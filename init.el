@@ -678,7 +678,7 @@
 ;; (setq company-minimum-prefix-length 1)
 ;; (setq company-idle-delay 0.1)
 
-(global-set-key (kbd "C-p") 'company-complete)
+(global-set-key (kbd "C-p") 'company-complete-common-or-cycle)
 
 ;; no backup files
 
