@@ -185,8 +185,13 @@
 
 ;; Delete word backwards (like in terminal)
 
-(global-set-key (kbd "C-w") 'backward-kill-word)
-
+(global-set-key (kbd "C-w")
+                (lambda ()
+                  (interactive)
+                  (if (use-region-p) ; Check if a region is active
+                      (progn ; Execute if a region is active
+                        (kill-region (region-beginning) (region-end))) ; Correctly call kill-region with start and end of the region
+                    (backward-kill-word 1)))) ; Otherwise, perform kill-word-backward
 
 (delete-selection-mode 1)
 
