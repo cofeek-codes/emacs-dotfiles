@@ -87,6 +87,7 @@
 (straight-use-package 'expand-region)
 (straight-use-package 'clojure-mode)
 (straight-use-package 'cider)
+(straight-use-package 'fireplace)
 
 ;; for debug
 
