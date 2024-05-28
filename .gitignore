@@ -19,3 +19,4 @@ games/
 .mc-lists.el
 .dap-breakpoints
 straight/
+projectile.cache

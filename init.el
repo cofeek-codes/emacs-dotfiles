@@ -236,7 +236,10 @@
 
 ;; theme
 
-(load-theme 'tsoding t)
+(if (eq window-system 'w32)
+    (load-theme 'jblow t)
+  (load-theme 'tsoding t))
+
 
 (add-hook 'prog-mode-hook 'highlight-numbers-mode)
 
@@ -668,7 +671,10 @@
 
 ;; time control (wakatime)
 
-(global-wakatime-mode)
+(unless (eq window-system 'w32)
+  (global-wakatime-mode)
+  )
+
 
 ;; yasnippet
 (require 'yasnippet)
@@ -747,7 +753,9 @@
 (global-set-key (kbd "C-\|") 'shell-command)
 (global-set-key (kbd "M-\\") 'async-shell-command)
 
-(setq shell-file-name "/bin/bash")
+(unless (eq window-system 'w32)
+  (setq shell-file-name "/bin/bash")
+  )
 
 
 
