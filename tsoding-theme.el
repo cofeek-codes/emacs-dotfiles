@@ -6,7 +6,7 @@
  '(frame-brackground-mode 'dark))
 
 (custom-theme-set-faces
- 'tsoding 
+ 'tsoding
  '(agda2-highlight-datatype-face ((t (:foreground "#95a99f"))))
  '(agda2-highlight-primitive-type-face ((t (:foreground "#95a99f"))))
  '(agda2-highlight-function-face ((t (:foreground "#96a6c8"))))
@@ -186,6 +186,7 @@
  '(orderless-match-face-1 ((t (:foreground "#73c936"))))
  '(orderless-match-face-2 ((t (:foreground "#cc8c3c"))))
  '(orderless-match-face-3 ((t (:foreground "#95a99f"))))
- '(default ((t (:foreground "#e4e4ef" :background "#181818")))))
+ '(default ((t (:foreground "#e4e4ef" :background "#181818"))))
+ '(rust-unsafe ((t (:inherit font-lock-keyword-face)))))
 
-(provide-theme 'tsoding )
+(provide-theme 'tsoding)
