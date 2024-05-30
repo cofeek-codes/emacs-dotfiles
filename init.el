@@ -927,6 +927,10 @@
 
 ;; Editorconfig end ========
 
+;; Tabulature ==========
+(add-to-list 'load-path "~/.emacs.d/packages/tab-n-fret/")
+(autoload 'chord-mode "tablature-mode" "Guitar tablature." t)
+;; Tabulature end ==========
 
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
