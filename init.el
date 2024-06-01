@@ -88,6 +88,8 @@
 (straight-use-package 'clojure-mode)
 (straight-use-package 'cider)
 (straight-use-package 'fireplace)
+(straight-use-package 'emojify)
+(straight-use-package 'company-emojify)
 
 ;; for debug
 
@@ -917,6 +919,7 @@
 (with-eval-after-load 'markdown-mode
 
   (add-to-list 'load-path (expand-file-name "~/.emacs.d/packages/emacs-livedown"))
+  (add-hook 'markdown-mode-hook 'emojify-mode)
 )
 ;; Markdown end ========
 
@@ -939,6 +942,10 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
+ '(company-backends
+   '(company-emojify company-math-symbols-latex company-math-symbols-unicode company-paths company-bbdb company-semantic company-cmake company-capf company-clang company-files
+                     (company-dabbrev-code company-gtags company-etags company-keywords)
+                     company-oddmuse company-dabbrev))
  '(css-indent-offset 3)
  '(doc-view-continuous t)
  '(mc/always-run-for-all t)
@@ -953,3 +960,9 @@
 
 (put 'upcase-region 'disabled nil)
 (put 'downcase-region 'disabled nil)
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ )
