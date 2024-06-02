@@ -90,6 +90,7 @@
 (straight-use-package 'fireplace)
 (straight-use-package 'emojify)
 (straight-use-package 'company-emojify)
+(straight-use-package 'pdf-tools)
 
 ;; for debug
 
