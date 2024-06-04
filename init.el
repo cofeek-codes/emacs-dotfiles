@@ -920,8 +920,13 @@
 (with-eval-after-load 'markdown-mode
 
   (add-to-list 'load-path (expand-file-name "~/.emacs.d/packages/emacs-livedown"))
-  (add-hook 'markdown-mode-hook 'emojify-mode)
-)
+
+  (add-hook 'markdown-mode-hook
+            (lambda ()
+              (emojify-mode)
+              (unless (member 'company-emojify company-backends)
+                (add-to-list 'company-backends 'company-emojify))))
+  )
 ;; Markdown end ========
 
 ;; Editorconfig
@@ -944,7 +949,7 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(company-backends
-   '(company-emojify company-math-symbols-latex company-math-symbols-unicode company-paths company-bbdb company-semantic company-cmake company-capf company-clang company-files
+   '(company-math-symbols-latex company-math-symbols-unicode company-paths company-bbdb company-semantic company-cmake company-capf company-clang company-files
                      (company-dabbrev-code company-gtags company-etags company-keywords)
                      company-oddmuse company-dabbrev))
  '(css-indent-offset 3)
