@@ -4,7 +4,7 @@
 (custom-theme-set-faces
  'jblow
  '(region ((t (:extend nil :background "#0000ff"))))
- '(cursor ((t (:background "#9bdb9c"))))
+ '(cursor ((t (:background "#93ea95"))))
  '(fringe ((t (:background "#062329" :foreground "#ffffff"))))
  '(highlight ((t (:foreground "#0000ff"))))
  '(font-lock-keyword-face ((t (:foreground "#ffffff"))))
