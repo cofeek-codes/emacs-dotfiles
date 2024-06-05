@@ -785,9 +785,6 @@
 
 ;; Latex for notes
 
-;; FIXME: enable auctex
-
-
 (use-package auctex
   :defer    t
   :straight t
@@ -800,19 +797,12 @@
 (add-hook 'LaTeX-mode-hook 'turn-on-prettify-symbols-mode)
 (add-hook 'LaTeX-math-mode-hook 'turn-on-prettify-symbols-mode)
 
-(add-hook 'LaTeX-mode-hook 'turn-on-flyspell)
-(add-hook 'LaTeX-math-mode-hook 'turn-on-flyspell)
-
-
-
 (setq TeX-electric-sub-and-superscript t)
 
 (require 'company)
 (require 'company-math)
 
 (add-to-list 'company-backends 'company-math-symbols-unicode)
-(add-to-list 'company-backends 'company-math-symbols-latex)
-
 
 (defun latex-binds ()
   (define-key LaTeX-mode-map (kbd "C-c C-x C-l") 'org-latex-preview))
