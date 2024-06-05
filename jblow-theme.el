@@ -1,5 +1,5 @@
 (deftheme jblow
-  "My version of Jhonathan Blow emacs theme")
+  "My version of Jonathan Blow emacs theme")
 
 (custom-theme-set-faces
  'jblow
@@ -47,7 +47,8 @@
  '(success ((t (:foreground "ForestGreen" :weight bold))))
  '(magit-hash ((t (:foreground "#7ad0c6"))))
  '(lsp-ui-doc-background ((t (:background "#083a41"))))
+ '(rust-unsafe ((t (:inherit font-lock-keyword-face))))
  '(default ((t (:inherit nil :extend nil :stipple nil :background "#062329" :foreground "#d1b897" :inverse-video nil :box nil :strike-through nil :overline nil :underline nil :slant normal :weight regular :height 211 :width normal :foundry "UKWN" :family "Iosevka"))))
- '(rust-unsafe ((t (:inherit font-lock-keyword-face)))))
+ '(font-latex-script-char-face ((t (:inherit warning)))))
 
 (provide-theme 'jblow)
