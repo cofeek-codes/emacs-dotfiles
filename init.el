@@ -345,6 +345,7 @@
 
 
 ;; PHP
+
 (with-eval-after-load 'php-mode
 (add-hook 'php-mode-hook
           (lambda ()
@@ -358,6 +359,16 @@
 )
 
 ;; PHP end ===========
+
+;; Perl
+
+(with-eval-after-load 'perl-mode
+(add-hook 'perl-mode-hook
+          (lambda ()
+            (lsp)))
+)
+
+;; Perl end ===========
 
 ;; end Web ======================================
 
