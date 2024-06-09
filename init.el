@@ -86,6 +86,7 @@
 (straight-use-package 'dune-format)
 (straight-use-package 'expand-region)
 (straight-use-package 'clojure-mode)
+(straight-use-package 'glsl-mode)
 (straight-use-package 'cider)
 (straight-use-package 'fireplace)
 (straight-use-package 'emojify)
