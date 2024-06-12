@@ -22,7 +22,7 @@
  '(font-lock-warning-face ((t (:foreground "#ffaa00"))))
  '(trailing-whitespace ((t (:background "#ffaa00"))))
  '(mode-line-buffer-id ((t (:distant-foreground "#d1b897" :foreground "#062329" :weight bold))))
- '(mode-line ((t (:background "#d1b48f" :foreground "#062329" :box (:line-width (1 . -1) :style released-button)))))
+ '(mode-line ((t (:background "#d1b48f" :foreground "#062329" :box (:line-width (1 . -1))))))
  '(mode-line-inactive ((t (:inherit mode-line :background "#c7c8c7" :foreground "#062329" :box (:line-width (1 . -1) :color "grey40") :weight normal))))
  '(line-number ((t (:background "#062329" :foreground "#126367"))))
  '(line-number-current-line ((t (:background "#062329" :foreground "#ffffff"))))
