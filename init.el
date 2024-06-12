@@ -198,6 +198,10 @@
                         (kill-region (region-beginning) (region-end))) ; Correctly call kill-region with start and end of the region
                     (backward-kill-word 1)))) ; Otherwise, perform kill-word-backward
 
+;; delete char forward
+
+(global-set-key (kbd "S-<backspace>") 'delete-forward-char)
+
 (delete-selection-mode 1)
 
 
