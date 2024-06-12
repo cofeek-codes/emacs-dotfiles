@@ -231,7 +231,7 @@
 
 
 
-(set-frame-font "Iosevka-15" nil t)
+(set-frame-font "Iosevka-16" nil t)
 
 
 ;; start in fullscreen
