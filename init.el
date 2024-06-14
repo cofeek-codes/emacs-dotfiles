@@ -952,10 +952,11 @@
  ;; If there is more than one, they won't work right.
  '(company-backends
    '(company-math-symbols-latex company-math-symbols-unicode company-paths company-bbdb company-semantic company-cmake company-capf company-clang company-files
-                     (company-dabbrev-code company-gtags company-etags company-keywords)
-                     company-oddmuse company-dabbrev))
+                                (company-dabbrev-code company-gtags company-etags company-keywords)
+                                company-oddmuse company-dabbrev))
  '(css-indent-offset 3)
  '(doc-view-continuous t)
+ '(lsp-headerline-breadcrumb-enable nil)
  '(mc/always-run-for-all t)
  '(org-support-shift-select 'always)
  '(plantuml-indent-level 3)
