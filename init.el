@@ -244,17 +244,14 @@
 
 ;; theme
 
-(load-theme 'jblow t)
-
-;; (if (eq window-system 'w32)
-;;     (load-theme 'jblow t)
-;;   (load-theme 'tsoding t))
+(if (eq window-system 'w32)
+    (load-theme 'jblow t)
+  (load-theme 'tsoding t))
 
 
 (add-hook 'prog-mode-hook 'highlight-numbers-mode)
 
 ;; line numbers
-
 
 (add-hook 'prog-mode-hook
           (lambda ()
@@ -268,7 +265,6 @@
 (add-hook 'text-scale-mode-hook 'post-text-scale-callback)
 
 (setq display-line-numbers-current-absolute nil)
-
 
 ;; disable sound (annoying)
 
