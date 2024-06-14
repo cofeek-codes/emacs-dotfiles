@@ -19,7 +19,7 @@
  '(font-latex-sectioning-5-face ((t (:foreground "#96a6c8" :bold t))))
  '(font-latex-slide-title-face ((t (:foreground "#96a6c8"))))
  '(font-latex-string-face ((t (:foreground "#73c936"))))
- '(font-latex-warning-face ((t (:foreground "#f43841"))))
+ '(font-latex-warning-face ((t (:foreground "tomato"))))
  '(border ((t (:background "#101010" :foreground "#453d41"))))
  '(cursor ((t (:background "#ffdd33"))))
  '(fringe ((t (:background nil :foreground "#453d41"))))
@@ -186,7 +186,8 @@
  '(orderless-match-face-1 ((t (:foreground "#73c936"))))
  '(orderless-match-face-2 ((t (:foreground "#cc8c3c"))))
  '(orderless-match-face-3 ((t (:foreground "#95a99f"))))
+ '(rust-unsafe ((t (:inherit font-lock-keyword-face))))
  '(default ((t (:foreground "#e4e4ef" :background "#181818"))))
- '(rust-unsafe ((t (:inherit font-lock-keyword-face)))))
+ '(font-latex-script-char-face ((t (:inherit font-latex-warning-face)))))
 
 (provide-theme 'tsoding)
