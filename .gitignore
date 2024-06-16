@@ -20,3 +20,6 @@ games/
 .dap-breakpoints
 straight/
 projectile.cache
+.org-id-locations
+bookmarks
+*.db
