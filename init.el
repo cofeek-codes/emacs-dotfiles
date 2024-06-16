@@ -93,6 +93,7 @@
 (straight-use-package 'company-emojify)
 (straight-use-package 'pdf-tools)
 (straight-use-package 'org)
+(straight-use-package 'orgnote)
 
 ;; for debug
 
@@ -952,6 +953,7 @@
         org-roam-ui-follow t
         org-roam-ui-update-on-save t
         org-roam-ui-open-on-start t))
+
 
 ;; Org end ========
 
