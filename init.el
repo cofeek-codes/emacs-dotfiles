@@ -125,6 +125,7 @@
 (global-set-key (kbd "C-{") 'er/contract-region)
 (global-set-key (kbd "C-}") 'er/expand-region)
 (global-set-key (kbd "C-S-f") 'query-replace)
+(global-set-key (kbd "C-c C-c") 'compile)
 
 
 ;; tabs
