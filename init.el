@@ -914,6 +914,7 @@
 			 "rm -rf _minted-*"))
 
   (setq org-src-fontify-natively t)
+  (setq org-fontify-whole-heading-line t)
 
   (require 'org)
   (setq org-format-latex-options (plist-put org-format-latex-options :scale 2.0))
