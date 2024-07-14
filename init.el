@@ -94,6 +94,7 @@
 (straight-use-package 'pdf-tools)
 (straight-use-package 'org)
 (straight-use-package 'orgnote)
+(straight-use-package 'gruber-darker-theme)
 
 ;; for debug
 
@@ -249,7 +250,7 @@
 
 (if (eq window-system 'w32)
     (load-theme 'jblow t)
-  (load-theme 'zenburn t))
+  (load-theme 'gruber-darker t))
 
 
 (add-hook 'prog-mode-hook 'highlight-numbers-mode)
