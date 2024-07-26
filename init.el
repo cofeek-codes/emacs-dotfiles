@@ -684,6 +684,7 @@
 
 
 (define-key dired-mode-map (kbd "C-<return>") 'dired-find-file-other-window)
+(define-key dired-mode-map (kbd "h") 'dired-up-directory)
 
 
 
