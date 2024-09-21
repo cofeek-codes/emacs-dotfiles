@@ -5,7 +5,6 @@
 
 (setq-default inhibit-splash-screen t
               make-backup-files nil
-              tab-width 3
               indent-tabs-mode nil
               compilation-scroll-output t
               default-input-method "russian-computer"
@@ -131,7 +130,6 @@
 
 ;; tabs
 
-(setq-default tab-width 3)
 
 ;; select current line
 
