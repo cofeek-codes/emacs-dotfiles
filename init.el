@@ -166,22 +166,6 @@
 
 ;; isearch-mode
 
-(defun isearch-with-region ()
-  "Use region as the isearch text."
-  (when mark-active
-    (let ((region (funcall region-extract-function nil)))
-      (deactivate-mark)
-      (isearch-push-state)
-      (isearch-yank-string region))))
-
-(add-hook 'isearch-mode-hook #'isearch-with-region)
-
-(require 'phi-search)
-(define-key phi-search-default-map (kbd "C-n") 'phi-search-again-or-next)
-(define-key phi-search-default-map (kbd "C-p") 'phi-search-again-or-previous)
-(define-key phi-search-default-map (kbd "TAB") 'phi-search-yank-word)
-
-
 ;; move between panes with S-<arrows>
 
 
@@ -1016,6 +1000,13 @@
  '(lsp-headerline-breadcrumb-enable nil)
  '(mc/always-run-for-all t)
  '(org-support-shift-select 'always)
+ '(phi-search-additional-keybinds
+   '(((kbd "C-n")
+      quote phi-search-again-or-next)
+     ((kbd "C-p")
+      quote phi-search-again-or-previous)
+     ((kbd "TAB")
+      quote phi-search-yank-word)))
  '(plantuml-indent-level 3)
  '(plantuml-suppress-deprecation-warning nil)
  '(rust-indent-offset 4)
