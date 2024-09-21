@@ -55,6 +55,7 @@
 (straight-use-package 'resize-window)
 (straight-use-package 'magit)
 (straight-use-package 'typescript-mode)
+(straight-use-package 'phi-search)
 (straight-use-package 'go-mode)
 (straight-use-package 'php-mode)
 (straight-use-package 'lsp-pyright)
@@ -112,7 +113,7 @@
 
 (global-set-key (kbd "C-z") 'undo)
 (global-set-key (kbd "C-s") 'save-buffer)
-(global-set-key (kbd "C-f") 'isearch-forward)
+(global-set-key (kbd "C-f") 'phi-search)
 (global-set-key (kbd "C->") 'end-of-buffer)
 (global-set-key (kbd "C-<") 'beginning-of-buffer)
 (global-set-key (kbd "C-k") 'kill-whole-line)
@@ -164,6 +165,7 @@
 
 
 ;; isearch-mode
+
 (defun isearch-with-region ()
   "Use region as the isearch text."
   (when mark-active
@@ -174,9 +176,11 @@
 
 (add-hook 'isearch-mode-hook #'isearch-with-region)
 
-(define-key isearch-mode-map (kbd "C-n") 'isearch-repeat-forward)
-(define-key isearch-mode-map (kbd "C-p") 'isearch-repeat-backward)
-(define-key isearch-mode-map (kbd "TAB") 'isearch-yank-word-or-char)
+(require 'phi-search)
+(define-key phi-search-default-map (kbd "C-n") 'phi-search-again-or-next)
+(define-key phi-search-default-map (kbd "C-p") 'phi-search-again-or-previous)
+(define-key phi-search-default-map (kbd "TAB") 'phi-search-yank-word)
+
 
 ;; move between panes with S-<arrows>
 
