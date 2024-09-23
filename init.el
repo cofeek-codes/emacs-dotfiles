@@ -160,17 +160,11 @@
 
 (global-set-key (kbd "C--") 'duplicate-line)
 
-
-
-
-
 ;; isearch-mode
 
 ;; move between panes with S-<arrows>
 
-
 (windmove-default-keybindings)
-
 
 ;; resize panes
 
