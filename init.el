@@ -967,6 +967,13 @@
 
 ;; Org end ========
 
+;; Spell
+
+(setq-default ispell-program-name "aspell")
+(setq ispell-really-aspell t)
+
+;; Spell end ========
+
 ;; Markdown
 (with-eval-after-load 'markdown-mode
 
@@ -1005,6 +1012,7 @@
                                 company-oddmuse company-dabbrev))
  '(css-indent-offset 3)
  '(doc-view-continuous t)
+ '(ispell-extra-args '("-d" "ru"))
  '(lsp-headerline-breadcrumb-enable nil)
  '(mc/always-run-for-all t)
  '(org-support-shift-select 'always)
