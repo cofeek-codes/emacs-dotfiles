@@ -68,7 +68,6 @@
 (straight-use-package 'smex)
 (straight-use-package 'ag)
 (straight-use-package 'multiple-cursors)
-(straight-use-package 'neotree)
 (straight-use-package 'all-the-icons)
 (straight-use-package 'lsp-pascal)
 (straight-use-package 'yaml-mode)
@@ -769,16 +768,6 @@
 (global-set-key (kbd "C-c C-<")          'mc/mark-previous-like-this)
 (global-set-key (kbd "C-:")              'mc/skip-to-previous-like-this)
 (global-set-key (kbd "M-<down-mouse-1>") 'mc/add-cursor-on-click)
-
-
-
-
-;; NeoTree
-
-(require 'neotree)
-(global-set-key (kbd "C-b") 'neotree-toggle)
-
-(setq neo-theme (if (display-graphic-p) 'icons 'arrow))
 
 ;; Latex for notes
 
