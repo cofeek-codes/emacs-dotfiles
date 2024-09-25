@@ -94,6 +94,7 @@
 (straight-use-package 'org)
 (straight-use-package 'orgnote)
 (straight-use-package 'gruber-darker-theme)
+(straight-use-package 'todoist)
 
 ;; for debug
 
