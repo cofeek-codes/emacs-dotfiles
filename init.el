@@ -601,6 +601,15 @@
 ;; Clojure end =================
 
 
+;; TSX
+
+(add-to-list 'auto-mode-alist '("\\.tsx\\'" . tsx-ts-mode))
+(add-hook 'tsx-ts-mode-hook
+          (lambda ()
+            (lsp)))
+
+;; TSX end =========
+
 ;; lsp binds
 
 
