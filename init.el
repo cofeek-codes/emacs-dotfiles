@@ -328,7 +328,6 @@
 
 (add-hook 'web-mode-hook 'emmet-mode)
 
-
 ;; PHP
 
 (with-eval-after-load 'php-mode
@@ -458,9 +457,6 @@
 
 ;; Odin
 
-
-
-
 ;; (straight-use-package
 ;;  '(odin-mode :type git :host github :repo "mattt-b/odin-mode"))
 
@@ -495,8 +491,6 @@
 
 
 ;; Prisma
-
-
 
 ;; (straight-use-package
 ;;  '(prisma-mode :type git :host github :repo "pimeys/emacs-prisma-mode"))
@@ -1002,7 +996,7 @@
       quote phi-search-yank-word)))
  '(plantuml-indent-level 3)
  '(plantuml-suppress-deprecation-warning nil)
- '(rust-indent-offset 4)
+ '(rust-indent-offset 3)
  '(standard-indent 3)
  '(typescript-indent-level 3)
  '(wakatime-cli-path "~/.wakatime/wakatime-cli")
