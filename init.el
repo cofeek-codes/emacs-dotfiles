@@ -978,8 +978,8 @@
  ;; If there is more than one, they won't work right.
  '(company-backends
    '(company-math-symbols-latex company-math-symbols-unicode company-paths company-bbdb company-semantic company-cmake company-capf company-clang company-files
-                                (company-dabbrev-code company-gtags company-etags company-keywords)
-                                company-oddmuse company-dabbrev))
+                                (company-dabbrev company-dabbrev-code company-gtags company-etags company-keywords)
+                                company-oddmuse))
  '(css-indent-offset 3)
  '(doc-view-continuous t)
  '(ispell-extra-args '("-d" "ru"))
