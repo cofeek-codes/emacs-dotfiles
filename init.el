@@ -688,7 +688,6 @@
 ;; company
 
 (require 'company)
-(add-to-list 'company-backends 'company-dabbrev)
 
 (add-to-list 'load-path "~/.emacs.d/packages/company-paths/")
 (require 'company-paths)
