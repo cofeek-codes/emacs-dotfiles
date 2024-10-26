@@ -1,0 +1,12 @@
+# -*- mode: snippet -*-
+# name: rafce
+# key: rafce
+# --
+
+const ${1:`(file-name-base (buffer-file-name))`} = () => {
+    return <>
+         ${1:`(file-name-base (buffer-file-name))`}
+    </>
+}
+
+export default ${1:`(file-name-base (buffer-file-name))`}
