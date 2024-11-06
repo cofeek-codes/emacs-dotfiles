@@ -869,6 +869,8 @@
 ;; Org
 (with-eval-after-load 'org
 
+  (define-key org-mode-map (kbd "C-'") nil)
+
   (setq org-agenda-files '("~/Desktop/notes/"))
 
   (setq org-log-done t)
