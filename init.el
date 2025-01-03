@@ -6,7 +6,7 @@
 (setq-default inhibit-splash-screen t
               make-backup-files nil
               indent-tabs-mode nil
-              tab-width 3
+              tab-width 4
               compilation-scroll-output t
               default-input-method "russian-computer"
 				  )
