@@ -983,7 +983,6 @@
    '(company-math-symbols-latex company-math-symbols-unicode company-paths company-bbdb company-semantic company-cmake company-capf company-clang company-files
                                 (company-dabbrev company-dabbrev-code company-gtags company-etags company-keywords)
                                 company-oddmuse))
- '(css-indent-offset 3)
  '(doc-view-continuous t)
  '(ispell-extra-args '("-d" "ru"))
  '(lsp-headerline-breadcrumb-enable nil)
@@ -996,11 +995,7 @@
       quote phi-search-again-or-previous)
      ((kbd "TAB")
       quote phi-search-yank-word)))
- '(plantuml-indent-level 3)
  '(plantuml-suppress-deprecation-warning nil)
- '(rust-indent-offset 3)
- '(standard-indent 3)
- '(typescript-indent-level 3)
  '(wakatime-cli-path "~/.wakatime/wakatime-cli")
  '(warning-suppress-types '(((org-element org-element-parser)) (comp))))
 
