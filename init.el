@@ -192,23 +192,7 @@
 
 ;; vscode-like comments
 
-(defun toggle-comment-line-or-region ()
-  "Toggle comment for lines in a region or the current line"
-  (interactive)
-  (if (region-active-p)
-      (let ((region-start (min (region-beginning) (region-end)))
-            (region-end (max (region-beginning) (region-end))))
-        (save-excursion
-          (goto-char region-start)
-          (beginning-of-line)
-          (setq region-start (point))
-          (goto-char region-end)
-          (end-of-line)
-          (setq region-end (point)))
-        (comment-or-uncomment-region region-start region-end))
-    (comment-line 1)))
-
-(global-set-key (kbd "C-/") 'toggle-comment-line-or-region)
+(global-set-key (kbd "C-/") 'comment-line)
 
 ;; customization
 
