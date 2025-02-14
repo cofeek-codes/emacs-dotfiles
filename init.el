@@ -980,6 +980,7 @@
      ((kbd "TAB")
       quote phi-search-yank-word)))
  '(plantuml-suppress-deprecation-warning nil)
+ '(py-autopep8-command "autopep8 --ignore E501")
  '(wakatime-cli-path "~/.wakatime/wakatime-cli")
  '(warning-suppress-types '(((org-element org-element-parser)) (comp))))
 
