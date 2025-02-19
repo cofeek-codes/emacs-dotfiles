@@ -204,7 +204,18 @@
 
 
 
+(defun is-laptop-p ()
+  (let ((file-path "./.device"))
+    (when (file-readable-p file-path)
+      (with-temp-buffer
+        (insert-file-contents file-path)
+        (string= (buffer-string) "laptop")))))
+
+;; Example usage:
+(if (is-laptop-p)
 (set-frame-font "Iosevka-18" nil t)
+(set-frame-font "Iosevka-16" nil t))
+
 
 
 ;; start in fullscreen
