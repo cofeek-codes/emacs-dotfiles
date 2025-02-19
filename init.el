@@ -226,7 +226,7 @@
 
 (if (eq window-system 'w32)
     (load-theme 'jblow t)
-  (load-theme 'gruber-darker t))
+  (load-theme 'zenburn t))
 
 
 (add-hook 'prog-mode-hook 'highlight-numbers-mode)
