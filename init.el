@@ -52,7 +52,6 @@
 (straight-use-package 'move-text)
 (straight-use-package 'wrap-region)
 (straight-use-package 'clang-format)
-(straight-use-package 'emmet-mode)
 (straight-use-package 'resize-window)
 (straight-use-package 'magit)
 (straight-use-package 'typescript-mode)
@@ -128,6 +127,8 @@
 (global-set-key (kbd "C-}") 'er/expand-region)
 (global-set-key (kbd "C-S-f") 'query-replace)
 (global-set-key (kbd "C-c C-c") 'compile)
+(global-set-key (kbd "C-M-<left>") 'backward-sexp)
+(global-set-key (kbd "C-M-<right>") 'forward-sexp)
 
 
 ;; tabs
@@ -286,6 +287,15 @@
 
 
 ;; Web
+
+;; Emmet
+
+(use-package emmet-mode
+  :straight t
+  :config
+  (unbind-key "C-M-<left>" emmet-mode-keymap)
+  (unbind-key "C-M-<right>" emmet-mode-keymap)
+  )
 
 ;; auto-rename-tag
 
