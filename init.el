@@ -656,6 +656,10 @@
 
 (electric-pair-mode 1)
 
+(defun inhibit-electric-pair-mode-in-minibuffer (char)
+  (minibufferp))
+
+(setq electric-pair-inhibit-predicate #'inhibit-electric-pair-mode-in-minibuffer)
 
 (require 'wrap-region)
 (wrap-region-mode t)
