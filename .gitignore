@@ -25,3 +25,4 @@ bookmarks
 *.db
 tree-sitter/
 .device
+tutorial/
