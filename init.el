@@ -238,13 +238,6 @@
           (lambda ()
             (display-line-numbers-mode)))
 
-(defun post-text-scale-callback ()
- ;; fix line number text size
- (set-face-attribute 'line-number nil
-                      :height (floor (* (face-attribute 'default :height)
-                                        (expt text-scale-mode-step text-scale-mode-amount)))))
-(add-hook 'text-scale-mode-hook 'post-text-scale-callback)
-
 (setq display-line-numbers-current-absolute nil)
 
 ;; disable sound (annoying)
