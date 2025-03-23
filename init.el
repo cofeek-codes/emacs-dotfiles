@@ -95,6 +95,7 @@
 (straight-use-package 'orgnote)
 (straight-use-package 'gruber-darker-theme)
 (straight-use-package 'todoist)
+(straight-use-package 'twig-mode)
 
 ;; for debug
 
