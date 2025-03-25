@@ -697,7 +697,7 @@
 (require 'company-paths)
 (add-to-list 'company-backends 'company-paths)
 
-(global-set-key (kbd "C-,") 'company-dabbrev)
+(global-set-key (kbd "C-.") 'company-dabbrev)
 
 (global-company-mode)
 
