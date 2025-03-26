@@ -1001,6 +1001,7 @@
  '(plantuml-suppress-deprecation-warning nil)
  '(py-autopep8-command "autopep8 --ignore E501")
  '(wakatime-cli-path "~/.wakatime/wakatime-cli")
+ '(wakatime-disable-on-error t)
  '(warning-suppress-types '(((org-element org-element-parser)) (comp))))
 
 (put 'upcase-region 'disabled nil)
