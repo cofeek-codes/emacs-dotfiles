@@ -989,6 +989,7 @@
  '(doc-view-continuous t)
  '(ispell-extra-args '("-d" "ru"))
  '(lsp-headerline-breadcrumb-enable nil)
+ '(magit-no-confirm '(stage-all-changes unstage-all-changes set-and-push))
  '(mc/always-run-for-all t)
  '(org-support-shift-select 'always)
  '(phi-search-additional-keybinds
