@@ -95,6 +95,7 @@
 (straight-use-package 'orgnote)
 (straight-use-package 'gruber-darker-theme)
 (straight-use-package 'todoist)
+(straight-use-package 'twig-mode)
 
 ;; for debug
 
@@ -237,13 +238,6 @@
 (add-hook 'prog-mode-hook
           (lambda ()
             (display-line-numbers-mode)))
-
-(defun post-text-scale-callback ()
- ;; fix line number text size
- (set-face-attribute 'line-number nil
-                      :height (floor (* (face-attribute 'default :height)
-                                        (expt text-scale-mode-step text-scale-mode-amount)))))
-(add-hook 'text-scale-mode-hook 'post-text-scale-callback)
 
 (setq display-line-numbers-current-absolute nil)
 
@@ -703,7 +697,7 @@
 (require 'company-paths)
 (add-to-list 'company-backends 'company-paths)
 
-(global-set-key (kbd "C-,") 'company-dabbrev)
+(global-set-key (kbd "C-.") 'company-dabbrev)
 
 (global-company-mode)
 
@@ -995,6 +989,7 @@
  '(doc-view-continuous t)
  '(ispell-extra-args '("-d" "ru"))
  '(lsp-headerline-breadcrumb-enable nil)
+ '(magit-no-confirm '(stage-all-changes unstage-all-changes set-and-push))
  '(mc/always-run-for-all t)
  '(org-support-shift-select 'always)
  '(phi-search-additional-keybinds
@@ -1007,6 +1002,7 @@
  '(plantuml-suppress-deprecation-warning nil)
  '(py-autopep8-command "autopep8 --ignore E501")
  '(wakatime-cli-path "~/.wakatime/wakatime-cli")
+ '(wakatime-disable-on-error t)
  '(warning-suppress-types '(((org-element org-element-parser)) (comp))))
 
 (put 'upcase-region 'disabled nil)
