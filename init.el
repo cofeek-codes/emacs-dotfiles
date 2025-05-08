@@ -492,28 +492,17 @@
 
 ;; Prisma
 
-;; (straight-use-package
-;;  '(prisma-mode :type git :host github :repo "pimeys/emacs-prisma-mode"))
+(straight-use-package
+ '(prisma-mode :type git :host github :repo "pimeys/emacs-prisma-mode"))
 
-;; (require 'prisma-mode)
+(defun my-prisma-mode-hook ()
+  (setq-local create-lockfiles nil)
+  )
 
+(add-hook 'prisma-mode-hook #'my-prisma-mode-hook)
 
-;; (add-to-list 'lsp-language-id-configuration '(prisma-mode . "prisma"))
+(add-hook 'prisma-mode-hook (lambda () (add-hook 'before-save-hook #'lsp-format-buffer nil 'local)))
 
-;; ;; npm i -g @prisma/language-server
-
-;; (lsp-register-client
-;;  (make-lsp-client :new-connection (lsp-stdio-connection "prisma-language-server")
-;;                   :major-modes '(prisma-mode)
-;;                   :server-id 'prisma-ls))
-
-
-
-;; (add-hook 'prisma-mode-hook #'lsp)
-
-
-
-;; (add-hook 'prisma-mode-hook (lambda () (add-hook 'before-save-hook #'lsp-format-buffer nil 'local)))
 
 ;; Prisma end ==============
 
