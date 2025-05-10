@@ -981,6 +981,7 @@
  '(magit-no-confirm '(stage-all-changes unstage-all-changes set-and-push))
  '(mc/always-run-for-all t)
  '(org-support-shift-select 'always)
+ '(pdf-view-midnight-colors '("#fff" . "#181818"))
  '(phi-search-additional-keybinds
    '(((kbd "C-n")
       quote phi-search-again-or-next)
