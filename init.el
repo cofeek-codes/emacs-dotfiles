@@ -328,6 +328,8 @@
 
 (add-hook 'web-mode-hook 'emmet-mode)
 
+(setq lsp-format-buffer-on-save t)
+
 ;; PHP
 
 (with-eval-after-load 'php-mode
