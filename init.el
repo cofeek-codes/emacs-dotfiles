@@ -68,8 +68,7 @@
  ;; If there is more than one, they won't work right.
  '(compilation-scroll-output t)
  '(custom-enabled-themes '(gruber-darker))
- '(custom-safe-themes
-   '("e13beeb34b932f309fb2c360a04a460821ca99fe58f69e65557d6c1b10ba18c7" default))
+ '(custom-safe-themes t)
  '(default-frame-alist '((font . "Iosevka-16") (fullscreen . maximized)))
  '(default-input-method "russian-computer")
  '(delete-selection-mode t)
