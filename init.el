@@ -59,7 +59,11 @@
 
 ;; lsp
 
+(defun setup-lsp-mode ()
+  "Sets up lsp for prog-mode-based modes"
+  (lsp))
 
+(add-hook 'prog-mode-hook 'setup-lsp-mode)
 
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
@@ -79,13 +83,17 @@
  '(ido-mode 'both nil (ido))
  '(indent-tabs-mode nil)
  '(inhibit-startup-screen t)
+ '(lsp-auto-guess-root t)
+ '(lsp-enable-on-type-formatting nil)
+ '(lsp-enable-suggest-server-download nil)
+ '(lsp-format-buffer-on-save t)
  '(magit-no-confirm '(stage-all-changes unstage-all-changes set-and-push))
  '(make-backup-files nil)
  '(package-archives
    '(("gnu" . "https://elpa.gnu.org/packages/")
      ("nongnu" . "https://elpa.nongnu.org/nongnu/")
      ("melpa" . "https://melpa.org/packages/")))
- '(package-selected-packages '(resize-window company magit gruber-darker-theme))
+ '(package-selected-packages '(lsp-mode resize-window company magit gruber-darker-theme))
  '(ring-bell-function 'ignore)
  '(scroll-bar-mode nil)
  '(tab-width 4)
