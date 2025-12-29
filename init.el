@@ -59,11 +59,7 @@
 
 ;; lsp
 
-(defun setup-lsp-mode ()
-  "Sets up lsp for prog-mode-based modes"
-  (lsp))
-
-(add-hook 'prog-mode-hook 'setup-lsp-mode)
+;; (add-hook 'prog-mode-hook 'lsp-deferred)
 
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
