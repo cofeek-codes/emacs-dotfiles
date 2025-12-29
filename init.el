@@ -17,21 +17,6 @@
 
 (windmove-default-keybindings)
 
-;; isearch keybinds
-
-(define-key isearch-mode-map (kbd "C-n") 'isearch-repeat-forward)
-(define-key isearch-mode-map (kbd "C-p") 'isearch-repeat-backward)
-(define-key isearch-mode-map (kbd "C-r") 'isearch-toggle-regexp)
-
-;; compile-mode keybinds
-
-(defun setup-compilation-keybinds ()
-  (local-set-key (kbd "r") 'recompile)
-  (local-set-key (kbd "C-c C-c") 'kill-compilation))
-
-(add-hook 'compilation-mode-hook 'setup-compilation-keybinds)
-
-
 (defun mark-whole-line ()
   (interactive)
   (end-of-line)
@@ -54,6 +39,19 @@
 
 (global-set-key (kbd "C--") 'duplicate-line)
 
+;; isearch keybinds
+
+(define-key isearch-mode-map (kbd "C-n") 'isearch-repeat-forward)
+(define-key isearch-mode-map (kbd "C-p") 'isearch-repeat-backward)
+(define-key isearch-mode-map (kbd "C-r") 'isearch-toggle-regexp)
+
+;; compile-mode keybinds
+
+(defun setup-compilation-keybinds ()
+  (local-set-key (kbd "r") 'recompile)
+  (local-set-key (kbd "C-c C-c") 'kill-compilation))
+
+(add-hook 'compilation-mode-hook 'setup-compilation-keybinds)
 
 ;; line numbers
 
