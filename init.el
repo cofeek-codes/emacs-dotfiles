@@ -61,7 +61,6 @@
  '(default-frame-alist '((font . "Iosevka-16") (fullscreen . maximized)))
  '(default-input-method "russian-computer")
  '(electric-pair-mode t)
- '(fringe-mode 0 nil (fringe))
  '(global-company-mode t)
  '(ido-everywhere t)
  '(ido-mode 'both nil (ido))
@@ -83,4 +82,5 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
+ '(fringe ((t (:background "#181818" :foreground "#181818"))))
  '(vertical-border ((t (:foreground "#282828")))))
