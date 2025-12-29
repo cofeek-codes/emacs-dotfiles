@@ -23,6 +23,15 @@
 (define-key isearch-mode-map (kbd "C-p") 'isearch-repeat-backward)
 (define-key isearch-mode-map (kbd "C-r") 'isearch-toggle-regexp)
 
+;; compile-mode keybinds
+
+(defun setup-compilation-keybinds ()
+  (local-set-key (kbd "r") 'recompile)
+  (local-set-key (kbd "C-c C-c") 'kill-compilation))
+
+(add-hook 'compilation-mode-hook 'setup-compilation-keybinds)
+
+
 (defun mark-whole-line ()
   (interactive)
   (end-of-line)
