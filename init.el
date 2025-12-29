@@ -3,6 +3,7 @@
 (global-set-key (kbd "C-z") 'undo)
 (global-set-key (kbd "C-s") 'save-buffer)
 (global-set-key (kbd "C-f") 'isearch-forward)
+(global-set-key (kbd "C-S-f") 'query-replace)
 (global-set-key (kbd "C-q") 'move-beginning-of-line)
 (global-set-key (kbd "C-a") 'mark-whole-buffer)
 (global-set-key (kbd "C-<") 'beginning-of-buffer)
