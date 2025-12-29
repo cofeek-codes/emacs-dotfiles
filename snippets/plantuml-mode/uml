@@ -1,9 +1,0 @@
-# -*- mode: snippet -*-
-# name: uml
-# key: uml
-# --
-@startuml
-
-$0
-
-@enduml
