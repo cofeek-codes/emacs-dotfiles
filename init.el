@@ -12,7 +12,7 @@
 (global-set-key (kbd "C-k") 'kill-whole-line)
 (global-set-key (kbd "C-p") 'company-complete)
 (global-set-key (kbd "C-/") 'comment-line)
-(global-set-key (kbd "C-c ;") 'windresize)
+(global-set-key (kbd "C-c ;") 'resize-window)
 (global-set-key (kbd "C-c C-c") 'compile)
 
 (windmove-default-keybindings)
@@ -85,7 +85,7 @@
    '(("gnu" . "https://elpa.gnu.org/packages/")
      ("nongnu" . "https://elpa.nongnu.org/nongnu/")
      ("melpa" . "https://melpa.org/packages/")))
- '(package-selected-packages '(windresize company magit gruber-darker-theme))
+ '(package-selected-packages '(resize-window company magit gruber-darker-theme))
  '(ring-bell-function 'ignore)
  '(scroll-bar-mode nil)
  '(tab-width 4)
