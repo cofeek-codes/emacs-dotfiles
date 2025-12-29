@@ -14,9 +14,13 @@
 (global-set-key (kbd "C-c ;") 'windresize)
 (global-set-key (kbd "C-c C-c") 'compile)
 
-
-
 (windmove-default-keybindings)
+
+;; isearch keybinds
+
+(define-key isearch-mode-map (kbd "C-n") 'isearch-repeat-forward)
+(define-key isearch-mode-map (kbd "C-p") 'isearch-repeat-backward)
+(define-key isearch-mode-map (kbd "C-r") 'isearch-toggle-regexp)
 
 (defun mark-whole-line ()
   (interactive)
