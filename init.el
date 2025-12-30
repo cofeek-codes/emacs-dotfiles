@@ -83,6 +83,7 @@
  '(global-company-mode t)
  '(ido-everywhere t)
  '(ido-mode 'both nil (ido))
+ '(ido-ubiquitous-mode t)
  '(indent-tabs-mode nil)
  '(inhibit-startup-screen t)
  '(lsp-auto-guess-root t)
@@ -97,7 +98,7 @@
      ("nongnu" . "https://elpa.nongnu.org/nongnu/")
      ("melpa" . "https://melpa.org/packages/")))
  '(package-selected-packages
-   '(graphviz-dot-mode d2-mode plantuml-mode lsp-mode resize-window company magit gruber-darker-theme))
+   '(smex ido-completing-read+ graphviz-dot-mode d2-mode plantuml-mode lsp-mode resize-window company magit gruber-darker-theme))
  '(ring-bell-function 'ignore)
  '(scroll-bar-mode nil)
  '(tab-width 4)
