@@ -45,19 +45,28 @@
 (define-key isearch-mode-map (kbd "C-p") 'isearch-repeat-backward)
 (define-key isearch-mode-map (kbd "C-r") 'isearch-toggle-regexp)
 
-;; compile-mode keybinds
+;; multiple cursors
 
-(defun setup-compilation-keybinds ()
-  (local-set-key (kbd "r") 'recompile)
-  (local-set-key (kbd "C-c C-c") 'kill-compilation))
-
-(add-hook 'compilation-mode-hook 'setup-compilation-keybinds)
+(require 'multiple-cursors)
+(global-set-key (kbd "C-c C->") 'mc/mark-next-like-this)
+(global-set-key (kbd "C-c C-<") 'mc/mark-previous-like-this)
+(global-set-key (kbd "C-c C-;") 'mc/skip-to-next-like-this)
+(global-set-key (kbd "C-c C-:") 'mc/skip-to-previous-like-this)
+(global-set-key (kbd "M-<down-mouse-1>") 'mc/add-cursor-on-click)
 
 ;; move-text
 
 (require 'move-text)
 (global-set-key (kbd "M-<up>") 'move-text-up)
 (global-set-key (kbd "M-<down>") 'move-text-down)
+
+;; compile-mode keybinds
+
+(defun setup-compilation-keybinds ()
+  (local-set-key (kbd "r") 'recompile)
+  (local-set-key (kbd "c-c c-c") 'kill-compilation))
+
+(add-hook 'compilation-mode-hook 'setup-compilation-keybinds)
 
 ;; compilation-mode
 
@@ -109,12 +118,13 @@
  '(lsp-modeline-diagnostics-enable nil)
  '(magit-no-confirm '(stage-all-changes unstage-all-changes set-and-push))
  '(make-backup-files nil)
+ '(mc/always-run-for-all t)
  '(package-archives
    '(("gnu" . "https://elpa.gnu.org/packages/")
      ("nongnu" . "https://elpa.nongnu.org/nongnu/")
      ("melpa" . "https://melpa.org/packages/")))
  '(package-selected-packages
-   '(move-text smex ido-completing-read+ graphviz-dot-mode d2-mode plantuml-mode lsp-mode resize-window company magit gruber-darker-theme))
+   '(multiple-cursors move-text smex ido-completing-read+ graphviz-dot-mode d2-mode plantuml-mode lsp-mode resize-window company magit gruber-darker-theme))
  '(ring-bell-function 'ignore)
  '(scroll-bar-mode nil)
  '(tab-width 4)
