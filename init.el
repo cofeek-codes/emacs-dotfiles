@@ -96,6 +96,9 @@
  '(lsp-enable-suggest-server-download nil)
  '(lsp-format-buffer-on-save t)
  '(lsp-headerline-breadcrumb-enable nil)
+ '(lsp-modeline-code-actions-enable nil)
+ '(lsp-modeline-code-actions-segments nil)
+ '(lsp-modeline-diagnostics-enable nil)
  '(magit-no-confirm '(stage-all-changes unstage-all-changes set-and-push))
  '(make-backup-files nil)
  '(package-archives
