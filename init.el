@@ -65,9 +65,9 @@
 ;; lsp
 
 (defun setup-lsp-mode ()
-(flymake-mode 0))
+(flymake-mode -1))
 
-(add-hook 'lsp-mode-hook 'setup-lsp-mode)
+(add-hook 'lsp-after-open-hook 'setup-lsp-mode)
 
 
 
