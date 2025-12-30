@@ -53,6 +53,11 @@
 
 (add-hook 'compilation-mode-hook 'setup-compilation-keybinds)
 
+;; compilation-mode
+
+(require 'ansi-color)
+(add-hook 'compilation-filter-hook 'ansi-color-compilation-filter)
+
 ;; line numbers
 
 (add-hook 'prog-mode-hook 'display-line-numbers-mode)
