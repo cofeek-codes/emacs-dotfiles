@@ -69,7 +69,9 @@
 
 (add-hook 'lsp-after-open-hook 'setup-lsp-mode)
 
+;; language hooks
 
+(add-hook 'c-mode-hook #'lsp)
 
 
 
