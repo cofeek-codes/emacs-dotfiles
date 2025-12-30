@@ -59,7 +59,14 @@
 
 ;; lsp
 
-;; (add-hook 'prog-mode-hook 'lsp-deferred)
+(defun setup-lsp-mode ()
+(flymake-mode 0))
+
+(add-hook 'lsp-mode-hook 'setup-lsp-mode)
+
+
+
+
 
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
@@ -82,6 +89,7 @@
  '(lsp-enable-on-type-formatting nil)
  '(lsp-enable-suggest-server-download nil)
  '(lsp-format-buffer-on-save t)
+ '(lsp-headerline-breadcrumb-enable nil)
  '(magit-no-confirm '(stage-all-changes unstage-all-changes set-and-push))
  '(make-backup-files nil)
  '(package-archives
