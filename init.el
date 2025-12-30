@@ -97,7 +97,7 @@
      ("nongnu" . "https://elpa.nongnu.org/nongnu/")
      ("melpa" . "https://melpa.org/packages/")))
  '(package-selected-packages
-   '(d2-mode plantuml-mode lsp-mode resize-window company magit gruber-darker-theme))
+   '(graphviz-dot-mode d2-mode plantuml-mode lsp-mode resize-window company magit gruber-darker-theme))
  '(ring-bell-function 'ignore)
  '(scroll-bar-mode nil)
  '(tab-width 4)
