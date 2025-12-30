@@ -53,6 +53,12 @@
 
 (add-hook 'compilation-mode-hook 'setup-compilation-keybinds)
 
+;; move-text
+
+(require 'move-text)
+(global-set-key (kbd "M-<up>") 'move-text-up)
+(global-set-key (kbd "M-<down>") 'move-text-down)
+
 ;; compilation-mode
 
 (require 'ansi-color)
@@ -108,7 +114,7 @@
      ("nongnu" . "https://elpa.nongnu.org/nongnu/")
      ("melpa" . "https://melpa.org/packages/")))
  '(package-selected-packages
-   '(smex ido-completing-read+ graphviz-dot-mode d2-mode plantuml-mode lsp-mode resize-window company magit gruber-darker-theme))
+   '(move-text smex ido-completing-read+ graphviz-dot-mode d2-mode plantuml-mode lsp-mode resize-window company magit gruber-darker-theme))
  '(ring-bell-function 'ignore)
  '(scroll-bar-mode nil)
  '(tab-width 4)
