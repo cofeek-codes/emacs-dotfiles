@@ -77,6 +77,14 @@
 
 (add-hook 'prog-mode-hook 'display-line-numbers-mode)
 
+;; dired
+
+(require 'dired-x)
+
+(define-key dired-mode-map (kbd "C-<return>") 'dired-find-file-other-window)
+(define-key dired-mode-map (kbd "h") 'dired-up-directory)
+
+
 ;; lsp
 
 (defun setup-lsp-mode ()
@@ -101,6 +109,8 @@
  '(default-frame-alist '((font . "Iosevka-16") (fullscreen . maximized)))
  '(default-input-method "russian-computer")
  '(delete-selection-mode t)
+ '(dired-dwim-target t)
+ '(dired-listing-switches "-alh")
  '(electric-pair-mode t)
  '(global-company-mode t)
  '(ido-everywhere t)
