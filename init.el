@@ -118,6 +118,8 @@
  '(ido-ubiquitous-mode t)
  '(indent-tabs-mode nil)
  '(inhibit-startup-screen t)
+ '(ispell-dictionary "ru_RU")
+ '(ispell-program-name "hunspell")
  '(lsp-auto-guess-root t)
  '(lsp-enable-on-type-formatting nil)
  '(lsp-enable-suggest-server-download nil)
